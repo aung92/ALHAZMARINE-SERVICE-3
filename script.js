@@ -99,15 +99,20 @@ window.addEventListener("scroll", () => {
 
 
 // ===============================
-// SIMPLE TESTIMONIAL SLIDER AUTO
+// TESTIMONIAL SLIDER WITH 5 REVIEWERS
 // ===============================
 const testimonials = document.querySelectorAll(".test-item");
 let index = 0;
+let intervalId = null;
 
 function showTestimonial() {
+    if (!testimonials.length) return;
     testimonials.forEach(t => t.style.display = "none");
     if (testimonials[index]) {
         testimonials[index].style.display = "block";
+        testimonials[index].style.animation = 'none';
+        testimonials[index].offsetHeight;
+        testimonials[index].style.animation = 'fadeSlide 0.5s ease-out';
     }
 }
 
@@ -120,7 +125,22 @@ function nextTestimonial() {
 
 if (testimonials.length > 0) {
     showTestimonial();
-    setInterval(nextTestimonial, 4000);
+    intervalId = setInterval(nextTestimonial, 4000);
+}
+
+const sliderContainer = document.querySelector(".testimonials-slider");
+if (sliderContainer && testimonials.length > 0) {
+    sliderContainer.addEventListener("mouseenter", () => {
+        if (intervalId) {
+            clearInterval(intervalId);
+            intervalId = null;
+        }
+    });
+    sliderContainer.addEventListener("mouseleave", () => {
+        if (!intervalId) {
+            intervalId = setInterval(nextTestimonial, 4000);
+        }
+    });
 }
 
 
@@ -135,7 +155,6 @@ let xOffset = 0;
 let yOffset = 0;
 
 if (messengerBtn) {
-    // Set initial position from CSS
     const rect = messengerBtn.getBoundingClientRect();
     xOffset = rect.left;
     yOffset = rect.top;
@@ -150,7 +169,6 @@ if (messengerBtn) {
     document.addEventListener('touchend', dragEnd);
     
     messengerBtn.addEventListener('click', (e) => {
-        // Prevent click if dragging occurred
         if (isDragging) {
             e.preventDefault();
             e.stopPropagation();
@@ -158,7 +176,6 @@ if (messengerBtn) {
             return;
         }
         
-        // Scroll to contact section when clicked
         const contactSection = document.getElementById('contact');
         if (contactSection) {
             contactSection.scrollIntoView({
@@ -197,23 +214,19 @@ function drag(e) {
             clientY = e.clientY;
         }
         
-        // Calculate new position
         let newX = clientX - initialX;
         let newY = clientY - initialY;
         
-        // Get window boundaries
         const btnRect = messengerBtn.getBoundingClientRect();
         const maxX = window.innerWidth - btnRect.width;
         const maxY = window.innerHeight - btnRect.height;
         
-        // Constrain within window bounds
         newX = Math.max(0, Math.min(newX, maxX));
         newY = Math.max(0, Math.min(newY, maxY));
         
         xOffset = newX;
         yOffset = newY;
         
-        // Apply new position
         messengerBtn.style.position = 'fixed';
         messengerBtn.style.left = `${newX}px`;
         messengerBtn.style.top = `${newY}px`;
@@ -226,14 +239,12 @@ function dragEnd(e) {
     isDragging = false;
     messengerBtn.classList.remove('dragging');
     
-    // Save position to localStorage
     if (messengerBtn.style.left) {
         localStorage.setItem('messengerLeft', messengerBtn.style.left);
         localStorage.setItem('messengerTop', messengerBtn.style.top);
     }
 }
 
-// Load saved position on page load
 window.addEventListener('load', () => {
     if (messengerBtn) {
         const savedLeft = localStorage.getItem('messengerLeft');
@@ -246,7 +257,6 @@ window.addEventListener('load', () => {
             messengerBtn.style.bottom = 'auto';
             messengerBtn.style.right = 'auto';
             
-            // Update offsets
             const rect = messengerBtn.getBoundingClientRect();
             xOffset = rect.left;
             yOffset = rect.top;
@@ -254,7 +264,6 @@ window.addEventListener('load', () => {
     }
 });
 
-// Reset position on window resize if needed
 let resizeTimer;
 window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
