@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AL-HAZMARINE | Creative Marine Solutions</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container navbar">
+            <div class="logo">
+                <i class="fas fa-ship"></i> AL-HAZ<span>MARINE</span>
+            </div>
+            <nav class="nav">
+                <a href="#hero">Home</a>
+                <a href="#services">Services</a>
+                <a href="#about">Our Story</a>
+                <a href="#gallery">Visuals</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <div class="cta-header">
+                <a href="#contact" class="btn btn-accent">Request Quote</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Parallax Hero -->
+    <section id="hero" class="hero-parallax">
+        <div class="hero-bg-overlay"></div>
+        <div class="parallax-content container">
+            <h1 class="reveal-up">Powering the <span>Deep Blue</span></h1>
+            <p class="reveal-up">Precision engineering and high-performance industrial parts tailored for the marine
+                sector.</p>
+            <div class="hero-btns reveal-up">
+                <a href="#services" class="btn btn-white">Explore Deeply</a>
+                <a href="#gallery" class="play-btn"><i class="fas fa-play"></i> Watch Process</a>
+            </div>
+        </div>
+        <div class="wave-container">
+            <svg class="waves" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                <defs>
+                    <path id="gentle-wave"
+                        d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                </defs>
+                <g class="parallax-waves">
+                    <use href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+                    <use href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+                    <use href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+                    <use href="#gentle-wave" x="48" y="7" fill="#fff" />
+                </g>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Services with Bubble/Circle shapes -->
+    <section id="services" class="services section">
+        <div class="container container-flex">
+            <div class="services-info reveal-left">
+                <span class="pre-title">OUR MISSION</span>
+                <h2>Sailing Towards <span>Excellence</span></h2>
+                <p>We provide comprehensive solutions including electrical goods, automation gear, and safety products
+                    for ocean-going vessels.</p>
+                <ul class="check-list">
+                    <li><i class="fas fa-dot-circle"></i> 24/7 Global Support</li>
+                    <li><i class="fas fa-dot-circle"></i> ISO Certified Components</li>
+                    <li><i class="fas fa-dot-circle"></i> Expert Technical Team</li>
+                </ul>
+            </div>
+            <div class="services-grid reveal-right">
+                <div class="creative-card">
+                    <div class="card-icon"><i class="fas fa-compass"></i></div>
+                    <h3>Navigation</h3>
+                </div>
+                <div class="creative-card">
+                    <div class="card-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Electrical</h3>
+                </div>
+                <div class="creative-card">
+                    <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Safety</h3>
+                </div>
+                <div class="creative-card">
+                    <div class="card-icon"><i class="fas fa-oil-can"></i></div>
+                    <h3>Engines</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section id="about" class="about section bg-light">
+        <div class="container container-flex">
+            <div class="about-visual reveal-left">
+                <div class="experience-badge">
+                    <span class="number">25</span>
+                    <span class="text">Years of<br>Expertise</span>
+                </div>
+                <div class="about-image-stack">
+                    <div class="img-main"><img src="assets/images/panel.png" alt="Marine Engineering"></div>
+                    <div class="img-sub"><img src="assets/images/fire.png" alt="Ship Components"></div>
+                </div>
+            </div>
+            <div class="about-text reveal-right">
+                <span class="pre-title">OUR STORY</span>
+                <h2>Forging the Future of <span>Maritime Supply</span></h2>
+                <p>Founded on a passion for precision and a deep respect for the ocean, AL-HAZMARINE has grown from a
+                    specialized workshop into a global partner for maritime excellence.</p>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>500+</h3>
+                        <p>Vessels Served</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>10k+</h3>
+                        <p>Parts Cataloged</p>
+                    </div>
+                </div>
+                <p class="quote">"We don't just supply parts; we ensure the safety and efficiency of every voyage."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mid Section Parallax -->
+    <section class="banner-parallax">
+        <div class="banner-overlay"></div>
+        <div class="container banner-text text-center reveal-up">
+            <h2>Reliable Marine Infrastructure</h2>
+            <p>From brake coils to main engine sensors, we supply everything required for industrial marine operations.
+            </p>
+        </div>
+    </section>
+
+    <!-- Gallery section with Creative Zoom -->
+    <section id="gallery" class="gallery section">
+        <div class="container">
+            <h2 class="text-center">Visual <span>Logbook</span></h2>
+            <div class="creative-gallery">
+                <div class="gal-box reveal-up" style="--i:1">
+                    <img src="assets/images/panel.png" alt="Log 1">
+                    <div class="gal-info">
+                        <h3>Automation</h3>
+                    </div>
+                </div>
+                <div class="gal-box reveal-up" style="--i:2">
+                    <img src="assets/images/fire.png" alt="Log 2">
+                    <div class="gal-info">
+                        <h3>Safety</h3>
+                    </div>
+                </div>
+                <div class="gal-box reveal-up" style="--i:3">
+                    <img src="assets/images/crane.png" alt="Log 3">
+                    <div class="gal-info">
+                        <h3>Heavy Lift</h3>
+                    </div>
+                </div>
+                <div class="gal-box reveal-up" style="--i:4">
+                    <img src="assets/images/hero.png" alt="Log 4">
+                    <div class="gal-info">
+                        <h3>Industrial</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials section bg-light">
+        <div class="container text-center">
+            <h2 class="section-title">Trusted By <span>Maritime Leaders</span></h2>
+            <div class="testimonials-slider">
+                <div class="test-item reveal-up">
+                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                    <p>"The automation parts supplied were exactly what we needed for our tanker overhaul. Exceptional
+                        service!"</p>
+                    <div class="test-user">
+                        <img src="https://i.pravatar.cc/100?img=12" alt="Avatar">
+                        <div class="test-meta">
+                            <h4>Capt. James Miller</h4>
+                            <span>Chief Engineer, OceanLine</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="contact section">
+        <div class="container">
+            <div class="contact-wrap reveal-up">
+                <div class="contact-form">
+                    <h2>Anchor Your <span>Project</span></h2>
+                    <form id="creative-contact">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <select>
+                            <option>Interest: Electrical Goods</option>
+                            <option>Interest: Engine Parts</option>
+                            <option>Interest: Fire Safety</option>
+                        </select>
+                        <textarea placeholder="Tell us more about your needs..." rows="4"></textarea>
+                        <button type="submit" class="btn btn-accent-full">Send Message</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <div class="info-block">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Headquarters</h4>
+                            <p>Marine Hub, Chittagong, Bangladesh</p>
+                        </div>
+                    </div>
+                    <div class="info-block">
+                        <i class="fas fa-paper-plane"></i>
+                        <div>
+                            <h4>Online Support</h4>
+                            <p>info@alhazmarine.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-flex">
+            <div class="footer-logo">AL-HAZ<span>MARINE</span></div>
+            <div class="socials">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="copy">&copy; 2026 AL-HAZMARINE SERVICE.</div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#hero" id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
