@@ -122,3 +122,162 @@ if (testimonials.length > 0) {
     showTestimonial();
     setInterval(nextTestimonial, 4000);
 }
+
+
+// ===============================
+// FLOATING MESSENGER BUTTON (DRAGGABLE)
+// ===============================
+const messengerBtn = document.getElementById('messengerBtn');
+let isDragging = false;
+let initialX;
+let initialY;
+let xOffset = 0;
+let yOffset = 0;
+
+if (messengerBtn) {
+    // Set initial position from CSS
+    const rect = messengerBtn.getBoundingClientRect();
+    xOffset = rect.left;
+    yOffset = rect.top;
+    
+    messengerBtn.addEventListener('mousedown', dragStart);
+    messengerBtn.addEventListener('touchstart', dragStart, { passive: false });
+    
+    document.addEventListener('mousemove', drag);
+    document.addEventListener('touchmove', drag, { passive: false });
+    
+    document.addEventListener('mouseup', dragEnd);
+    document.addEventListener('touchend', dragEnd);
+    
+    messengerBtn.addEventListener('click', (e) => {
+        // Prevent click if dragging occurred
+        if (isDragging) {
+            e.preventDefault();
+            e.stopPropagation();
+            isDragging = false;
+            return;
+        }
+        
+        // Scroll to contact section when clicked
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+            contactSection.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    });
+}
+
+function dragStart(e) {
+    if (e.type === 'touchstart') {
+        initialX = e.touches[0].clientX - xOffset;
+        initialY = e.touches[0].clientY - yOffset;
+    } else {
+        initialX = e.clientX - xOffset;
+        initialY = e.clientY - yOffset;
+    }
+    
+    if (e.target === messengerBtn || messengerBtn.contains(e.target)) {
+        isDragging = true;
+        messengerBtn.classList.add('dragging');
+    }
+}
+
+function drag(e) {
+    if (isDragging) {
+        e.preventDefault();
+        
+        let clientX, clientY;
+        
+        if (e.type === 'touchmove') {
+            clientX = e.touches[0].clientX;
+            clientY = e.touches[0].clientY;
+        } else {
+            clientX = e.clientX;
+            clientY = e.clientY;
+        }
+        
+        // Calculate new position
+        let newX = clientX - initialX;
+        let newY = clientY - initialY;
+        
+        // Get window boundaries
+        const btnRect = messengerBtn.getBoundingClientRect();
+        const maxX = window.innerWidth - btnRect.width;
+        const maxY = window.innerHeight - btnRect.height;
+        
+        // Constrain within window bounds
+        newX = Math.max(0, Math.min(newX, maxX));
+        newY = Math.max(0, Math.min(newY, maxY));
+        
+        xOffset = newX;
+        yOffset = newY;
+        
+        // Apply new position
+        messengerBtn.style.position = 'fixed';
+        messengerBtn.style.left = `${newX}px`;
+        messengerBtn.style.top = `${newY}px`;
+        messengerBtn.style.bottom = 'auto';
+        messengerBtn.style.right = 'auto';
+    }
+}
+
+function dragEnd(e) {
+    isDragging = false;
+    messengerBtn.classList.remove('dragging');
+    
+    // Save position to localStorage
+    if (messengerBtn.style.left) {
+        localStorage.setItem('messengerLeft', messengerBtn.style.left);
+        localStorage.setItem('messengerTop', messengerBtn.style.top);
+    }
+}
+
+// Load saved position on page load
+window.addEventListener('load', () => {
+    if (messengerBtn) {
+        const savedLeft = localStorage.getItem('messengerLeft');
+        const savedTop = localStorage.getItem('messengerTop');
+        
+        if (savedLeft && savedTop && window.innerWidth <= 768) {
+            messengerBtn.style.position = 'fixed';
+            messengerBtn.style.left = savedLeft;
+            messengerBtn.style.top = savedTop;
+            messengerBtn.style.bottom = 'auto';
+            messengerBtn.style.right = 'auto';
+            
+            // Update offsets
+            const rect = messengerBtn.getBoundingClientRect();
+            xOffset = rect.left;
+            yOffset = rect.top;
+        }
+    }
+});
+
+// Reset position on window resize if needed
+let resizeTimer;
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+        if (messengerBtn && window.innerWidth <= 768) {
+            const btnRect = messengerBtn.getBoundingClientRect();
+            const maxX = window.innerWidth - btnRect.width;
+            const maxY = window.innerHeight - btnRect.height;
+            
+            let newLeft = parseFloat(messengerBtn.style.left);
+            let newTop = parseFloat(messengerBtn.style.top);
+            
+            if (isNaN(newLeft)) newLeft = 30;
+            if (isNaN(newTop)) newTop = window.innerHeight - 80;
+            
+            newLeft = Math.max(0, Math.min(newLeft, maxX));
+            newTop = Math.max(0, Math.min(newTop, maxY));
+            
+            messengerBtn.style.left = `${newLeft}px`;
+            messengerBtn.style.top = `${newTop}px`;
+            
+            xOffset = newLeft;
+            yOffset = newTop;
+        }
+    }, 100);
+});
