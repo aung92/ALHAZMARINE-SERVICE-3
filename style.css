@@ -43,7 +43,7 @@ body {
     text-align: center;
 }
 
-/* --- Header & Navigation with Round Logo --- */
+/* --- Header & Navigation --- */
 .header {
     position: absolute;
     top: 0;
@@ -221,24 +221,13 @@ body {
 
 .play-btn:hover i { background: var(--accent-orange); }
 
-/* --- Services Section with Responsive Grid --- */
-.container-flex { 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    gap: 60px;
-}
-
+/* --- Services Section --- */
 .pre-title { 
     color: var(--accent-orange); 
     font-weight: 800; 
     letter-spacing: 3px; 
     display: block; 
     margin-bottom: 20px; 
-}
-
-.services-info { 
-    flex: 0 0 500px; 
 }
 
 .services-info h2 { 
@@ -255,38 +244,20 @@ body {
     font-size: 1.1rem;
     line-height: 1.6;
     color: var(--text-dark);
-    margin-bottom: 30px;
-}
-
-.check-list { 
-    list-style: none; 
-    margin-top: 40px; 
-}
-
-.check-list li { 
-    margin-bottom: 20px; 
-    font-weight: 600; 
-    font-size: 1.1rem; 
-    display: flex; 
-    align-items: center; 
-}
-
-.check-list i { 
-    color: var(--accent-orange); 
-    margin-right: 15px; 
-    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .services-grid { 
     display: grid; 
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 30px; 
-    flex: 1; 
+    grid-template-columns: repeat(6, 1fr); 
+    gap: 25px; 
+    margin-top: 50px;
 }
 
 .creative-card {
     background: var(--white);
-    padding: 50px 30px;
+    padding: 40px 20px;
     border-radius: 30px;
     text-align: center;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
@@ -294,18 +265,21 @@ body {
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .creative-card:hover {
-    transform: translateY(-20px) scale(1.02);
+    transform: translateY(-15px) scale(1.02);
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
     background: var(--ocean-mid);
     color: var(--white);
 }
 
 .creative-card .card-icon { 
-    font-size: 3rem; 
-    margin-bottom: 20px; 
+    font-size: 2.5rem; 
+    margin-bottom: 15px; 
     color: var(--ocean-mid); 
     transition: all 0.3s ease; 
 }
@@ -317,16 +291,17 @@ body {
 
 .creative-card h3 { 
     font-weight: 800; 
-    font-size: 1.5rem; 
-    margin-bottom: 12px;
+    font-size: 1.2rem; 
+    margin-bottom: 10px;
     transition: all 0.3s ease; 
 }
 
 .creative-card .card-description {
-    font-size: 0.9rem;
-    opacity: 0.8;
-    margin-top: 10px;
     display: none;
+    width: 100%;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .creative-card:hover .card-description {
@@ -334,19 +309,35 @@ body {
     animation: fadeInUp 0.4s ease;
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.service-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    font-size: 0.85rem;
+    line-height: 1.8;
 }
 
-.creative-card:hover h3 { 
-    animation: popupText 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); 
+.service-list li {
+    position: relative;
+    padding-left: 15px;
+}
+
+.service-list li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--accent-orange);
+    font-weight: bold;
+}
+
+.creative-card:hover .service-list li::before {
+    color: var(--white);
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes bounce {
@@ -354,140 +345,186 @@ body {
     50% { transform: scale(1.2) rotate(5deg); }
 }
 
-@keyframes popupText {
-    0% { transform: scale(1); opacity: 0.5; }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); opacity: 1; }
+/* --- About Section (New Exact Design) --- */
+.about {
+    background-color: var(--gray-bg);
+    padding: 100px 0;
 }
 
-/* --- About Section with Fully Responsive Images --- */
-.about .container-flex { 
-    gap: 80px; 
+.about-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 80px;
 }
 
-.about-visual { 
-    flex: 1; 
-    position: relative;
+/* Left Side Visuals */
+.about-visual {
+    flex: 1;
     min-width: 0;
+    position: relative;
 }
 
-.about-image-stack { 
-    position: relative; 
-    height: auto;
+.about-image-stack {
+    position: relative;
     width: 100%;
-    aspect-ratio: 4 / 3;
-    max-width: 500px;
+    max-width: 550px;
     margin: 0 auto;
+    /* Padding to ensure the sub-image doesn't get cut off on the bottom-right */
+    padding-bottom: 40px;
+    padding-right: 40px;
 }
 
-.img-main, .img-sub { 
-    position: absolute; 
-    border-radius: 30px; 
-    overflow: hidden; 
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+.img-main {
+    position: relative;
+    width: 100%;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    z-index: 1;
 }
 
-.img-main { 
-    top: 0; 
-    left: 0; 
-    width: 80%; 
-    height: 80%; 
-    z-index: 1; 
-}
-
-.img-sub { 
-    bottom: 0; 
-    right: 0; 
-    width: 60%; 
-    height: 60%; 
-    z-index: 2; 
-    border: 10px solid var(--white);
-}
-
-.img-main img, .img-sub img { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover;
+.img-main img {
+    width: 100%;
+    height: auto;
     display: block;
+    object-fit: cover;
+    border-radius: 30px;
 }
 
+/* Badge now positioned INSIDE the main image */
 .experience-badge {
-    position: absolute; 
-    top: -30px; 
-    left: -30px;
-    background: var(--accent-orange); 
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: var(--accent-orange);
     color: var(--white);
-    padding: 30px; 
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
-    width: 150px; 
-    height: 150px;
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    z-index: 3; 
+    z-index: 10;
+    box-shadow: 0 10px 25px rgba(247, 127, 0, 0.3);
     animation: floating 3s ease-in-out infinite;
 }
 
 @keyframes floating {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
+    50% { transform: translateY(-10px); }
 }
 
-.experience-badge .number { 
-    font-size: 2.5rem; 
-    font-weight: 800; 
-    line-height: 1; 
+.experience-badge .number {
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 5px;
 }
 
-.experience-badge .text { 
-    font-size: 0.8rem; 
-    font-weight: 600; 
-    text-transform: uppercase; 
+.experience-badge .text {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
     text-align: center;
+    line-height: 1.2;
 }
 
-.about-text { 
-    flex: 1; 
+/* Sub Image overlapping bottom-right */
+.img-sub {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 55%;
+    border-radius: 25px;
+    overflow: hidden;
+    border: 10px solid var(--white);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    z-index: 2;
+    background: var(--white); /* Ensures the border is solid white */
 }
 
-.about-text h2 { 
-    font-size: 3.5rem; 
-    line-height: 1.1; 
-    margin-bottom: 25px; 
+.img-sub img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 15px;
 }
 
-.about-text h2 span { 
-    color: var(--ocean-mid); 
+/* Right Side Text */
+.about-text {
+    flex: 1;
 }
 
-.stats-grid { 
-    display: grid; 
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 30px; 
-    margin: 40px 0; 
+.about-text .pre-title {
+    color: var(--accent-orange);
+    font-weight: 800;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 15px;
 }
 
-.stat-item h3 { 
-    font-size: 3rem; 
-    color: var(--ocean-mid); 
-    font-weight: 800; 
-    margin-bottom: 5px; 
+.about-text h2 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 25px;
+    color: var(--text-dark);
 }
 
-.stat-item p { 
-    font-weight: 600; 
-    color: var(--text-dark); 
+.about-text h2 span {
+    color: var(--ocean-mid);
 }
 
-.quote { 
-    padding-left: 20px; 
-    border-left: 4px solid var(--accent-orange); 
-    font-style: italic; 
-    font-size: 1.2rem; 
-    color: var(--ocean-deep); 
-    margin-top: 30px; 
+.about-text p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 35px;
+    max-width: 520px;
+}
+
+/* Stats */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-bottom: 40px;
+    max-width: 450px;
+}
+
+.stat-item h3 {
+    font-size: 3.2rem;
+    font-weight: 800;
+    color: var(--ocean-mid);
+    margin-bottom: 5px;
+}
+
+.stat-item p {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0; /* Reset paragraph margin */
+}
+
+/* Quote with Orange Bar */
+.quote-block {
+    padding-left: 20px;
+    border-left: 4px solid var(--accent-orange);
+    margin-top: 10px;
+}
+
+.quote-block .quote {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--text-dark);
+    font-weight: 500;
+    margin: 0;
+    line-height: 1.5;
 }
 
 /* --- Banner Parallax --- */
@@ -563,7 +600,7 @@ body {
 }
 .info-block h4 { font-weight: 800; margin-bottom: 5px; }
 
-/* --- Footer with Round Logo --- */
+/* --- Footer --- */
 .footer {
     background: #001219;
     color: var(--white);
@@ -622,13 +659,8 @@ body {
     border-color: var(--accent-orange);
 }
 
-.footer-logo span {
-    display: inline-block;
-}
-
-.footer-logo span span {
-    color: var(--accent-orange);
-}
+.footer-logo span { display: inline-block; }
+.footer-logo span span { color: var(--accent-orange); }
 
 .footer-description {
     color: rgba(255, 255, 255, 0.7);
@@ -637,15 +669,8 @@ body {
     font-size: 0.95rem;
 }
 
-.footer-links {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-links li {
-    margin-bottom: 12px;
-}
-
+.footer-links { list-style: none; padding: 0; }
+.footer-links li { margin-bottom: 12px; }
 .footer-links a {
     color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
@@ -653,17 +678,9 @@ body {
     display: inline-block;
     font-size: 0.95rem;
 }
+.footer-links a:hover { color: var(--accent-orange); transform: translateX(5px); }
 
-.footer-links a:hover {
-    color: var(--accent-orange);
-    transform: translateX(5px);
-}
-
-.footer-contact {
-    list-style: none;
-    padding: 0;
-}
-
+.footer-contact { list-style: none; padding: 0; }
 .footer-contact li {
     display: flex;
     align-items: flex-start;
@@ -672,18 +689,8 @@ body {
     color: rgba(255, 255, 255, 0.7);
     font-size: 0.95rem;
 }
-
-.footer-contact li i {
-    color: var(--accent-orange);
-    font-size: 1.1rem;
-    margin-top: 3px;
-    min-width: 20px;
-}
-
-.footer-contact li span {
-    flex: 1;
-    line-height: 1.5;
-}
+.footer-contact li i { color: var(--accent-orange); font-size: 1.1rem; margin-top: 3px; min-width: 20px; }
+.footer-contact li span { flex: 1; line-height: 1.5; }
 
 .footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -695,35 +702,34 @@ body {
     gap: 20px;
 }
 
-.socials {
-    display: flex;
-    gap: 15px;
-}
-
+.socials { display: flex; gap: 15px; }
 .socials a {
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
+    width: 40px; height: 40px; background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    color: var(--white); text-decoration: none; transition: all 0.3s ease; font-size: 1.1rem;
+}
+.socials a:hover { background: var(--accent-orange); transform: translateY(-3px); color: var(--white); }
+
+.developer-credit {
+    text-align: center;
+    margin: 15px 0;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.85rem;
+}
+
+.dev-link, .dev-wa {
+    color: var(--accent-orange);
     text-decoration: none;
-    transition: all 0.3s ease;
-    font-size: 1.1rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
 }
 
-.socials a:hover {
-    background: var(--accent-orange);
-    transform: translateY(-3px);
+.dev-link:hover, .dev-wa:hover {
     color: var(--white);
+    text-decoration: underline;
 }
 
-.copyright p {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 0.9rem;
-}
+.copyright p { color: rgba(255, 255, 255, 0.6); font-size: 0.9rem; }
 
 /* --- Reveal Animations --- */
 .reveal-up, .reveal-left, .reveal-right { opacity: 0; transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
@@ -747,862 +753,148 @@ body {
 
 /* --- Messenger Button (Mobile Only) --- */
 .messenger-button {
+    display: none; /* Hidden by default on desktop */
     position: fixed; bottom: 30px; left: 30px;
     background: rgba(0, 132, 255, 0.95); color: white;
     padding: 12px 24px; border-radius: 50px;
-    display: flex; align-items: center; gap: 12px;
+    align-items: center; gap: 12px;
     font-weight: 600; z-index: 1000;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(10px);
     animation: messengerFloat 2s ease-in-out infinite;
-    border: none;
-    cursor: pointer;
+    border: none; cursor: pointer;
 }
-
-.messenger-button.dragging {
-    cursor: grabbing;
-    opacity: 0.9;
-}
+.messenger-button.dragging { cursor: grabbing; opacity: 0.9; }
 
 @keyframes messengerFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
 /* ============================================ */
-/* RESPONSIVE DESIGN FOR LARGE SCREENS */
-/* 2560px - Ultra Wide Desktop */
-/* 1440px - Large Desktop */
-/* 1024px - Desktop/Laptop */
+/* RESPONSIVE DESIGN */
 /* ============================================ */
 
-/* --- 2560px - Ultra Wide Desktop --- */
+/* --- 2560px --- */
 @media (min-width: 2560px) {
-    .container {
-        max-width: 1800px;
-        padding: 0 40px;
-    }
-    
-    .section {
-        padding: 160px 0;
-    }
-    
-    /* Hero Section */
-    .parallax-content h1 {
-        font-size: 7rem;
-        letter-spacing: -4px;
-        margin-bottom: 35px;
-    }
-    
-    .parallax-content p {
-        font-size: 2rem;
-        max-width: 1000px;
-        margin-bottom: 60px;
-    }
-    
-    .btn {
-        padding: 22px 55px;
-        font-size: 1.1rem;
-    }
-    
-    .play-btn i {
-        width: 65px;
-        height: 65px;
-        font-size: 1.3rem;
-    }
-    
-    /* Services Section */
-    .services-info {
-        flex: 0 0 650px;
-    }
-    
-    .services-info h2 {
-        font-size: 4.5rem;
-        margin-bottom: 40px;
-    }
-    
-    .services-info p {
-        font-size: 1.3rem;
-    }
-    
-    .check-list li {
-        font-size: 1.3rem;
-        margin-bottom: 25px;
-    }
-    
-    .check-list i {
-        font-size: 1.4rem;
-    }
-    
-    .services-grid {
-        gap: 40px;
-    }
-    
-    .creative-card {
-        padding: 70px 50px;
-        border-radius: 40px;
-    }
-    
-    .creative-card .card-icon {
-        font-size: 4rem;
-        margin-bottom: 30px;
-    }
-    
-    .creative-card h3 {
-        font-size: 1.8rem;
-        margin-bottom: 15px;
-    }
-    
-    .creative-card .card-description {
-        font-size: 1rem;
-    }
-    
-    /* About Section */
-    .about .container-flex {
-        gap: 100px;
-    }
-    
-    .about-image-stack {
-        max-width: 650px;
-    }
-    
-    .img-main, .img-sub {
-        border-radius: 40px;
-    }
-    
-    .img-sub {
-        border-width: 12px;
-    }
-    
-    .experience-badge {
-        width: 180px;
-        height: 180px;
-        top: -40px;
-        left: -40px;
-        padding: 35px;
-    }
-    
-    .experience-badge .number {
-        font-size: 3rem;
-    }
-    
-    .experience-badge .text {
-        font-size: 0.9rem;
-    }
-    
-    .about-text h2 {
-        font-size: 4.5rem;
-        margin-bottom: 35px;
-    }
-    
-    .about-text p {
-        font-size: 1.2rem;
-    }
-    
-    .stat-item h3 {
-        font-size: 3.5rem;
-    }
-    
-    .stat-item p {
-        font-size: 1.1rem;
-    }
-    
-    .quote {
-        font-size: 1.4rem;
-        padding-left: 30px;
-        margin-top: 40px;
-    }
-    
-    /* Banner Section */
-    .banner-parallax {
-        padding: 200px 0;
-    }
-    
-    .banner-text h2 {
-        font-size: 4.5rem;
-        margin-bottom: 25px;
-    }
-    
-    .banner-text p {
-        font-size: 1.3rem;
-    }
-    
-    /* Gallery Section */
-    .creative-gallery {
-        height: 650px;
-        gap: 30px;
-    }
-    
-    .gal-info h3 {
-        font-size: 1.3rem;
-    }
-    
-    /* Testimonials Section */
-    .testimonials-slider {
-        max-width: 1000px;
-    }
-    
-    .test-item {
-        padding: 70px 60px;
-        border-radius: 40px;
-    }
-    
-    .quote-icon {
-        font-size: 2.5rem;
-        margin-bottom: 30px;
-    }
-    
-    .test-item p {
-        font-size: 1.4rem;
-        margin-bottom: 50px;
-    }
-    
-    .test-user img {
-        width: 85px;
-        height: 85px;
-    }
-    
-    .test-meta h4 {
-        font-size: 1.2rem;
-    }
-    
-    .test-meta span {
-        font-size: 1rem;
-    }
-    
-    /* Contact Section */
-    .contact-wrap {
-        padding: 100px;
-        gap: 80px;
-        border-radius: 70px;
-    }
-    
-    .contact-form h2 {
-        font-size: 3rem;
-        margin-bottom: 50px;
-    }
-    
-    #creative-contact input,
-    #creative-contact select,
-    #creative-contact textarea {
-        padding: 25px;
-        font-size: 1rem;
-        margin-bottom: 25px;
-        border-radius: 25px;
-    }
-    
-    .info-block i {
-        width: 75px;
-        height: 75px;
-        font-size: 1.8rem;
-    }
-    
-    .info-block h4 {
-        font-size: 1.3rem;
-    }
-    
-    .info-block p {
-        font-size: 1rem;
-    }
-    
-    /* Footer Section */
-    .footer {
-        padding: 90px 0 40px;
-    }
-    
-    .footer-content {
-        gap: 60px;
-        margin-bottom: 70px;
-    }
-    
-    .footer-section h4 {
-        font-size: 1.4rem;
-        margin-bottom: 30px;
-    }
-    
-    .footer-logo {
-        font-size: 2rem;
-    }
-    
-    .footer-logo img {
-        width: 60px;
-        height: 60px;
-    }
-    
-    .footer-description {
-        font-size: 1rem;
-    }
-    
-    .footer-links a,
-    .footer-contact li {
-        font-size: 1rem;
-    }
-    
-    .socials a {
-        width: 48px;
-        height: 48px;
-        font-size: 1.3rem;
-    }
-    
-    .copyright p {
-        font-size: 1rem;
-    }
-    
-    /* Back to Top */
-    .back-to-top {
-        width: 70px;
-        height: 70px;
-        font-size: 1.8rem;
-        bottom: 40px;
-        right: 40px;
-    }
+    .container { max-width: 1800px; padding: 0 40px; }
+    .section { padding: 160px 0; }
+    .parallax-content h1 { font-size: 7rem; }
+    .services-grid { grid-template-columns: repeat(6, 1fr); gap: 40px; }
+    .creative-card { padding: 60px 30px; }
+    .footer-content { gap: 60px; }
 }
 
-/* --- 1440px - Large Desktop --- */
+/* --- 1440px --- */
 @media (min-width: 1440px) and (max-width: 2559px) {
-    .container {
-        max-width: 1300px;
-    }
-    
-    .section {
-        padding: 130px 0;
-    }
-    
-    /* Hero Section */
-    .parallax-content h1 {
-        font-size: 5.5rem;
-    }
-    
-    .parallax-content p {
-        font-size: 1.6rem;
-        max-width: 900px;
-    }
-    
-    /* Services Section */
-    .services-info {
-        flex: 0 0 550px;
-    }
-    
-    .services-info h2 {
-        font-size: 3.8rem;
-    }
-    
-    .creative-card {
-        padding: 55px 35px;
-    }
-    
-    .creative-card .card-icon {
-        font-size: 3.2rem;
-    }
-    
-    .creative-card h3 {
-        font-size: 1.6rem;
-    }
-    
-    /* About Section */
-    .about-image-stack {
-        max-width: 550px;
-    }
-    
-    .experience-badge {
-        width: 160px;
-        height: 160px;
-    }
-    
-    .experience-badge .number {
-        font-size: 2.8rem;
-    }
-    
-    .about-text h2 {
-        font-size: 3.8rem;
-    }
-    
-    .stat-item h3 {
-        font-size: 3.2rem;
-    }
-    
-    /* Gallery Section */
-    .creative-gallery {
-        height: 550px;
-    }
-    
-    /* Testimonials Section */
-    .testimonials-slider {
-        max-width: 900px;
-    }
-    
-    .test-item {
-        padding: 55px 45px;
-    }
-    
-    .test-item p {
-        font-size: 1.3rem;
-    }
-    
-    /* Contact Section */
-    .contact-wrap {
-        padding: 70px;
-        gap: 70px;
-    }
-    
-    .contact-form h2 {
-        font-size: 2.8rem;
-    }
-    
-    /* Footer Section */
-    .footer-content {
-        gap: 50px;
-    }
-    
-    .footer-logo {
-        font-size: 1.9rem;
-    }
-    
-    .footer-logo img {
-        width: 55px;
-        height: 55px;
-    }
+    .container { max-width: 1300px; }
+    .section { padding: 130px 0; }
+    .parallax-content h1 { font-size: 5.5rem; }
+    .services-grid { grid-template-columns: repeat(6, 1fr); }
+    .creative-card { padding: 50px 25px; }
 }
 
-/* --- 1024px - Desktop/Laptop --- */
+/* --- 1024px (Tablet/Laptop) --- */
 @media (max-width: 1024px) {
-    .parallax-content h1 {
-        font-size: 3.5rem;
-    }
+    .parallax-content h1 { font-size: 3.5rem; }
+    .parallax-content p { font-size: 1.2rem; }
+    .container-flex { flex-direction: column; text-align: center; gap: 50px; }
     
-    .parallax-content p {
-        font-size: 1.2rem;
-    }
+    .services-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .creative-card .card-description { display: block; }
     
-    .container-flex {
+    .contact-wrap { grid-template-columns: 1fr; padding: 50px; }
+    .footer-content { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+
+    /* About Section Tablet */
+    .about-wrapper {
         flex-direction: column;
-        text-align: center;
         gap: 50px;
-    }
-    
-    .services-info {
-        flex: auto;
         text-align: center;
     }
-    
-    .services-info h2 {
-        font-size: 3rem;
-    }
-    
-    .check-list {
-        display: inline-block;
-        text-align: left;
-    }
-    
-    .services-grid {
-        margin-left: 0;
-        width: 100%;
-    }
-    
-    .about .container-flex {
-        gap: 50px;
-    }
-    
     .about-visual {
         width: 100%;
         display: flex;
         justify-content: center;
     }
-    
     .about-image-stack {
         max-width: 500px;
+        padding-bottom: 30px;
+        padding-right: 30px;
     }
-    
-    .about-text h2 {
-        font-size: 3rem;
-        text-align: center;
-    }
-    
     .about-text p {
-        text-align: center;
+        margin: 0 auto 35px;
     }
-    
     .stats-grid {
+        margin: 0 auto 40px;
         justify-content: center;
     }
-    
-    .quote {
+    .quote-block {
+        display: inline-block;
         text-align: left;
-        max-width: 80%;
-        margin: 30px auto 0;
+        margin: 0 auto;
     }
-    
-    .banner-text h2 {
-        font-size: 2.5rem;
-    }
-    
-    .contact-wrap {
-        grid-template-columns: 1fr;
-        padding: 50px;
-    }
-    
-    .test-item {
-        padding: 40px 30px;
-    }
-    
-    .test-item p {
-        font-size: 1rem;
-    }
-    
-    .footer-content {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 40px;
-    }
-    
-    .logo img,
-    .footer-logo img {
-        width: 45px;
-        height: 45px;
-    }
-    
-    .messenger-button {
-        display: none;
-    }
+    .about-text h2 { font-size: 2.8rem; }
 }
 
-/* Tablet & Desktop (Hide Messenger) */
-@media (min-width: 769px) {
-    .messenger-button { display: none !important; }
-}
-
-/* 768px and below - Keep existing responsive styles */
+/* --- 768px (Mobile) --- */
 @media (max-width: 768px) {
-    .nav, .cta-header {
-        display: none;
-    }
+    .nav, .cta-header { display: none; }
+    .header { padding: 20px 0; }
+    .logo { font-size: 1.4rem; }
+    .logo img { width: 40px; height: 40px; }
     
-    .header {
-        padding: 20px 0;
-    }
+    .parallax-content h1 { font-size: 2.8rem; }
+    .parallax-content p { font-size: 1rem; }
+    .hero-btns { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+    .play-btn { margin-left: 0; }
     
-    .logo img,
-    .footer-logo img {
-        width: 40px;
-        height: 40px;
-    }
+    .section { padding: 80px 0; }
+    .services-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+    .creative-card { padding: 30px 15px; }
+    .creative-card .card-icon { font-size: 2rem; }
+    .creative-card h3 { font-size: 1rem; }
+    .service-list { font-size: 0.8rem; line-height: 1.6; }
+
+    .creative-gallery { flex-direction: column; height: auto; }
+    .gal-box { height: 300px; }
+
+    .contact-wrap { padding: 40px 30px; }
+    .footer-content { grid-template-columns: 1fr; gap: 35px; text-align: center; }
+    .footer-logo { justify-content: center; }
+    .footer-bottom { flex-direction: column-reverse; text-align: center; gap: 20px; }
+    .socials { justify-content: center; }
     
-    .logo {
-        font-size: 1.4rem;
-    }
+    /* Show Messenger Button on Mobile */
+    .messenger-button { display: flex; bottom: 20px; left: 20px; padding: 10px 20px; font-size: 0.9rem; }
     
-    .parallax-content h1 {
-        font-size: 2.8rem;
-        letter-spacing: -2px;
-    }
-    
-    .parallax-content p {
-        font-size: 1rem;
-        padding: 0 20px;
-    }
-    
-    .hero-btns {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-    
-    .play-btn {
-        margin-left: 0;
-    }
-    
-    .section {
-        padding: 80px 0;
-    }
-    
-    .about-image-stack {
-        max-width: 450px;
-        aspect-ratio: 4 / 3;
-    }
-    
-    .img-main, .img-sub {
-        border-radius: 25px;
-    }
-    
-    .img-sub {
-        border-width: 8px;
-    }
-    
-    .experience-badge {
-        width: 120px;
-        height: 120px;
-        top: -20px;
-        left: -20px;
-        padding: 20px;
-    }
-    
-    .experience-badge .number {
-        font-size: 2rem;
-    }
-    
-    .experience-badge .text {
-        font-size: 0.7rem;
-    }
-    
-    .about-text h2 {
-        font-size: 2.5rem;
-    }
-    
-    .quote {
-        max-width: 90%;
-    }
-    
-    .services-info h2 {
-        font-size: 2.5rem;
-    }
-    
-    .services-grid {
-        grid-template-columns: 1fr;
-        gap: 25px;
-    }
-    
-    .creative-card {
-        padding: 40px 30px;
-    }
-    
-    .creative-card .card-description {
-        display: block;
-        font-size: 0.85rem;
-    }
-    
-    .creative-gallery {
-        flex-direction: column;
-        height: auto;
-    }
-    
-    .gal-box {
-        height: 300px;
-    }
-    
-    .testimonials-slider {
-        min-height: 450px;
-    }
-    
-    .test-item {
-        padding: 30px 20px;
-    }
-    
-    .test-user {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .test-user img {
-        margin-right: 0;
-        margin-bottom: 15px;
-    }
-    
-    .contact-wrap {
-        padding: 40px 30px;
-    }
-    
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: 35px;
-        text-align: center;
-    }
-    
-    .footer-section h4::after {
-        left: 50%;
-        transform: translateX(-50%);
-        width: 50px;
-    }
-    
-    .footer-logo {
-        justify-content: center;
-    }
-    
-    .footer-description {
-        text-align: center;
-    }
-    
-    .footer-contact li {
-        justify-content: center;
-    }
-    
-    .footer-bottom {
-        flex-direction: column-reverse;
-        text-align: center;
-        gap: 20px;
-    }
-    
-    .socials {
-        justify-content: center;
-    }
-    
-    .messenger-button {
-        display: flex;
-        bottom: 20px;
-        left: 20px;
-        padding: 10px 20px;
-        font-size: 0.9rem;
-    }
+    .developer-credit { font-size: 0.8rem; padding: 0 10px; }
+
+    /* About Section Mobile */
+    .about { padding: 80px 0; }
+    .about-image-stack { max-width: 420px; }
+    .experience-badge { width: 100px; height: 100px; top: 15px; left: 15px; }
+    .experience-badge .number { font-size: 1.8rem; }
+    .experience-badge .text { font-size: 0.6rem; }
+    .img-sub { border-width: 8px; border-radius: 20px; }
+    .about-text h2 { font-size: 2.2rem; }
+    .stat-item h3 { font-size: 2.5rem; }
 }
 
-/* 425px and 375px - Keep existing mobile styles */
+/* --- 425px (Small Mobile) --- */
 @media (max-width: 425px) {
-    .logo img,
-    .footer-logo img {
-        width: 35px;
-        height: 35px;
-    }
+    .parallax-content h1 { font-size: 2rem; }
+    .btn { padding: 14px 35px; font-size: 0.9rem; }
+    .services-grid { grid-template-columns: 1fr; gap: 15px; }
     
-    .logo {
-        font-size: 1.2rem;
-        gap: 8px;
-    }
-    
-    .footer-logo {
-        font-size: 1.3rem;
-        gap: 8px;
-    }
-    
-    .parallax-content h1 {
-        font-size: 2rem;
-    }
-    
-    .btn {
-        padding: 14px 35px;
-        font-size: 0.9rem;
-    }
-    
-    .about-image-stack {
-        max-width: 350px;
-    }
-    
-    .img-main, .img-sub {
-        border-radius: 20px;
-    }
-    
-    .img-sub {
-        border-width: 6px;
-    }
-    
-    .experience-badge {
-        width: 100px;
-        height: 100px;
-        top: -15px;
-        left: -15px;
-        padding: 15px;
-    }
-    
-    .experience-badge .number {
-        font-size: 1.6rem;
-    }
-    
-    .experience-badge .text {
-        font-size: 0.6rem;
-    }
-    
-    .about-text h2 {
-        font-size: 2rem;
-    }
-    
-    .stats-grid {
-        gap: 20px;
-    }
-    
-    .stat-item h3 {
-        font-size: 2rem;
-    }
-    
-    .stat-item p {
-        font-size: 0.9rem;
-    }
-    
-    .quote {
-        font-size: 1rem;
-        padding-left: 15px;
-        max-width: 100%;
-    }
-    
-    .services-info h2 {
-        font-size: 2rem;
-    }
-    
-    .creative-card {
-        padding: 30px 20px;
-    }
-    
-    .banner-text h2 {
-        font-size: 1.8rem;
-    }
-    
-    .contact-wrap {
-        padding: 30px 20px;
-    }
-    
-    .contact-form h2 {
-        font-size: 1.8rem;
-    }
-}
+    .contact-wrap { padding: 30px 20px; }
+    .contact-form h2 { font-size: 1.8rem; }
 
-@media (max-width: 375px) {
-    .logo img,
-    .footer-logo img {
-        width: 32px;
-        height: 32px;
-    }
-    
-    .logo {
-        font-size: 1.1rem;
-        gap: 6px;
-    }
-    
-    .footer-logo {
-        font-size: 1.2rem;
-        gap: 6px;
-    }
-    
-    .parallax-content h1 {
-        font-size: 1.8rem;
-    }
-    
-    .about-image-stack {
-        max-width: 300px;
-    }
-    
-    .img-main, .img-sub {
-        border-radius: 18px;
-    }
-    
-    .img-sub {
-        border-width: 5px;
-    }
-    
-    .experience-badge {
-        width: 85px;
-        height: 85px;
-        top: -12px;
-        left: -12px;
-        padding: 12px;
-    }
-    
-    .experience-badge .number {
-        font-size: 1.4rem;
-    }
-    
-    .experience-badge .text {
-        font-size: 0.55rem;
-    }
-    
-    .about-text h2 {
-        font-size: 1.8rem;
-    }
-    
-    .creative-card .card-icon {
-        font-size: 2rem;
-    }
-    
-    .creative-card h3 {
-        font-size: 1.1rem;
-    }
-    
-    .socials a {
-        width: 32px;
-        height: 32px;
-        font-size: 0.9rem;
-    }
+    /* About Section Small Mobile */
+    .about-image-stack { max-width: 350px; padding-bottom: 20px; padding-right: 20px; }
+    .experience-badge { width: 80px; height: 80px; top: 12px; left: 12px; }
+    .experience-badge .number { font-size: 1.4rem; }
+    .experience-badge .text { font-size: 0.5rem; }
+    .img-sub { border-width: 6px; }
+    .about-text h2 { font-size: 1.8rem; }
+    .stats-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+    .stat-item h3 { font-size: 2rem; }
+    .quote-block .quote { font-size: 1rem; }
 }

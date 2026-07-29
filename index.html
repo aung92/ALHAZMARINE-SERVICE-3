@@ -2,14 +2,16 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
     <title>AL-HAZMARINE | Creative Marine Solutions</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
@@ -19,10 +21,11 @@
         <span>Request Quote</span>
     </div>
 
+    <!-- ===== HEADER ===== -->
     <header class="header">
         <div class="container navbar">
             <div class="logo">
-                <img src="assets/images/logo-new.png" alt="AL-HAZMARINE Logo">
+                <img src="assets/images/logo-new.png" alt="AL-HAZMARINE Logo" />
                 <span>AL-HAZ<span>MARINE</span></span>
             </div>
             <nav class="nav">
@@ -38,13 +41,12 @@
         </div>
     </header>
 
-    <!-- Parallax Hero -->
+    <!-- ===== HERO ===== -->
     <section id="hero" class="hero-parallax">
         <div class="hero-bg-overlay"></div>
         <div class="parallax-content container">
             <h1 class="reveal-up">Powering the <span>Deep Blue</span></h1>
-            <p class="reveal-up">Precision engineering and high-performance industrial parts tailored for the marine
-                sector.</p>
+            <p class="reveal-up">Precision engineering and high-performance industrial parts tailored for the marine sector.</p>
             <div class="hero-btns reveal-up">
                 <a href="#services" class="btn btn-white">Explore Deeply</a>
                 <a href="#gallery" class="play-btn"><i class="fas fa-play"></i> Watch Process</a>
@@ -53,8 +55,7 @@
         <div class="wave-container">
             <svg class="waves" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
                 <defs>
-                    <path id="gentle-wave"
-                        d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                    <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
                 </defs>
                 <g class="parallax-waves">
                     <use href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
@@ -66,184 +67,229 @@
         </div>
     </section>
 
-    <!-- Services with Responsive Grid -->
+    <!-- ===== SERVICES ===== -->
     <section id="services" class="services section">
-        <div class="container container-flex">
-            <div class="services-info reveal-left">
+        <div class="container">
+            <div class="services-info reveal-left text-center" style="margin-bottom: 50px;">
                 <span class="pre-title">OUR MISSION</span>
-                <h2>Sailing Towards <span>Excellence</span></h2>
-                <p>We provide comprehensive solutions including electrical goods, automation gear, and safety products
-                    for ocean-going vessels.</p>
-                <ul class="check-list">
-                    <li><i class="fas fa-dot-circle"></i> 24/7 Global Support</li>
-                    <li><i class="fas fa-dot-circle"></i> ISO Certified Components</li>
-                    <li><i class="fas fa-dot-circle"></i> Expert Technical Team</li>
-                </ul>
+                <h2>Comprehensive <span>Marine Care</span></h2>
+                <p>From engine repair and electrical rewiring to full boat design and project management, we provide a complete ecosystem of marine services under one roof.</p>
             </div>
+
             <div class="services-grid reveal-right">
+                <!-- Card 1 -->
                 <div class="creative-card">
-                    <div class="card-icon"><i class="fas fa-compass"></i></div>
-                    <h3>Navigation</h3>
-                    <p class="card-description">Advanced GPS, radar & marine navigation systems</p>
+                    <div class="card-icon"><i class="fas fa-ship"></i></div>
+                    <h3>Engines &amp; Propulsion</h3>
+                    <div class="card-description">
+                        <ul class="service-list">
+                            <li>Outboard Engine Sales</li>
+                            <li>Outboard Engine Repair</li>
+                            <li>Outboard Engine Maintenance</li>
+                            <li>Engine Replacement &amp; Re-powering</li>
+                        </ul>
+                    </div>
                 </div>
+
+                <!-- Card 2 -->
+                <div class="creative-card">
+                    <div class="card-icon"><i class="fas fa-pencil-ruler"></i></div>
+                    <h3>Boat Sales &amp; Design</h3>
+                    <div class="card-description">
+                        <ul class="service-list">
+                            <li>New &amp; Used Boat Sales</li>
+                            <li>Boat Design &amp; Project Management</li>
+                            <li>Fabrication &amp; Installation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="creative-card">
+                    <div class="card-icon"><i class="fas fa-cogs"></i></div>
+                    <h3>Mechanical &amp; Hydraulics</h3>
+                    <div class="card-description">
+                        <ul class="service-list">
+                            <li>Mechanical Repair</li>
+                            <li>Hydraulic System Repair</li>
+                            <li>Fabrication &amp; Installation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
                 <div class="creative-card">
                     <div class="card-icon"><i class="fas fa-bolt"></i></div>
-                    <h3>Electrical</h3>
-                    <p class="card-description">Marine-grade electrical components & automation</p>
+                    <h3>Electrical &amp; Electronics</h3>
+                    <div class="card-description">
+                        <ul class="service-list">
+                            <li>Boat Electrical Wiring</li>
+                            <li>Boat Electronics Repair</li>
+                            <li>Boat Rewiring</li>
+                        </ul>
+                    </div>
                 </div>
+
+                <!-- Card 5 -->
                 <div class="creative-card">
-                    <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
-                    <h3>Safety</h3>
-                    <p class="card-description">Fire suppression & life-saving equipment</p>
+                    <div class="card-icon"><i class="fas fa-toolbox"></i></div>
+                    <h3>Accessories &amp; Supplies</h3>
+                    <div class="card-description">
+                        <ul class="service-list">
+                            <li>Boat Accessories Supply</li>
+                            <li>After-Sales Technical Support</li>
+                        </ul>
+                    </div>
                 </div>
+
+                <!-- Card 6 -->
                 <div class="creative-card">
-                    <div class="card-icon"><i class="fas fa-oil-can"></i></div>
-                    <h3>Engines</h3>
-                    <p class="card-description">Main engines, generators & spare parts</p>
+                    <div class="card-icon"><i class="fas fa-certificate"></i></div>
+                    <h3>Warranty &amp; Support</h3>
+                    <div class="card-description">
+                        <ul class="service-list">
+                            <li>Mercury Warranty Service</li>
+                            <li>After-Sales Technical Support</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Our Story Section with Fully Responsive Images -->
-    <section id="about" class="about section bg-light">
-        <div class="container container-flex">
-            <div class="about-visual reveal-left">
-                <div class="experience-badge">
-                    <span class="number">25</span>
-                    <span class="text">Years of<br>Expertise</span>
-                </div>
-                <div class="about-image-stack">
-                    <div class="img-main">
-                        <img src="assets/images/panel.png" alt="Marine Engineering Panel">
-                    </div>
-                    <div class="img-sub">
-                        <img src="assets/images/fire.png" alt="Ship Fire Safety Equipment">
-                    </div>
-                </div>
-            </div>
-            <div class="about-text reveal-right">
-                <span class="pre-title">OUR STORY</span>
-                <h2>Forging the Future of <span>Maritime Supply</span></h2>
-                <p>Founded on a passion for precision and a deep respect for the ocean, AL-HAZMARINE has grown from a
-                    specialized workshop into a global partner for maritime excellence.</p>
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <h3>500+</h3>
-                        <p>Vessels Served</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>10k+</h3>
-                        <p>Parts Cataloged</p>
+    <!-- ===== OUR STORY (exact reference design) ===== -->
+    <section id="about" class="about section">
+        <div class="container">
+            <div class="about-wrapper">
+                <!-- Left: Visuals -->
+                <div class="about-visual reveal-left">
+                    <div class="about-image-stack">
+                        <div class="img-main">
+                            <img src="assets/images/panel.png" alt="Marine Engineering Panel" />
+                            <div class="experience-badge">
+                                <span class="number">25</span>
+                                <span class="text">Years of<br />Expertise</span>
+                            </div>
+                        </div>
+                        <div class="img-sub">
+                            <img src="assets/images/fire.png" alt="Ship Fire Safety Equipment" />
+                        </div>
                     </div>
                 </div>
-                <p class="quote">"We don't just supply parts; we ensure the safety and efficiency of every voyage."</p>
+
+                <!-- Right: Text -->
+                <div class="about-text reveal-right">
+                    <span class="pre-title">OUR STORY</span>
+                    <h2>Forging the Future of <span>Maritime Supply</span></h2>
+                    <p>Founded on a passion for precision and a deep respect for the ocean, AL-HAZMARINE has grown from a specialized workshop into a global partner for maritime excellence.</p>
+
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <h3>500+</h3>
+                            <p>Vessels Served</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>10k+</h3>
+                            <p>Parts Cataloged</p>
+                        </div>
+                    </div>
+
+                    <div class="quote-block">
+                        <p class="quote">&ldquo;We don't just supply parts; we ensure the safety and efficiency of every voyage.&rdquo;</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Mid Section Parallax -->
+    <!-- ===== BANNER PARALLAX ===== -->
     <section class="banner-parallax">
         <div class="banner-overlay"></div>
         <div class="container banner-text text-center reveal-up">
             <h2>Reliable Marine Infrastructure</h2>
-            <p>From brake coils to main engine sensors, we supply everything required for industrial marine operations.
-            </p>
+            <p>From brake coils to main engine sensors, we supply everything required for industrial marine operations.</p>
         </div>
     </section>
 
-    <!-- Gallery section with Creative Zoom -->
+    <!-- ===== GALLERY ===== -->
     <section id="gallery" class="gallery section">
         <div class="container">
             <h2 class="text-center">Visual <span>Logbook</span></h2>
             <div class="creative-gallery">
                 <div class="gal-box reveal-up" style="--i:1">
-                    <img src="assets/images/panel.png" alt="Log 1">
-                    <div class="gal-info">
-                        <h3>Automation</h3>
-                    </div>
+                    <img src="assets/images/panel.png" alt="Log 1" />
+                    <div class="gal-info"><h3>Automation</h3></div>
                 </div>
                 <div class="gal-box reveal-up" style="--i:2">
-                    <img src="assets/images/fire.png" alt="Log 2">
-                    <div class="gal-info">
-                        <h3>Safety</h3>
-                    </div>
+                    <img src="assets/images/fire.png" alt="Log 2" />
+                    <div class="gal-info"><h3>Safety</h3></div>
                 </div>
                 <div class="gal-box reveal-up" style="--i:3">
-                    <img src="assets/images/crane.png" alt="Log 3">
-                    <div class="gal-info">
-                        <h3>Heavy Lift</h3>
-                    </div>
+                    <img src="assets/images/crane.png" alt="Log 3" />
+                    <div class="gal-info"><h3>Heavy Lift</h3></div>
                 </div>
                 <div class="gal-box reveal-up" style="--i:4">
-                    <img src="assets/images/hero.png" alt="Log 4">
-                    <div class="gal-info">
-                        <h3>Industrial</h3>
-                    </div>
+                    <img src="assets/images/hero.png" alt="Log 4" />
+                    <div class="gal-info"><h3>Industrial</h3></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section with 5 Reviewers -->
+    <!-- ===== TESTIMONIALS ===== -->
     <section class="testimonials section bg-light">
         <div class="container text-center">
-            <h2 class="section-title">Trusted By <span>Maritime Leaders</span></h2>
+            <h2 style="font-size: 2.6rem; font-weight: 700;">Trusted By <span style="color: var(--ocean-mid);">Maritime Leaders</span></h2>
             <div class="testimonials-slider" id="testimonialSlider">
-                <!-- Testimonial 1 -->
                 <div class="test-item">
                     <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                    <p>"The automation parts supplied were exactly what we needed for our tanker overhaul. Exceptional service and fast delivery across the ocean! Their technical team provided remote support that saved our crew days of downtime."</p>
+                    <p>&ldquo;The automation parts supplied were exactly what we needed for our tanker overhaul. Exceptional service and fast delivery across the ocean!&rdquo;</p>
                     <div class="test-user">
-                        <img src="https://i.pravatar.cc/150?img=12" alt="Avatar">
+                        <img src="https://i.pravatar.cc/150?img=12" alt="Avatar" />
                         <div class="test-meta">
                             <h4>Capt. James Miller</h4>
                             <span>Chief Engineer, OceanLine Tankers</span>
                         </div>
                     </div>
                 </div>
-                <!-- Testimonial 2 -->
                 <div class="test-item">
                     <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                    <p>"AL-HAZMARINE is our go-to partner for marine electrical components. Their catalog is vast, quality is impeccable, and the team genuinely cares about vessel safety. Highly recommended!"</p>
+                    <p>&ldquo;AL-HAZMARINE is our go-to partner for marine electrical components. Their catalog is vast, quality is impeccable, and the team genuinely cares about vessel safety. Highly recommended!&rdquo;</p>
                     <div class="test-user">
-                        <img src="https://i.pravatar.cc/150?img=32" alt="Avatar">
+                        <img src="https://i.pravatar.cc/150?img=32" alt="Avatar" />
                         <div class="test-meta">
                             <h4>Maria Gonzalez</h4>
                             <span>Procurement Director, BlueWave Maritime</span>
                         </div>
                     </div>
                 </div>
-                <!-- Testimonial 3 -->
                 <div class="test-item">
                     <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                    <p>"We've sourced engine sensors and fire safety gear from them for over 5 years. Consistent quality, excellent logistics, and they understand the urgency of vessel operations. A true industrial ally."</p>
+                    <p>&ldquo;We've sourced engine sensors and fire safety gear from them for over 5 years. Consistent quality, excellent logistics, and they understand the urgency of vessel operations. A true industrial ally.&rdquo;</p>
                     <div class="test-user">
-                        <img src="https://i.pravatar.cc/150?img=47" alt="Avatar">
+                        <img src="https://i.pravatar.cc/150?img=47" alt="Avatar" />
                         <div class="test-meta">
                             <h4>Rajiv Kapoor</h4>
                             <span>Fleet Manager, Asia Pacific Shipping</span>
                         </div>
                     </div>
                 </div>
-                <!-- Testimonial 4 -->
                 <div class="test-item">
                     <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                    <p>"Impressed by their technical expertise in automation and control systems. They helped modernize our vessel's navigation suite within a tight schedule. Professional and innovative!"</p>
+                    <p>&ldquo;Impressed by their technical expertise in automation and control systems. They helped modernize our vessel's navigation suite within a tight schedule. Professional and innovative!&rdquo;</p>
                     <div class="test-user">
-                        <img src="https://i.pravatar.cc/150?img=58" alt="Avatar">
+                        <img src="https://i.pravatar.cc/150?img=58" alt="Avatar" />
                         <div class="test-meta">
                             <h4>Emily Clarke</h4>
                             <span>Senior Superintendent, NorthSea Marine</span>
                         </div>
                     </div>
                 </div>
-                <!-- Testimonial 5 -->
                 <div class="test-item">
                     <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                    <p>"From spare parts to full-scale project support, AL-HAZMARINE delivers excellence. Their team's deep knowledge of marine engineering gives us total confidence. A world-class supplier."</p>
+                    <p>&ldquo;From spare parts to full-scale project support, AL-HAZMARINE delivers excellence. Their team's deep knowledge of marine engineering gives us total confidence. A world-class supplier.&rdquo;</p>
                     <div class="test-user">
-                        <img src="https://i.pravatar.cc/150?img=72" alt="Avatar">
+                        <img src="https://i.pravatar.cc/150?img=72" alt="Avatar" />
                         <div class="test-meta">
                             <h4>Abdul Rahman</h4>
                             <span>CEO, Gulf Marine Services</span>
@@ -254,20 +300,21 @@
         </div>
     </section>
 
-    <!-- Contact Form Section -->
+    <!-- ===== CONTACT ===== -->
     <section id="contact" class="contact section">
         <div class="container">
             <div class="contact-wrap reveal-up">
                 <div class="contact-form">
                     <h2>Anchor Your <span>Project</span></h2>
                     <form id="creative-contact">
-                        <input type="text" placeholder="Your Name" required>
-                        <input type="email" placeholder="Your Email" required>
+                        <input type="text" placeholder="Your Name" required />
+                        <input type="email" placeholder="Your Email" required />
                         <select>
-                            <option>Interest: Electrical Goods</option>
-                            <option>Interest: Engine Parts</option>
-                            <option>Interest: Fire Safety</option>
-                            <option>Interest: Navigation Systems</option>
+                            <option>Interest: Engines &amp; Repair</option>
+                            <option>Interest: Boat Sales &amp; Design</option>
+                            <option>Interest: Electrical &amp; Rewiring</option>
+                            <option>Interest: Hydraulics &amp; Mechanics</option>
+                            <option>Interest: Accessories &amp; Parts</option>
                         </select>
                         <textarea placeholder="Tell us more about your needs..." rows="4"></textarea>
                         <button type="submit" class="btn btn-accent-full">Send Message</button>
@@ -293,18 +340,17 @@
         </div>
     </section>
 
-    <!-- Footer with Mobile Responsive Design -->
+    <!-- ===== FOOTER ===== -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
                     <div class="footer-logo">
-                        <img src="assets/images/logo-new.png" alt="AL-HAZMARINE Logo">
+                        <img src="assets/images/logo-new.png" alt="AL-HAZMARINE Logo" />
                         <span>AL-HAZ<span>MARINE</span></span>
                     </div>
                     <p class="footer-description">Providing premium marine solutions with 25 years of excellence in maritime supply and engineering services.</p>
                 </div>
-                
                 <div class="footer-section">
                     <h4>Quick Links</h4>
                     <ul class="footer-links">
@@ -315,18 +361,16 @@
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
-                
                 <div class="footer-section">
                     <h4>Our Services</h4>
                     <ul class="footer-links">
-                        <li><a href="#">Navigation Systems</a></li>
-                        <li><a href="#">Electrical Components</a></li>
-                        <li><a href="#">Safety Equipment</a></li>
-                        <li><a href="#">Engine Parts</a></li>
-                        <li><a href="#">Automation Solutions</a></li>
+                        <li><a href="#">Engines &amp; Repair</a></li>
+                        <li><a href="#">Electrical Rewiring</a></li>
+                        <li><a href="#">Boat Sales &amp; Design</a></li>
+                        <li><a href="#">Hydraulic Systems</a></li>
+                        <li><a href="#">Mercury Warranty</a></li>
                     </ul>
                 </div>
-                
                 <div class="footer-section">
                     <h4>Contact Info</h4>
                     <ul class="footer-contact">
@@ -336,7 +380,7 @@
                     </ul>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <div class="socials">
                     <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -345,6 +389,16 @@
                     <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                     <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                 </div>
+
+                <div class="developer-credit">
+                    <p>
+                        Developed by
+                        <a href="mailto:aungching.jack420@gmail.com" class="dev-link" title="Click to Email">
+                            <i class="fas fa-code"></i> Aung Ching
+                        </a>
+                    </p>
+                </div>
+
                 <div class="copyright">
                     <p>&copy; 2026 AL-HAZMARINE SERVICE. All rights reserved.</p>
                 </div>
@@ -352,11 +406,12 @@
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
+    <!-- ===== BACK TO TOP ===== -->
     <a href="#hero" id="backToTop" class="back-to-top">
         <i class="fas fa-arrow-up"></i>
     </a>
 
+    <!-- Main JavaScript -->
     <script src="script.js"></script>
 </body>
 
