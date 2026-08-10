@@ -808,6 +808,7 @@ body {
 /* Contact Info Blocks - FIXED ALIGNMENT */
 .contact-info {
     display: flex;
+    padding: 100px 0 0 0;
     flex-direction: column;
     gap: 30px;
 }
