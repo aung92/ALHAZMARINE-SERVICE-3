@@ -871,6 +871,11 @@ body {
 
 /* --- 1024px (Tablet/Laptop) --- */
 @media (max-width: 1024px) {
+    /* Hide Top Bar on Tablet */
+    .top-bar {
+        display: none;
+    }
+    
     .parallax-content h1 { font-size: 3.5rem; }
     .parallax-content p { font-size: 1.2rem; }
     .container-flex { flex-direction: column; text-align: center; gap: 50px; }
@@ -928,6 +933,11 @@ body {
 
 /* --- 768px (Mobile) --- */
 @media (max-width: 768px) {
+    /* Hide Top Bar on Mobile */
+    .top-bar {
+        display: none;
+    }
+    
     .nav, .cta-header { display: none; }
     .header { padding: 20px 0; }
     
@@ -1002,6 +1012,10 @@ body {
 
 /* --- 425px (Small Mobile) --- */
 @media (max-width: 425px) {
+    .top-bar {
+        display: none;
+    }
+    
     .parallax-content h1 { font-size: 2rem; }
     .btn { padding: 14px 35px; font-size: 0.9rem; }
     .services-grid { grid-template-columns: 1fr; gap: 15px; }
