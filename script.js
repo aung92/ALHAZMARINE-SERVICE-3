@@ -70,7 +70,7 @@ window.addEventListener("scroll", () => {
 
 
 // ===============================
-// CONTACT FORM SUBMIT
+// CONTACT FORM - AJAX SUBMISSION
 // ===============================
 const form = document.getElementById("creative-contact");
 
@@ -78,9 +78,39 @@ if (form) {
     form.addEventListener("submit", function (e) {
         e.preventDefault();
 
-        alert("✅ Message Sent Successfully!");
+        // ফর্মের ডেটা সংগ্রহ
+        const formData = new FormData(form);
 
-        form.reset();
+        // সাবমিট বাটন ডিজেবল করুন
+        const submitBtn = form.querySelector("button[type='submit']");
+        const originalText = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending...";
+
+        // AJAX রিকোয়েস্ট পাঠান
+        fetch("contact.php", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            if (data.trim() === "success") {
+                alert("✅ Message Sent Successfully!");
+                form.reset();
+            } else {
+                alert("❌ Failed to send message. Please try again.");
+                console.log("Server response:", data);
+            }
+        })
+        .catch(error => {
+            alert("❌ An error occurred. Please try again.");
+            console.error("Error:", error);
+        })
+        .finally(() => {
+            // বাটন আবার এনাবেল করুন
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+        });
     });
 }
 
