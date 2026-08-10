@@ -19,13 +19,20 @@
     <div class="top-bar">
         <div class="container top-bar-content">
             <div class="top-bar-contact">
-                <span><i class="fas fa-phone-alt"></i> +8801815-406539, +8801590-016859 </span>
+                <span><i class="fas fa-phone-alt"></i> <a href="tel:+8801815406539" style="color: rgba(255,255,255,0.8); text-decoration: none;">+8801815-406539</a>, <a href="https://wa.me/8801590016859" target="_blank" style="color: rgba(255,255,255,0.8); text-decoration: none;">+8801590-016859</a></span>
                 <span><i class="fas fa-envelope"></i> <a href="mailto:info@alhazmarine.com" style="color: rgba(255,255,255,0.8); text-decoration: none;">info@alhazmarine.com</a></span>
             </div>
             <div class="top-bar-address">
                 <span><i class="fas fa-map-marker-alt"></i> Marine Division, Chittagong, Bangladesh</span>
             </div>
         </div>
+    </div>
+
+    <!-- Floating WhatsApp Button -->
+    <div class="whatsapp-float" id="whatsappFloat">
+        <a href="https://wa.me/8801590016859" target="_blank" aria-label="Chat on WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
     </div>
 
     <!-- Floating Messenger Button for Mobile -->
@@ -322,7 +329,41 @@
             <div class="contact-wrap reveal-up">
                 <div class="contact-form">
                     <h2>Anchor Your <span>Project</span></h2>
-                    <form id="creative-contact" action="contact.php" method="POST">
+                    
+                    <!-- Under Construction Message -->
+                    <div class="construction-message">
+                        <div class="construction-icon">
+                            <i class="fas fa-hard-hat"></i>
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3>🚧 Under Construction</h3>
+                        <p>Our contact form is currently being upgraded for better service.</p>
+                        <p class="instruction-text">In the meantime, please reach out to us via:</p>
+                        <div class="contact-alternatives">
+                            <a href="mailto:info@alhazmarine.com" class="alt-btn email-btn">
+                                <i class="fas fa-envelope"></i> Send Email
+                            </a>
+                            <a href="https://wa.me/8801590016859" target="_blank" class="alt-btn whatsapp-btn">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                            <a href="tel:+8801815406539" class="alt-btn call-btn">
+                                <i class="fas fa-phone"></i> Call Now
+                            </a>
+                        </div>
+                        <div class="email-instruction">
+                            <p><i class="fas fa-info-circle"></i> <strong>Email Instruction:</strong> Click the <strong>"Send Email"</strong> button above or copy this email address:</p>
+                            <div class="email-copy-box">
+                                <span id="emailAddress">info@alhazmarine.com</span>
+                                <button onclick="copyEmail()" class="copy-btn">
+                                    <i class="fas fa-copy"></i> Copy
+                                </button>
+                            </div>
+                            <p class="email-note">📝 <em>Please include your name, contact number, and your requirements in the email.</em></p>
+                        </div>
+                    </div>
+
+                    <!-- Original Form (Hidden) -->
+                    <form id="creative-contact" action="contact.php" method="POST" style="display: none;">
                         <input type="text" name="Name" placeholder="Your Name" required />
                         <input type="email" name="Email" placeholder="Your Email" required />
                         <select name="Interest">
@@ -342,6 +383,18 @@
                         <div>
                             <h4>Headquarters</h4>
                             <p>Marine Hub, Chittagong, Bangladesh</p>
+                        </div>
+                    </div>
+                    <div class="info-block">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Call or WhatsApp</h4>
+                            <p>
+                                <a href="tel:+8801815406539" style="color: rgba(255,255,255,0.9); text-decoration: none;">+8801815-406539</a><br />
+                                <a href="https://wa.me/8801590016859" target="_blank" style="color: #25D366; text-decoration: none;">
+                                    <i class="fab fa-whatsapp"></i> +8801590-016859
+                                </a>
+                            </p>
                         </div>
                     </div>
                     <div class="info-block">
@@ -394,7 +447,8 @@
                     <h4>Contact Info</h4>
                     <ul class="footer-contact">
                         <li><i class="fas fa-map-marker-alt"></i> <span>Marine Hub, Chittagong, Bangladesh</span></li>
-                        <li><i class="fas fa-phone"></i> <span>+8801815-406539, +8801590-016859 </span></li>
+                        <li><i class="fas fa-phone"></i> <span><a href="tel:+8801815406539" style="color: rgba(255,255,255,0.7); text-decoration: none;">+8801815-406539</a></span></li>
+                        <li><i class="fab fa-whatsapp" style="color: #25D366;"></i> <span><a href="https://wa.me/8801590016859" target="_blank" style="color: rgba(255,255,255,0.7); text-decoration: none;">+8801590-016859</a></span></li>
                         <li><i class="fas fa-envelope"></i> <span><a href="mailto:info@alhazmarine.com" style="color: rgba(255,255,255,0.7); text-decoration: none;">info@alhazmarine.com</a></span></li>
                     </ul>
                 </div>
@@ -404,8 +458,8 @@
                 <div class="socials">
                     <a href="https://www.facebook.com/alhazmarine/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                     <a href="https://www.linkedin.com/company/alhaz-marine-industrial-service/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://wa.me/8801590016859" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                     <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                     <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                 </div>
 

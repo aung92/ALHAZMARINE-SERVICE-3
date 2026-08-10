@@ -70,48 +70,55 @@ window.addEventListener("scroll", () => {
 
 
 // ===============================
-// CONTACT FORM - AJAX SUBMISSION
+// COPY EMAIL FUNCTION
 // ===============================
-const form = document.getElementById("creative-contact");
-
-if (form) {
-    form.addEventListener("submit", function (e) {
-        e.preventDefault();
-
-        // ফর্মের ডেটা সংগ্রহ
-        const formData = new FormData(form);
-
-        // সাবমিট বাটন ডিজেবল করুন
-        const submitBtn = form.querySelector("button[type='submit']");
-        const originalText = submitBtn.textContent;
-        submitBtn.disabled = true;
-        submitBtn.textContent = "Sending...";
-
-        // AJAX রিকোয়েস্ট পাঠান
-        fetch("contact.php", {
-            method: "POST",
-            body: formData
-        })
-        .then(response => response.text())
-        .then(data => {
-            if (data.trim() === "success") {
-                alert("✅ Message Sent Successfully!");
-                form.reset();
-            } else {
-                alert("❌ Failed to send message. Please try again.");
-                console.log("Server response:", data);
-            }
-        })
-        .catch(error => {
-            alert("❌ An error occurred. Please try again.");
-            console.error("Error:", error);
-        })
-        .finally(() => {
-            // বাটন আবার এনাবেল করুন
-            submitBtn.disabled = false;
-            submitBtn.textContent = originalText;
+function copyEmail() {
+    const email = document.getElementById('emailAddress').textContent;
+    const copyBtn = document.querySelector('.copy-btn');
+    
+    // Use Clipboard API if available
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(email).then(() => {
+            copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            copyBtn.classList.add('copied');
+            
+            setTimeout(() => {
+                copyBtn.innerHTML = '<i class="fas fa-copy"></i> Copy';
+                copyBtn.classList.remove('copied');
+            }, 3000);
+        }).catch(() => {
+            // Fallback for older browsers
+            fallbackCopy(email, copyBtn);
         });
-    });
+    } else {
+        // Fallback for older browsers
+        fallbackCopy(email, copyBtn);
+    }
+}
+
+function fallbackCopy(email, copyBtn) {
+    const textArea = document.createElement('textarea');
+    textArea.value = email;
+    textArea.style.position = 'fixed';
+    textArea.style.left = '-9999px';
+    textArea.style.top = '-9999px';
+    document.body.appendChild(textArea);
+    textArea.select();
+    
+    try {
+        document.execCommand('copy');
+        copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        copyBtn.classList.add('copied');
+        
+        setTimeout(() => {
+            copyBtn.innerHTML = '<i class="fas fa-copy"></i> Copy';
+            copyBtn.classList.remove('copied');
+        }, 3000);
+    } catch (err) {
+        alert('Failed to copy email. Please select and copy manually.');
+    }
+    
+    document.body.removeChild(textArea);
 }
 
 
