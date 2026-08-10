@@ -291,3 +291,21 @@ window.addEventListener('resize', () => {
     }, 100);
 });
 
+
+// ===============================
+// TOP BAR - ADJUST HEADER POSITION
+// ===============================
+document.addEventListener('DOMContentLoaded', function() {
+    const topBar = document.querySelector('.top-bar');
+    const header = document.querySelector('.header');
+    
+    if (topBar && header) {
+        const topBarHeight = topBar.offsetHeight;
+        header.style.top = topBarHeight + 'px';
+        
+        window.addEventListener('resize', function() {
+            const newTopBarHeight = topBar.offsetHeight;
+            header.style.top = newTopBarHeight + 'px';
+        });
+    }
+});
