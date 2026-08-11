@@ -781,31 +781,156 @@ body {
 
 .contact-form h2 { 
     font-size: 2.5rem; 
-    margin-bottom: 40px; 
+    margin-bottom: 30px; 
 }
 
-.contact-form span { 
+.contact-form h2 span { 
     color: var(--accent-orange); 
 }
 
-#creative-contact input, 
-#creative-contact select, 
+/* Enhanced Contact Form Styles */
+#creative-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+    letter-spacing: 0.5px;
+}
+
+.form-group label .required {
+    color: #ff6b6b;
+    font-weight: 800;
+}
+
+/* Form Inputs */
+#creative-contact input,
+#creative-contact select,
 #creative-contact textarea {
-    width: 100%; 
-    padding: 20px; 
-    margin-bottom: 20px; 
-    border-radius: 20px;
-    border: none; 
-    background: rgba(255, 255, 255, 0.1); 
-    color: var(--white); 
+    width: 100%;
+    padding: 15px 18px;
+    border-radius: 14px;
+    border: 2px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--white);
     outline: none;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    font-family: var(--font-main);
 }
 
-#creative-contact select option { 
-    background: var(--ocean-deep); 
+#creative-contact input::placeholder,
+#creative-contact textarea::placeholder {
+    color: rgba(255, 255, 255, 0.4);
 }
 
-/* Contact Info Blocks - FIXED ALIGNMENT */
+#creative-contact select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='white' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 18px center;
+    cursor: pointer;
+}
+
+#creative-contact select option {
+    background: var(--ocean-deep);
+    color: var(--white);
+    padding: 10px;
+}
+
+#creative-contact input:focus,
+#creative-contact select:focus,
+#creative-contact textarea:focus {
+    background: rgba(255, 255, 255, 0.13);
+    border-color: var(--accent-orange);
+    box-shadow: 0 0 0 4px rgba(247, 127, 0, 0.15);
+}
+
+#creative-contact textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Submit Button */
+.submit-btn {
+    width: 100%;
+    padding: 18px 40px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 14px;
+    background: var(--accent-orange);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.submit-btn:hover {
+    background: #e67300;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(247, 127, 0, 0.35);
+}
+
+.submit-btn:active {
+    transform: scale(0.98);
+}
+
+.submit-btn .fa-paper-plane {
+    transition: transform 0.3s ease;
+}
+
+.submit-btn:hover .fa-paper-plane {
+    transform: translateX(5px) rotate(-10deg);
+}
+
+/* Form Status Messages */
+.form-status {
+    margin-top: 10px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-weight: 500;
+    display: none;
+}
+
+.form-status.success {
+    display: block;
+    background: rgba(40, 167, 69, 0.2);
+    color: #28a745;
+    border: 1px solid rgba(40, 167, 69, 0.3);
+}
+
+.form-status.error {
+    display: block;
+    background: rgba(220, 53, 69, 0.2);
+    color: #ff6b6b;
+    border: 1px solid rgba(220, 53, 69, 0.3);
+}
+
+/* Contact Info Blocks */
 .contact-info {
     display: flex;
     padding: 100px 0 0 0;
@@ -833,11 +958,6 @@ body {
     margin-top: 2px;
 }
 
-.info-block .info-content {
-    flex: 1;
-    min-width: 0;
-}
-
 .info-block h4 { 
     font-weight: 700; 
     font-size: 1.1rem;
@@ -862,7 +982,6 @@ body {
     color: var(--accent-orange);
 }
 
-/* WhatsApp link special styling */
 .info-block p .whatsapp-link {
     color: #25D366;
     font-weight: 600;
@@ -882,198 +1001,12 @@ body {
     display: inline-flex;
 }
 
-/* Phone link */
 .info-block p .phone-link {
     color: rgba(255, 255, 255, 0.85);
 }
 
 .info-block p .phone-link:hover {
     color: var(--accent-orange);
-}
-
-/* Under Construction Message */
-.construction-message {
-    text-align: center;
-    padding: 30px 20px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
-    border: 2px dashed rgba(255, 255, 255, 0.2);
-    margin-bottom: 30px;
-}
-
-.construction-icon {
-    font-size: 3rem;
-    margin-bottom: 15px;
-    color: var(--accent-orange);
-}
-
-.construction-icon i {
-    margin: 0 10px;
-    animation: toolsRotate 3s ease-in-out infinite;
-}
-
-.construction-icon i:first-child {
-    animation-delay: 0s;
-}
-
-.construction-icon i:last-child {
-    animation-delay: 1.5s;
-}
-
-@keyframes toolsRotate {
-    0%, 100% { transform: rotate(-10deg) scale(1); }
-    50% { transform: rotate(10deg) scale(1.1); }
-}
-
-.construction-message h3 {
-    font-size: 1.8rem;
-    font-weight: 800;
-    margin-bottom: 10px;
-    color: var(--white);
-}
-
-.construction-message p {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 1rem;
-    margin-bottom: 5px;
-}
-
-.construction-message .instruction-text {
-    font-weight: 600;
-    margin: 15px 0 20px;
-    color: var(--white);
-    font-size: 1.05rem;
-}
-
-.contact-alternatives {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-    margin-bottom: 25px;
-}
-
-.alt-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 14px 30px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 700;
-    transition: all 0.3s ease;
-    font-size: 1rem;
-}
-
-.alt-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-}
-
-.email-btn { background: #D44638; color: #fff; }
-.email-btn:hover { background: #b83a2e; }
-
-.whatsapp-btn { background: #25D366; color: #fff; }
-.whatsapp-btn:hover { background: #1da851; }
-
-.call-btn { background: #0077b6; color: #fff; }
-.call-btn:hover { background: #005f8a; }
-
-.email-instruction {
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 15px;
-    padding: 20px;
-    text-align: left;
-}
-
-.email-instruction p {
-    color: rgba(255, 255, 255, 0.85);
-    font-size: 0.95rem;
-    margin-bottom: 12px;
-}
-
-.email-instruction .fa-info-circle {
-    color: var(--accent-orange);
-    margin-right: 8px;
-}
-
-.email-copy-box {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: rgba(0, 0, 0, 0.3);
-    padding: 10px 15px;
-    border-radius: 10px;
-    margin: 10px 0 15px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.email-copy-box #emailAddress {
-    flex: 1;
-    color: var(--white);
-    font-size: 1rem;
-    font-weight: 600;
-    word-break: break-all;
-}
-
-.copy-btn {
-    background: var(--accent-orange);
-    color: var(--white);
-    border: none;
-    padding: 8px 18px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 0.85rem;
-    transition: all 0.3s ease;
-    white-space: nowrap;
-}
-
-.copy-btn:hover {
-    background: #e67300;
-    transform: scale(1.05);
-}
-
-.copy-btn.copied {
-    background: #28a745;
-}
-
-.email-note {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.9rem !important;
-    font-style: italic;
-    margin-top: 5px !important;
-}
-
-/* Contact Form Inputs */
-#creative-contact input, 
-#creative-contact select, 
-#creative-contact textarea {
-    width: 100%; 
-    padding: 20px; 
-    margin-bottom: 20px; 
-    border-radius: 20px;
-    border: none; 
-    background: rgba(255, 255, 255, 0.1); 
-    color: var(--white); 
-    outline: none;
-    transition: all 0.3s ease;
-}
-
-#creative-contact input:focus,
-#creative-contact select:focus,
-#creative-contact textarea:focus {
-    background: rgba(255, 255, 255, 0.18);
-    box-shadow: 0 0 0 2px var(--accent-orange);
-}
-
-#creative-contact input::placeholder,
-#creative-contact textarea::placeholder {
-    color: rgba(255, 255, 255, 0.5);
-}
-
-#creative-contact select option { 
-    background: var(--ocean-deep); 
 }
 
 /* WhatsApp Floating Button */
@@ -1199,14 +1132,14 @@ body {
     font-size: 0.85rem;
 }
 
-.dev-link, .dev-wa {
+.dev-link {
     color: var(--accent-orange);
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease;
 }
 
-.dev-link:hover, .dev-wa:hover {
+.dev-link:hover {
     color: var(--white);
     text-decoration: underline;
 }
@@ -1280,7 +1213,6 @@ body {
     
     .parallax-content h1 { font-size: 3.5rem; }
     .parallax-content p { font-size: 1.2rem; }
-    .container-flex { flex-direction: column; text-align: center; gap: 50px; }
     
     .services-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
     .creative-card .card-description { display: block; }
@@ -1295,6 +1227,7 @@ body {
         flex-wrap: wrap;
         justify-content: center;
         gap: 10px;
+        padding: 40px 0 0 0;
     }
     
     .info-block {
@@ -1333,19 +1266,6 @@ body {
     }
     .about-text h2 { font-size: 2.8rem; }
 
-    .top-bar {
-        padding: 6px 0;
-        font-size: 0.75rem;
-    }
-    .top-bar-content {
-        justify-content: center;
-        text-align: center;
-    }
-    .top-bar-contact {
-        gap: 15px;
-        justify-content: center;
-    }
-    
     .whatsapp-float {
         bottom: 90px;
         right: 25px;
@@ -1354,18 +1274,6 @@ body {
         width: 55px;
         height: 55px;
         font-size: 1.6rem;
-    }
-
-    /* Construction Message Responsive */
-    .construction-message {
-        padding: 25px 15px;
-    }
-    .contact-alternatives {
-        gap: 12px;
-    }
-    .alt-btn {
-        padding: 12px 25px;
-        font-size: 0.95rem;
     }
 }
 
@@ -1404,12 +1312,36 @@ body {
 
     .contact-wrap { 
         padding: 40px 30px; 
+        border-radius: 30px;
+    }
+    
+    .contact-form h2 {
+        font-size: 2rem;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    #creative-contact input,
+    #creative-contact select,
+    #creative-contact textarea {
+        padding: 14px 16px;
+        font-size: 0.95rem;
+        border-radius: 12px;
+    }
+    
+    .submit-btn {
+        padding: 16px 30px;
+        font-size: 1rem;
     }
     
     .contact-info {
         flex-direction: column;
         align-items: stretch;
         gap: 8px;
+        padding: 30px 0 0 0;
     }
     
     .info-block {
@@ -1451,13 +1383,6 @@ body {
     .about-text h2 { font-size: 2.2rem; }
     .stat-item h3 { font-size: 2.5rem; }
 
-    .top-bar-contact {
-        flex-direction: column;
-        gap: 4px;
-        align-items: center;
-    }
-    .top-bar-address { font-size: 0.7rem; }
-    
     .whatsapp-float {
         bottom: 80px;
         right: 20px;
@@ -1466,39 +1391,6 @@ body {
         width: 50px;
         height: 50px;
         font-size: 1.4rem;
-    }
-
-    /* Construction Message Mobile */
-    .construction-message {
-        padding: 20px 15px;
-    }
-    .construction-message h3 {
-        font-size: 1.4rem;
-    }
-    .contact-alternatives {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-    .alt-btn {
-        width: 100%;
-        justify-content: center;
-        padding: 12px 20px;
-        font-size: 0.95rem;
-    }
-    .email-copy-box {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 8px;
-    }
-    .email-copy-box #emailAddress {
-        text-align: center;
-        font-size: 0.9rem;
-    }
-    .copy-btn {
-        width: 100%;
-        justify-content: center;
-        padding: 10px;
     }
 }
 
@@ -1512,12 +1404,19 @@ body {
     
     .contact-wrap { 
         padding: 25px 15px; 
-        border-radius: 30px;
+        border-radius: 25px;
     }
     
     .contact-form h2 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         text-align: center;
+    }
+    
+    #creative-contact input,
+    #creative-contact select,
+    #creative-contact textarea {
+        padding: 12px 14px;
+        font-size: 0.9rem;
     }
     
     .info-block {
@@ -1559,17 +1458,5 @@ body {
         width: 45px;
         height: 45px;
         font-size: 1.2rem;
-    }
-
-    /* Construction Message Small Mobile */
-    .construction-message h3 {
-        font-size: 1.2rem;
-    }
-    .construction-icon {
-        font-size: 2.2rem;
-    }
-    .alt-btn {
-        font-size: 0.85rem;
-        padding: 10px 15px;
     }
 }

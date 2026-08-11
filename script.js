@@ -70,59 +70,6 @@ window.addEventListener("scroll", () => {
 
 
 // ===============================
-// COPY EMAIL FUNCTION
-// ===============================
-function copyEmail() {
-    const email = document.getElementById('emailAddress').textContent;
-    const copyBtn = document.querySelector('.copy-btn');
-    
-    // Use Clipboard API if available
-    if (navigator.clipboard) {
-        navigator.clipboard.writeText(email).then(() => {
-            copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
-            copyBtn.classList.add('copied');
-            
-            setTimeout(() => {
-                copyBtn.innerHTML = '<i class="fas fa-copy"></i> Copy';
-                copyBtn.classList.remove('copied');
-            }, 3000);
-        }).catch(() => {
-            // Fallback for older browsers
-            fallbackCopy(email, copyBtn);
-        });
-    } else {
-        // Fallback for older browsers
-        fallbackCopy(email, copyBtn);
-    }
-}
-
-function fallbackCopy(email, copyBtn) {
-    const textArea = document.createElement('textarea');
-    textArea.value = email;
-    textArea.style.position = 'fixed';
-    textArea.style.left = '-9999px';
-    textArea.style.top = '-9999px';
-    document.body.appendChild(textArea);
-    textArea.select();
-    
-    try {
-        document.execCommand('copy');
-        copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
-        copyBtn.classList.add('copied');
-        
-        setTimeout(() => {
-            copyBtn.innerHTML = '<i class="fas fa-copy"></i> Copy';
-            copyBtn.classList.remove('copied');
-        }, 3000);
-    } catch (err) {
-        alert('Failed to copy email. Please select and copy manually.');
-    }
-    
-    document.body.removeChild(textArea);
-}
-
-
-// ===============================
 // PARALLAX EFFECT (EXTRA SMOOTH)
 // ===============================
 const hero = document.querySelector(".hero-parallax");
@@ -177,6 +124,61 @@ if (sliderContainer && testimonials.length > 0) {
         if (!intervalId) {
             intervalId = setInterval(nextTestimonial, 4000);
         }
+    });
+}
+
+
+// ===============================
+// CONTACT FORM HANDLING (No PHP Required)
+// ===============================
+const contactForm = document.getElementById('creative-contact');
+const formStatus = document.getElementById('formStatus');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        // Show status message while submitting
+        const submitBtn = this.querySelector('.submit-btn');
+        const originalText = submitBtn.innerHTML;
+        
+        // Show loading state
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        submitBtn.disabled = true;
+        formStatus.className = 'form-status';
+        formStatus.style.display = 'none';
+        
+        // The form will submit normally to FormSubmit.co
+        // We'll show success message after form submission
+        // Note: FormSubmit.co redirects to the _next URL
+        
+        // Since FormSubmit.co redirects, we can't use AJAX here.
+        // Instead, we'll let the form submit normally.
+        // The user will be redirected to the success page.
+        
+        // Show a brief status before redirect
+        formStatus.className = 'form-status success';
+        formStatus.textContent = '✅ Sending your message... Please wait.';
+        formStatus.style.display = 'block';
+        
+        // Re-enable button after 3 seconds (in case of issues)
+        setTimeout(() => {
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        }, 3000);
+        
+        // The form will naturally submit to FormSubmit.co
+        // No need to prevent default
+    });
+}
+
+
+// ===============================
+// PHONE NUMBER FORMATTING (Optional)
+// ===============================
+const phoneInput = document.getElementById('phone');
+if (phoneInput) {
+    phoneInput.addEventListener('input', function() {
+        // Remove all non-numeric characters except +
+        this.value = this.value.replace(/[^\d+]/g, '');
     });
 }
 
