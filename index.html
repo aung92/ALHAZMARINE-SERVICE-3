@@ -3,491 +3,766 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>ALHAZ MARINE | Creative Marine Solutions</title>
+  <title>ALHAZ MARINE | Marine Solutions</title>
+  
+  <!-- SEO Meta -->
+  <meta name="description" content="ALHAZ MARINE provides premium marine solutions, engine repairs, and industrial parts in Bangladesh." />
+  <meta name="keywords" content="marine, ship repair, engine, boat, industrial, Chittagong" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="ALHAZ MARINE | Marine Solutions" />
+  <meta property="og:description" content="Precision engineering and high-performance industrial parts for the marine sector." />
+  <meta property="og:type" content="website" />
+  
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="style.css" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/logo-new.png" />
 </head>
 <body>
-    <!-- Top Bar -->
-    <div class="top-bar">
-        <div class="container top-bar-content">
-            <div class="top-bar-contact">
-                <span><i class="fas fa-phone-alt"></i> <a href="tel:+8801815406539" style="color: rgba(255,255,255,0.8); text-decoration: none;">+8801815-406539</a>,<a href="https://wa.me/8801590016859" target="_blank" style="color: rgba(255,255,255,0.8); text-decoration: none;">+8801590-016859</a></span>
-                <span><i class="fas fa-envelope"></i> <a href="mailto:info@alhazmarine.com" style="color: rgba(255,255,255,0.8); text-decoration: none;">info@alhazmarine.com</a></span>
-            </div>
-            <div class="top-bar-address">
-                <span><i class="fas fa-map-marker-alt"></i> Agrabad Commercial Area, Chittagong, Bangladesh</span>
-            </div>
+  <!-- ===== PAGE LOADER ===== -->
+  <div id="pageLoader">
+    <div class="loader-spinner">
+      <div class="loader-logo-wrapper">
+        <div class="loader-ring"></div>
+        <div class="loader-ring-2"></div>
+        <div class="loader-text-ring">
+          <svg viewBox="0 0 160 160">
+            <defs>
+              <path id="textPath" d="M 80, 80 m -70, 0 a 70,70 0 1,1 140,0 a 70,70 0 1,1 -140,0" />
+            </defs>
+            <text>
+              <textPath href="#textPath" startOffset="0%">
+                ★ ALHAZ MARINE ★ INDUSTRIAL SERVICE
+              </textPath>
+            </text>
+          </svg>
         </div>
+        <img src="assets/images/logo-new.png" alt="ALHAZ MARINE" class="loader-logo-img" />
+      </div>
     </div>
+  </div>
 
-    <!-- Floating WhatsApp Button -->
-    <div class="whatsapp-float" id="whatsappFloat">
-        <a href="https://wa.me/8801590016859" target="_blank" aria-label="Chat on WhatsApp">
-            <i class="fab fa-whatsapp"></i>
-        </a>
+  <!-- ===== PAGE CHANGE LOADER ===== -->
+  <div class="page-change-loader" id="pageChangeLoader">
+    <div class="loader-spinner">
+      <div class="loader-logo-wrapper">
+        <div class="loader-ring"></div>
+        <div class="loader-ring-2"></div>
+        <div class="loader-text-ring">
+          <svg viewBox="0 0 160 160">
+            <defs>
+              <path id="textPathSmall" d="M 80, 80 m -70, 0 a 70,70 0 1,1 140,0 a 70,70 0 1,1 -140,0" />
+            </defs>
+            <text>
+              <textPath href="#textPathSmall" startOffset="0%">
+                ★ ALHAZ MARINE ★
+              </textPath>
+            </text>
+          </svg>
+        </div>
+        <img src="assets/images/logo-new.png" alt="ALHAZ MARINE" class="loader-logo-img" />
+      </div>
     </div>
+  </div>
 
-    <!-- Floating Messenger Button for Mobile -->
-    <div class="messenger-button" id="messengerBtn">
-        <i class="fab fa-facebook-messenger"></i>
-        <span>Request Quote</span>
+  <!-- ===== TOP BAR ===== -->
+  <div class="top-bar">
+    <div class="container top-bar-content">
+      <div class="top-bar-contact">
+        <span>
+          <i class="fas fa-phone-alt"></i>
+          <a href="tel:+8801815406539">+8801815-406539</a>
+          <span class="sep">|</span>
+          <a href="https://wa.me/8801590016859" target="_blank">+8801590-016859</a>
+        </span>
+        <span>
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:info@alhazmarine.com">info@alhazmarine.com</a>
+        </span>
+      </div>
+      <div class="top-bar-address">
+        <span>
+          <i class="fas fa-map-marker-alt"></i>
+          Agrabad, Chittagong, Bangladesh
+        </span>
+      </div>
     </div>
+  </div>
 
-    <!-- ===== HEADER ===== -->
-    <header class="header">
-        <div class="container navbar">
-            <div class="logo">
-                <img src="assets/images/logo-new.png" alt="ALHAZ MARINE Logo" />
-                <div class="logo-text">
-                    <span class="logo-main">ALHAZ<span> MARINE</span></span>
-                    <span class="logo-sub">&amp; INDUSTRIAL SERVICE</span>
-                </div>
-            </div>
-            <nav class="nav">
-                <a href="#hero">Home</a>
-                <a href="#services">Services</a>
-                <a href="#about">Our Story</a>
-                <a href="#gallery">Visuals</a>
-                <a href="#contact">Contact</a>
-            </nav>
-            <div class="cta-header">
-                <a href="#contact" class="btn btn-accent">Request Quote</a>
-            </div>
-        </div>
-    </header>
-
-    <!-- ===== HERO ===== -->
-    <section id="hero" class="hero-parallax">
-        <div class="hero-bg-overlay"></div>
-        <div class="parallax-content container">
-            <h1 class="reveal-up">Powering the <span>Deep Blue</span></h1>
-            <p class="reveal-up">Precision engineering and high-performance industrial parts tailored for the marine sector.</p>
-            <div class="hero-btns reveal-up">
-                <a href="#services" class="btn btn-white">Explore Deeply</a>
-                <a href="#gallery" class="play-btn"><i class="fas fa-play"></i> Watch Process</a>
-            </div>
-        </div>
-        <div class="wave-container">
-            <svg class="waves" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-                <defs>
-                    <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-                </defs>
-                <g class="parallax-waves">
-                    <use href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7)" />
-                    <use href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
-                    <use href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
-                    <use href="#gentle-wave" x="48" y="7" fill="#fff" />
-                </g>
-            </svg>
-        </div>
-    </section>
-
-    <!-- ===== SERVICES ===== -->
-    <section id="services" class="services section">
-        <div class="container">
-            <div class="services-info reveal-left text-center" style="margin-bottom: 50px;">
-                <span class="pre-title">OUR MISSION</span>
-                <h2>Comprehensive <span>Marine Care</span></h2>
-                <p>From engine repair and electrical rewiring to full boat design and project management, we provide a complete ecosystem of marine services under one roof.</p>
-            </div>
-
-            <div class="services-grid reveal-right">
-                <!-- Card 1 -->
-                <div class="creative-card">
-                    <div class="card-icon"><i class="fas fa-ship"></i></div>
-                    <h3>Engines &amp; Propulsion</h3>
-                    <div class="card-description">
-                        <ul class="service-list">
-                            <li>Outboard Engine Sales</li>
-                            <li>Outboard Engine Repair</li>
-                            <li>Outboard Engine Maintenance</li>
-                            <li>Engine Replacement &amp; Re-powering</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="creative-card">
-                    <div class="card-icon"><i class="fas fa-pencil-ruler"></i></div>
-                    <h3>Boat Sales &amp; Design</h3>
-                    <div class="card-description">
-                        <ul class="service-list">
-                            <li>New &amp; Used Boat Sales</li>
-                            <li>Boat Design &amp; Project Management</li>
-                            <li>Fabrication &amp; Installation</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="creative-card">
-                    <div class="card-icon"><i class="fas fa-cogs"></i></div>
-                    <h3>Mechanical &amp; Hydraulics</h3>
-                    <div class="card-description">
-                        <ul class="service-list">
-                            <li>Mechanical Repair</li>
-                            <li>Hydraulic System Repair</li>
-                            <li>Fabrication &amp; Installation</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Card 4 -->
-                <div class="creative-card">
-                    <div class="card-icon"><i class="fas fa-bolt"></i></div>
-                    <h3>Electrical &amp; Electronics</h3>
-                    <div class="card-description">
-                        <ul class="service-list">
-                            <li>Boat Electrical Wiring</li>
-                            <li>Boat Electronics Repair</li>
-                            <li>Boat Rewiring</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Card 5 -->
-                <div class="creative-card">
-                    <div class="card-icon"><i class="fas fa-toolbox"></i></div>
-                    <h3>Accessories &amp; Supplies</h3>
-                    <div class="card-description">
-                        <ul class="service-list">
-                            <li>Boat Accessories Supply</li>
-                            <li>After-Sales Technical Support</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Card 6 -->
-                <div class="creative-card">
-                    <div class="card-icon"><i class="fas fa-certificate"></i></div>
-                    <h3>Warranty &amp; Support</h3>
-                    <div class="card-description">
-                        <ul class="service-list">
-                            <li>Mercury Warranty Service</li>
-                            <li>After-Sales Technical Support</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== OUR STORY ===== -->
-    <section id="about" class="about section">
-        <div class="container">
-            <div class="about-wrapper">
-                <!-- Left: Visuals -->
-                <div class="about-visual reveal-left">
-                    <div class="about-image-stack">
-                        <div class="img-main">
-                            <img src="assets/images/panel.png" alt="Marine Engineering Panel" />
-                            <div class="experience-badge">
-                                <span class="number">8+</span>
-                                <span class="text">Years of<br />Expertise</span>
-                            </div>
-                        </div>
-                        <div class="img-sub">
-                            <img src="assets/images/fire.png" alt="Ship Fire Safety Equipment" />
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right: Text -->
-                <div class="about-text reveal-right">
-                    <span class="pre-title">OUR STORY</span>
-                    <h2>Forging the Future of <span>Maritime Supply</span></h2>
-                    <p>Founded on a passion for precision and a deep respect for the ocean, ALHAZ MARINE has grown from a specialized workshop into a global partner for maritime excellence.</p>
-
-                    <div class="stats-grid">
-                        <div class="stat-item">
-                            <h3>500+</h3>
-                            <p>Vessels Served</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3>10k+</h3>
-                            <p>Parts Cataloged</p>
-                        </div>
-                    </div>
-
-                    <div class="quote-block">
-                        <p class="quote">&ldquo;We don't just supply parts; we ensure the safety and efficiency of every voyage.&rdquo;</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== BANNER PARALLAX ===== -->
-    <section class="banner-parallax">
-        <div class="banner-overlay"></div>
-        <div class="container banner-text text-center reveal-up">
-            <h2>Reliable Marine Infrastructure</h2>
-            <p>From brake coils to main engine sensors, we supply everything required for industrial marine operations.</p>
-        </div>
-    </section>
-
-    <!-- ===== GALLERY ===== -->
-    <section id="gallery" class="gallery section">
-        <div class="container">
-            <h2 class="text-center">Visual <span style="color: var(--ocean-mid);">Logbook</span></h2>
-            <div class="creative-gallery">
-                <div class="gal-box reveal-up" style="--i:1">
-                    <img src="assets/images/panel.png" alt="Log 1" />
-                    <div class="gal-info"><h3>Automation</h3></div>
-                </div>
-                <div class="gal-box reveal-up" style="--i:2">
-                    <img src="assets/images/fire.png" alt="Log 2" />
-                    <div class="gal-info"><h3>Safety</h3></div>
-                </div>
-                <div class="gal-box reveal-up" style="--i:3">
-                    <img src="assets/images/crane.png" alt="Log 3" />
-                    <div class="gal-info"><h3>Heavy Lift</h3></div>
-                </div>
-                <div class="gal-box reveal-up" style="--i:4">
-                    <img src="assets/images/hero.png" alt="Log 4" />
-                    <div class="gal-info"><h3>Industrial</h3></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== TESTIMONIALS ===== -->
-    <section class="testimonials section bg-light">
-        <div class="container text-center">
-            <h2 style="font-size: 2.6rem; font-weight: 700;">Trusted By <span style="color: var(--ocean-mid);">Maritime Leaders</span></h2>
-            <div class="testimonials-slider" id="testimonialSlider">
-                <div class="test-item">
-                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                    <p>&ldquo;The automation parts supplied were exactly what we needed for our tanker overhaul. Exceptional service and fast delivery across the ocean!&rdquo;</p>
-                    <div class="test-user">
-                        <img src="https://i.pravatar.cc/150?img=12" alt="Avatar" />
-                        <div class="test-meta">
-                            <h4>Capt. James Miller</h4>
-                            <span>Chief Engineer, OceanLine Tankers</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="test-item">
-                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                    <p>&ldquo;ALHAZ MARINE is our go-to partner for marine electrical components. Their catalog is vast, quality is impeccable, and the team genuinely cares about vessel safety. Highly recommended!&rdquo;</p>
-                    <div class="test-user">
-                        <img src="https://i.pravatar.cc/150?img=32" alt="Avatar" />
-                        <div class="test-meta">
-                            <h4>Maria Gonzalez</h4>
-                            <span>Procurement Director, BlueWave Maritime</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="test-item">
-                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                    <p>&ldquo;We've sourced engine sensors and fire safety gear from them for over 5 years. Consistent quality, excellent logistics, and they understand the urgency of vessel operations. A true industrial ally.&rdquo;</p>
-                    <div class="test-user">
-                        <img src="https://i.pravatar.cc/150?img=47" alt="Avatar" />
-                        <div class="test-meta">
-                            <h4>Rajiv Kapoor</h4>
-                            <span>Fleet Manager, Asia Pacific Shipping</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="test-item">
-                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                    <p>&ldquo;Impressed by their technical expertise in automation and control systems. They helped modernize our vessel's navigation suite within a tight schedule. Professional and innovative!&rdquo;</p>
-                    <div class="test-user">
-                        <img src="https://i.pravatar.cc/150?img=58" alt="Avatar" />
-                        <div class="test-meta">
-                            <h4>Emily Clarke</h4>
-                            <span>Senior Superintendent, NorthSea Marine</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="test-item">
-                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                    <p>&ldquo;From spare parts to full-scale project support, ALHAZ MARINE delivers excellence. Their team's deep knowledge of marine engineering gives us total confidence. A world-class supplier.&rdquo;</p>
-                    <div class="test-user">
-                        <img src="https://i.pravatar.cc/150?img=72" alt="Avatar" />
-                        <div class="test-meta">
-                            <h4>Abdul Rahman</h4>
-                            <span>CEO, Gulf Marine Services</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== CONTACT ===== -->
-    <section id="contact" class="contact section">
-        <div class="container">
-            <div class="contact-wrap reveal-up">
-                <div class="contact-form">
-                    <h2>Anchor Your <span>Project</span></h2>
-                    
-                    <!-- Active Contact Form - Uses FormSubmit.co -->
-                    <form id="creative-contact" action="https://api.web3forms.com/submit" method="POST">
-                        <input type="hidden" name="access_key" value="32e17ab7-08d8-4e04-8d04-67776c88f1a1">
-                        <!-- Honeypot to prevent spam -->
-                        <input type="text" name="_honey" style="display:none;">
-                        <!-- Disable Captcha -->
-                        <input type="hidden" name="_captcha" value="false">
-                        <!-- Auto redirect to success page (optional) -->
-                        <input type="hidden" name="_next" value="https://alhazmarine.com/thank-you.html">
-                        <!-- Success message -->
-                        <input type="hidden" name="_subject" value="New Contact Form Submission - ALHAZ MARINE">
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="name">Full Name <span class="required">*</span></label>
-                                <input type="text" id="name" name="Name" placeholder="Enter your full name" required />
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email Address <span class="required">*</span></label>
-                                <input type="email" id="email" name="Email" placeholder="Enter your email address" required />
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="phone">Phone Number</label>
-                                <input type="tel" id="phone" name="Phone" placeholder="Enter your phone number" />
-                            </div>
-                            <div class="form-group">
-                                <label for="interest">Service Interest <span class="required">*</span></label>
-                                <select id="interest" name="Interest" required>
-                                    <option value="">Select a service...</option>
-                                    <option value="Engines & Repair">Engines &amp; Repair</option>
-                                    <option value="Boat Sales & Design">Boat Sales &amp; Design</option>
-                                    <option value="Electrical & Rewiring">Electrical &amp; Rewiring</option>
-                                    <option value="Hydraulics & Mechanics">Hydraulics &amp; Mechanics</option>
-                                    <option value="Accessories & Parts">Accessories &amp; Parts</option>
-                                    <option value="Mercury Warranty">Mercury Warranty Service</option>
-                                    <option value="General Inquiry">General Inquiry</option>
-                                    <option value="General Inquiry">Others</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group full-width">
-                            <label for="message">Your Message <span class="required">*</span></label>
-                            <textarea id="message" name="Message" placeholder="Tell us about your project, requirements, or any questions..." rows="5" required></textarea>
-                        </div>
-                        <div class="form-group full-width">
-                            <button type="submit" class="btn btn-accent-full submit-btn">
-                                <i class="fas fa-paper-plane"></i> Send Message
-                            </button>
-                        </div>
-                        <div class="form-status" id="formStatus"></div>
-                    </form>
-                </div>
-                <div class="contact-info">
-                    <div class="info-block">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Headquarters</h4>
-                            <p>Agrabad Commercial Area, Chittagong, Bangladesh</p>
-                        </div>
-                    </div>
-                    <div class="info-block">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h4>Call or WhatsApp</h4>
-                            <p>
-                                <a href="tel:+8801815406539" class="phone-link">+8801815-406539</a><br />
-                                <a href="https://wa.me/8801590016859" target="_blank" class="whatsapp-link">
-                                    <i class="fab fa-whatsapp"></i> +8801590-016859
-                                </a>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="info-block">
-                        <i class="fas fa-paper-plane"></i>
-                        <div>
-                            <h4>Online Support</h4>
-                            <p><a href="mailto:info@alhazmarine.com">info@alhazmarine.com</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== FOOTER ===== -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <img src="assets/images/logo-new.png" alt="ALHAZ MARINE Logo" />
-                        <div class="footer-logo-text">
-                            <span class="footer-logo-main">ALHAZ<span> MARINE</span></span>
-                            <span class="footer-logo-sub">&amp; INDUSTRIAL SERVICE</span>
-                        </div>
-                    </div>
-                    <p class="footer-description">Providing premium marine solutions with 8+ years of excellence in maritime supply and engineering services.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul class="footer-links">
-                        <li><a href="#hero">Home</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#gallery">Gallery</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Our Services</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Engines &amp; Repair</a></li>
-                        <li><a href="#">Electrical Rewiring</a></li>
-                        <li><a href="#">Boat Sales &amp; Design</a></li>
-                        <li><a href="#">Hydraulic Systems</a></li>
-                        <li><a href="#">Mercury Warranty</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact Info</h4>
-                    <ul class="footer-contact">
-                        <li><i class="fas fa-map-marker-alt"></i> <span>Agrabad Commercial Area, Chittagong, Bangladesh</span></li>
-                        <li><i class="fas fa-phone"></i> <span><a href="tel:+8801815406539" style="color: rgba(255,255,255,0.7); text-decoration: none;">+8801815-406539</a></span></li>
-                        <li><i class="fab fa-whatsapp" style="color: #25D366;"></i> <span><a href="https://wa.me/8801590016859" target="_blank" style="color: rgba(255,255,255,0.7); text-decoration: none;">+8801590-016859</a></span></li>
-                        <li><i class="fas fa-envelope"></i> <span><a href="mailto:info@alhazmarine.com" style="color: rgba(255,255,255,0.7); text-decoration: none;">info@alhazmarine.com</a></span></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <div class="socials">
-                    <a href="https://www.facebook.com/alhazmarine/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.linkedin.com/company/alhaz-marine-industrial-service/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://wa.me/8801590016859" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                </div>
-
-                <div class="developer-credit">
-                    <p>
-                        Developed by
-                        <a href="mailto:aungching.jack420@gmail.com" class="dev-link" title="Click to Email">
-                            <i class="fas fa-code"></i> Aung Ching
-                        </a>
-                    </p>
-                </div>
-
-                <div class="copyright">
-                    <p>&copy; 2026 ALHAZ MARINE & INDUSTRIAL SERVICE. All rights reserved.</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- ===== BACK TO TOP ===== -->
-    <a href="#hero" id="backToTop" class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
+  <!-- ===== FLOATING BUTTONS ===== -->
+  <div class="whatsapp-float">
+    <a href="https://wa.me/8801590016859" target="_blank" aria-label="Chat on WhatsApp">
+      <i class="fab fa-whatsapp"></i>
     </a>
+  </div>
+  <div class="messenger-button" id="messengerBtn" aria-label="Request Quote">
+    <i class="fab fa-facebook-messenger"></i>
+    <span>Request Quote</span>
+  </div>
 
-    <!-- Main JavaScript -->
-    <script src="script.js"></script>
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <div class="container navbar">
+      <a href="#home" class="logo" data-page="home" id="logoLink">
+        <img src="assets/images/logo-new.png" alt="ALHAZ MARINE Logo" />
+        <div class="logo-text">
+          <span class="logo-main">ALHAZ<span> MARINE</span></span>
+          <span class="logo-sub">&amp; INDUSTRIAL SERVICE</span>
+        </div>
+      </a>
+      <nav class="nav" id="nav" aria-label="Main Navigation">
+        <a href="#home" class="active" data-page="home">Home</a>
+        <a href="#services" data-page="services">Services</a>
+        <a href="#about" data-page="about">About</a>
+        <a href="#gallery" data-page="gallery">Gallery</a>
+        <a href="#testimonials" data-page="testimonials">Testimonials</a>
+        <a href="#contact" data-page="contact">Contact</a>
+      </nav>
+      <div class="cta-header">
+        <a href="#contact" class="btn btn-accent" data-page="contact">Get Quote</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================ -->
+  <!-- PAGE: HOME                                   -->
+  <!-- ============================================ -->
+  <section id="home" class="page-section active">
+    <section id="hero-section" class="hero-parallax">
+      <div class="hero-bg-overlay"></div>
+      <div class="parallax-content container">
+        <h1 class="reveal-up">Powering the <span>Deep Blue</span></h1>
+        <p class="reveal-up">Precision engineering and high-performance industrial parts tailored for the marine sector.</p>
+        <div class="hero-btns reveal-up">
+          <a href="#services" class="btn btn-white" data-page="services">Explore Deeply</a>
+          <a href="#gallery" class="play-btn" data-page="gallery">
+            <i class="fas fa-play"></i> Watch Process
+          </a>
+        </div>
+      </div>
+      <div class="wave-container">
+        <svg class="waves" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+          <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+          </defs>
+          <g class="parallax-waves">
+            <use href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7)" />
+            <use href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+            <use href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+            <use href="#gentle-wave" x="48" y="7" fill="#fff" />
+          </g>
+        </svg>
+      </div>
+    </section>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- PAGE: SERVICES                               -->
+  <!-- ============================================ -->
+  <section id="services" class="page-section page-content">
+    <div class="container">
+      <div class="services-info reveal-left text-center">
+        <span class="pre-title">OUR MISSION</span>
+        <h2>Comprehensive <span>Marine Care</span></h2>
+        <p>From engine repair and electrical rewiring to full boat design and project management, we provide a complete ecosystem of marine services under one roof.</p>
+      </div>
+
+      <div class="services-visual-grid reveal-right">
+        <!-- Service 1 -->
+        <div class="service-visual-card">
+          <div class="service-image service-image-1">
+            <div class="pattern-overlay"></div>
+            <div class="service-icon-big"><i class="fas fa-ship"></i></div>
+            <div class="service-icon-overlay">
+              <i class="fas fa-ship"></i>
+            </div>
+          </div>
+          <div class="service-body">
+            <h3>Engines &amp; <span>Propulsion</span></h3>
+            <p>Complete outboard engine solutions from sales to maintenance and repair.</p>
+            <div class="service-features">
+              <span>Sales</span>
+              <span>Repair</span>
+              <span>Maintenance</span>
+              <span>Re-powering</span>
+            </div>
+            <a href="#contact" class="service-link" data-page="contact">Learn More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service-visual-card">
+          <div class="service-image service-image-2">
+            <div class="pattern-overlay"></div>
+            <div class="service-icon-big"><i class="fas fa-pencil-ruler"></i></div>
+            <div class="service-icon-overlay">
+              <i class="fas fa-pencil-ruler"></i>
+            </div>
+          </div>
+          <div class="service-body">
+            <h3>Boat Sales &amp; <span>Design</span></h3>
+            <p>New and used boat sales with custom design and project management.</p>
+            <div class="service-features">
+              <span>New Boats</span>
+              <span>Used Boats</span>
+              <span>Custom Design</span>
+              <span>Fabrication</span>
+            </div>
+            <a href="#contact" class="service-link" data-page="contact">Learn More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service-visual-card">
+          <div class="service-image service-image-3">
+            <div class="pattern-overlay"></div>
+            <div class="service-icon-big"><i class="fas fa-cogs"></i></div>
+            <div class="service-icon-overlay">
+              <i class="fas fa-cogs"></i>
+            </div>
+          </div>
+          <div class="service-body">
+            <h3>Mechanical &amp; <span>Hydraulics</span></h3>
+            <p>Expert mechanical repair and hydraulic system maintenance services.</p>
+            <div class="service-features">
+              <span>Mechanical Repair</span>
+              <span>Hydraulic Systems</span>
+              <span>Fabrication</span>
+            </div>
+            <a href="#contact" class="service-link" data-page="contact">Learn More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="service-visual-card">
+          <div class="service-image service-image-4">
+            <div class="pattern-overlay"></div>
+            <div class="service-icon-big"><i class="fas fa-bolt"></i></div>
+            <div class="service-icon-overlay">
+              <i class="fas fa-bolt"></i>
+            </div>
+          </div>
+          <div class="service-body">
+            <h3>Electrical &amp; <span>Electronics</span></h3>
+            <p>Complete electrical wiring, electronics repair, and rewiring solutions.</p>
+            <div class="service-features">
+              <span>Wiring</span>
+              <span>Electronics Repair</span>
+              <span>Rewiring</span>
+            </div>
+            <a href="#contact" class="service-link" data-page="contact">Learn More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Service 5 -->
+        <div class="service-visual-card">
+          <div class="service-image service-image-5">
+            <div class="pattern-overlay"></div>
+            <div class="service-icon-big"><i class="fas fa-toolbox"></i></div>
+            <div class="service-icon-overlay">
+              <i class="fas fa-toolbox"></i>
+            </div>
+          </div>
+          <div class="service-body">
+            <h3>Accessories &amp; <span>Supplies</span></h3>
+            <p>Wide range of boat accessories with after-sales technical support.</p>
+            <div class="service-features">
+              <span>Accessories</span>
+              <span>Technical Support</span>
+              <span>After-Sales</span>
+            </div>
+            <a href="#contact" class="service-link" data-page="contact">Learn More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Service 6 -->
+        <div class="service-visual-card">
+          <div class="service-image service-image-6">
+            <div class="pattern-overlay"></div>
+            <div class="service-icon-big"><i class="fas fa-certificate"></i></div>
+            <div class="service-icon-overlay">
+              <i class="fas fa-certificate"></i>
+            </div>
+          </div>
+          <div class="service-body">
+            <h3>Warranty &amp; <span>Support</span></h3>
+            <p>Mercury warranty service and dedicated after-sales technical support.</p>
+            <div class="service-features">
+              <span>Mercury Warranty</span>
+              <span>Technical Support</span>
+              <span>After-Sales</span>
+            </div>
+            <a href="#contact" class="service-link" data-page="contact">Learn More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- PAGE: ABOUT                                  -->
+  <!-- ============================================ -->
+  <section id="about" class="page-section page-content">
+    <div class="container">
+      <div class="about-wrapper">
+        <div class="about-visual reveal-left">
+          <div class="about-image-stack">
+            <div class="img-main">
+              <img src="assets/images/panel.png" alt="Marine Engineering Panel" />
+              <div class="experience-badge">
+                <span class="number">8+</span>
+                <span class="text">Years of<br />Expertise</span>
+              </div>
+            </div>
+            <div class="img-sub">
+              <img src="assets/images/fire.png" alt="Ship Fire Safety Equipment" />
+            </div>
+          </div>
+        </div>
+        <div class="about-text reveal-right">
+          <span class="pre-title">OUR STORY</span>
+          <h2>Forging the Future of <span>Maritime Supply</span></h2>
+          <p>Founded on a passion for precision and a deep respect for the ocean, ALHAZ MARINE has grown from a specialized workshop into a global partner for maritime excellence.</p>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <h3>500+</h3>
+              <p>Vessels Served</p>
+            </div>
+            <div class="stat-item">
+              <h3>10k+</h3>
+              <p>Parts Cataloged</p>
+            </div>
+          </div>
+          <div class="quote-block">
+            <p class="quote">&ldquo;We don't just supply parts; we ensure the safety and efficiency of every voyage.&rdquo;</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="banner-parallax" style="margin-top: 80px;">
+      <div class="banner-overlay"></div>
+      <div class="container banner-text text-center reveal-up">
+        <h2>Reliable Marine Infrastructure</h2>
+        <p>From brake coils to main engine sensors, we supply everything required for industrial marine operations.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- PAGE: GALLERY                                -->
+  <!-- ============================================ -->
+  <section id="gallery" class="page-section page-content">
+    <div class="container">
+      <h2 class="text-center">Visual <span style="color: var(--ocean-mid);">Logbook</span></h2>
+      <p class="text-center" style="color: #666; max-width: 600px; margin: 8px auto 0; font-size: 1.05rem;">
+        A glimpse into our world of marine engineering and industrial excellence
+      </p>
+
+      <div class="gallery-grid">
+        <div class="gallery-item featured">
+          <img src="https://images.unsplash.com/photo-1582951706267-ea25a56128bf?w=800&h=600&fit=crop&crop=center" alt="Ship at Sea" loading="lazy" />
+          <div class="gallery-overlay">
+            <h4>Marine Vessel</h4>
+            <p>Commercial ship at sea</p>
+          </div>
+          <span class="gallery-tag">Featured</span>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1567003903033-f74b4b75b3b0?w=600&h=600&fit=crop&crop=center" alt="Ship Engine" loading="lazy" />
+          <div class="gallery-overlay">
+            <h4>Ship Engine</h4>
+            <p>High-performance marine engine</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1597428179570-8e3b9b7412ab?w=600&h=600&fit=crop&crop=center" alt="Boat at Dock" loading="lazy" />
+          <div class="gallery-overlay">
+            <h4>Boat Docking</h4>
+            <p>Vessel at port</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1535531688125-d3d9f4720ad9?w=600&h=600&fit=crop&crop=center" alt="Ship Propeller" loading="lazy" />
+          <div class="gallery-overlay">
+            <h4>Propeller System</h4>
+            <p>Marine propeller repair</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1583358172679-4e3a3d2a5c93?w=600&h=600&fit=crop&crop=center" alt="Port Crane" loading="lazy" />
+          <div class="gallery-overlay">
+            <h4>Heavy Lift</h4>
+            <p>Industrial crane operations</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=600&fit=crop&crop=center" alt="Electrical Panel" loading="lazy" />
+          <div class="gallery-overlay">
+            <h4>Electrical Systems</h4>
+            <p>Marine electrical wiring</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1535043489050-6aa8fe5446a5?w=600&h=600&fit=crop&crop=center" alt="Ship Bridge" loading="lazy" />
+          <div class="gallery-overlay">
+            <h4>Navigation Bridge</h4>
+            <p>Ship control room</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1570708857820-639c1bc99508?w=600&h=600&fit=crop&crop=center" alt="Fire Safety" loading="lazy" />
+          <div class="gallery-overlay">
+            <h4>Safety Equipment</h4>
+            <p>Marine fire safety gear</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1569138514179-e3c8a2dd3c5e?w=600&h=600&fit=crop&crop=center" alt="Ship Maintenance" loading="lazy" />
+          <div class="gallery-overlay">
+            <h4>Maintenance Work</h4>
+            <p>Vessel repair services</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1571721795195-a2ca2d3370a0?w=600&h=600&fit=crop&crop=center" alt="Boat Wiring" loading="lazy" />
+          <div class="gallery-overlay">
+            <h4>Boat Wiring</h4>
+            <p>Professional rewiring services</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1544910595-16c7810da5e0?w=600&h=600&fit=crop&crop=center" alt="Technical Support" loading="lazy" />
+          <div class="gallery-overlay">
+            <h4>Technical Support</h4>
+            <p>After-sales assistance</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=600&h=600&fit=crop&crop=center" alt="Industrial Worker" loading="lazy" />
+          <div class="gallery-overlay">
+            <h4>Industrial Service</h4>
+            <p>Marine engineering work</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="text-center" style="margin-top: 60px; font-size: 1.8rem; font-weight: 700; color: var(--text-dark);">
+        Our <span style="color: var(--ocean-mid);">Work in Progress</span>
+      </h3>
+      <p class="text-center" style="color: #666; max-width: 600px; margin: 6px auto 0; font-size: 0.95rem;">
+        Behind the scenes of our marine engineering projects
+      </p>
+
+      <div class="gallery-masonry">
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1605281317010-fe5ffe798166?w=600&h=400&fit=crop&crop=center" alt="Engine Room" loading="lazy" />
+          <div class="gallery-overlay">
+            <h4>Engine Room</h4>
+            <p>Marine engine overhaul</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1542295747577-f59e0b25cc03?w=600&h=400&fit=crop&crop=center" alt="Boat Fabrication" loading="lazy" />
+          <div class="gallery-overlay">
+            <h4>Boat Fabrication</h4>
+            <p>Custom vessel construction</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1565717078575-0ae29adc4ab6?w=600&h=400&fit=crop&crop=center" alt="Navigation Equipment" loading="lazy" />
+          <div class="gallery-overlay">
+            <h4>Navigation Systems</h4>
+            <p>Marine electronics installation</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1583484700463-7911bf7558ef?w=600&h=400&fit=crop&crop=center" alt="Ship Construction" loading="lazy" />
+          <div class="gallery-overlay">
+            <h4>Ship Building</h4>
+            <p>Vessel construction project</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1605618120055-0d8c1ab5f5ba?w=600&h=400&fit=crop&crop=center" alt="Marine Parts" loading="lazy" />
+          <div class="gallery-overlay">
+            <h4>Parts Supply</h4>
+            <p>Marine parts inventory</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1514474959180-9b9778c15ad7?w=600&h=400&fit=crop&crop=center" alt="Marine Engineering" loading="lazy" />
+          <div class="gallery-overlay">
+            <h4>Engineering Work</h4>
+            <p>Marine engineering solutions</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 50px;">
+        <a href="#contact" class="btn btn-accent" data-page="contact" style="padding: 14px 40px; font-size: 1rem;">
+          <i class="fas fa-paper-plane"></i> Request a Quote
+        </a>
+        <p style="margin-top: 12px; font-size: 0.85rem; color: #888;">
+          Need specific parts or services? Contact our team today.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- PAGE: TESTIMONIALS                          -->
+  <!-- ============================================ -->
+  <section id="testimonials" class="page-section page-content testimonials-page">
+    <div class="container">
+      <div class="text-center reveal-up">
+        <span class="pre-title">WHAT OUR CLIENTS SAY</span>
+        <h2 style="font-size: 3rem; font-weight: 700; margin-bottom: 20px;">
+          Trusted By <span style="color: var(--ocean-mid);">Maritime Leaders</span>
+        </h2>
+        <p style="font-size: 1.1rem; color: #666; max-width: 700px; margin: 0 auto 50px;">
+          Real feedback from industry professionals who rely on ALHAZ MARINE for quality, reliability, and expertise.
+        </p>
+      </div>
+      <div class="testimonials-slider" id="testimonialSlider">
+        <div class="test-item">
+          <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+          <p>&ldquo;The automation parts supplied were exactly what we needed for our tanker overhaul. Exceptional service and fast delivery across the ocean!&rdquo;</p>
+          <div class="test-user">
+            <img src="https://i.pravatar.cc/150?img=12" alt="Avatar" />
+            <div class="test-meta">
+              <h4>Capt. James Miller</h4>
+              <span>Chief Engineer, OceanLine Tankers</span>
+            </div>
+          </div>
+        </div>
+        <div class="test-item">
+          <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+          <p>&ldquo;ALHAZ MARINE is our go-to partner for marine electrical components. Their catalog is vast, quality is impeccable, and the team genuinely cares about vessel safety. Highly recommended!&rdquo;</p>
+          <div class="test-user">
+            <img src="https://i.pravatar.cc/150?img=32" alt="Avatar" />
+            <div class="test-meta">
+              <h4>Maria Gonzalez</h4>
+              <span>Procurement Director, BlueWave Maritime</span>
+            </div>
+          </div>
+        </div>
+        <div class="test-item">
+          <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+          <p>&ldquo;We've sourced engine sensors and fire safety gear from them for over 5 years. Consistent quality, excellent logistics, and they understand the urgency of vessel operations. A true industrial ally.&rdquo;</p>
+          <div class="test-user">
+            <img src="https://i.pravatar.cc/150?img=47" alt="Avatar" />
+            <div class="test-meta">
+              <h4>Rajiv Kapoor</h4>
+              <span>Fleet Manager, Asia Pacific Shipping</span>
+            </div>
+          </div>
+        </div>
+        <div class="test-item">
+          <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+          <p>&ldquo;Impressed by their technical expertise in automation and control systems. They helped modernize our vessel's navigation suite within a tight schedule. Professional and innovative!&rdquo;</p>
+          <div class="test-user">
+            <img src="https://i.pravatar.cc/150?img=58" alt="Avatar" />
+            <div class="test-meta">
+              <h4>Emily Clarke</h4>
+              <span>Senior Superintendent, NorthSea Marine</span>
+            </div>
+          </div>
+        </div>
+        <div class="test-item">
+          <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+          <p>&ldquo;From spare parts to full-scale project support, ALHAZ MARINE delivers excellence. Their team's deep knowledge of marine engineering gives us total confidence. A world-class supplier.&rdquo;</p>
+          <div class="test-user">
+            <img src="https://i.pravatar.cc/150?img=72" alt="Avatar" />
+            <div class="test-meta">
+              <h4>Abdul Rahman</h4>
+              <span>CEO, Gulf Marine Services</span>
+            </div>
+          </div>
+        </div>
+        <div class="test-item">
+          <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+          <p>&ldquo;Working with ALHAZ MARINE has been a game-changer for our fleet operations. Their responsiveness and technical knowledge are unmatched in the industry. We've reduced our downtime significantly.&rdquo;</p>
+          <div class="test-user">
+            <img src="https://i.pravatar.cc/150?img=91" alt="Avatar" />
+            <div class="test-meta">
+              <h4>David Chen</h4>
+              <span>Operations Director, Pacific Star Shipping</span>
+            </div>
+          </div>
+        </div>
+        <div class="test-item">
+          <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+          <p>&ldquo;ALHAZ MARINE provided us with custom-engineered solutions that perfectly matched our vessel's requirements. Their attention to detail and commitment to quality is truly world-class.&rdquo;</p>
+          <div class="test-user">
+            <img src="https://i.pravatar.cc/150?img=45" alt="Avatar" />
+            <div class="test-meta">
+              <h4>Sarah Williams</h4>
+              <span>Technical Director, Atlantic Marine Group</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slider-dots">
+        <span class="dot active" data-index="0"></span>
+        <span class="dot" data-index="1"></span>
+        <span class="dot" data-index="2"></span>
+        <span class="dot" data-index="3"></span>
+        <span class="dot" data-index="4"></span>
+        <span class="dot" data-index="5"></span>
+        <span class="dot" data-index="6"></span>
+      </div>
+      <div class="slider-nav">
+        <button class="slider-prev"><i class="fas fa-chevron-left"></i></button>
+        <button class="slider-next"><i class="fas fa-chevron-right"></i></button>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin-top: 60px; padding-top: 50px; border-top: 1px solid #eee;">
+        <div style="text-align: center;">
+          <h3 style="font-size: 2.8rem; font-weight: 800; color: var(--ocean-mid);">500+</h3>
+          <p style="color: #666; font-weight: 600;">Vessels Served</p>
+        </div>
+        <div style="text-align: center;">
+          <h3 style="font-size: 2.8rem; font-weight: 800; color: var(--ocean-mid);">10k+</h3>
+          <p style="color: #666; font-weight: 600;">Parts Cataloged</p>
+        </div>
+        <div style="text-align: center;">
+          <h3 style="font-size: 2.8rem; font-weight: 800; color: var(--ocean-mid);">98%</h3>
+          <p style="color: #666; font-weight: 600;">Client Satisfaction</p>
+        </div>
+        <div style="text-align: center;">
+          <h3 style="font-size: 2.8rem; font-weight: 800; color: var(--ocean-mid);">24/7</h3>
+          <p style="color: #666; font-weight: 600;">Technical Support</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- PAGE: CONTACT                               -->
+  <!-- ============================================ -->
+  <section id="contact" class="page-section page-content">
+    <div class="container">
+      <div class="contact-wrap reveal-up">
+        <div class="contact-form">
+          <h2>Anchor Your <span>Project</span></h2>
+          <form id="creative-contact" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="32e17ab7-08d8-4e04-8d04-67776c88f1a1">
+            <input type="text" name="_honey" style="display:none;">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://alhazmarine.com/thank-you.html">
+            <input type="hidden" name="_subject" value="New Contact Form Submission - ALHAZ MARINE">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Full Name <span class="required">*</span></label>
+                <input type="text" id="name" name="Name" placeholder="Enter your full name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address <span class="required">*</span></label>
+                <input type="email" id="email" name="Email" placeholder="Enter your email address" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="Phone" placeholder="Enter your phone number" />
+              </div>
+              <div class="form-group">
+                <label for="interest">Service Interest <span class="required">*</span></label>
+                <select id="interest" name="Interest" required>
+                  <option value="">Select a service...</option>
+                  <option value="Engines & Repair">Engines &amp; Repair</option>
+                  <option value="Boat Sales & Design">Boat Sales &amp; Design</option>
+                  <option value="Electrical & Rewiring">Electrical &amp; Rewiring</option>
+                  <option value="Hydraulics & Mechanics">Hydraulics &amp; Mechanics</option>
+                  <option value="Accessories & Parts">Accessories &amp; Parts</option>
+                  <option value="Mercury Warranty">Mercury Warranty Service</option>
+                  <option value="General Inquiry">General Inquiry</option>
+                  <option value="Others">Others</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group full-width">
+              <label for="message">Your Message <span class="required">*</span></label>
+              <textarea id="message" name="Message" placeholder="Tell us about your project, requirements, or any questions..." rows="5" required></textarea>
+            </div>
+            <div class="form-group full-width">
+              <button type="submit" class="btn btn-accent-full submit-btn">
+                <i class="fas fa-paper-plane"></i> Send Message
+              </button>
+            </div>
+            <div class="form-status" id="formStatus"></div>
+          </form>
+        </div>
+        <div class="contact-info">
+          <div class="info-block">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <h4>Headquarters</h4>
+              <p>Agrabad Commercial Area, Chittagong, Bangladesh</p>
+            </div>
+          </div>
+          <div class="info-block">
+            <i class="fas fa-phone"></i>
+            <div>
+              <h4>Call or WhatsApp</h4>
+              <p>
+                <a href="tel:+8801815406539" class="phone-link">+8801815-406539</a><br />
+                <a href="https://wa.me/8801590016859" target="_blank" class="whatsapp-link">
+                  <i class="fab fa-whatsapp"></i> +8801590-016859
+                </a>
+              </p>
+            </div>
+          </div>
+          <div class="info-block">
+            <i class="fas fa-paper-plane"></i>
+            <div>
+              <h4>Online Support</h4>
+              <p><a href="mailto:info@alhazmarine.com">info@alhazmarine.com</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div class="socials">
+          <a href="https://www.facebook.com/alhazmarine/" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://www.linkedin.com/company/alhaz-marine-industrial-service/" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://wa.me/8801590016859" target="_blank" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+        <div class="developer-credit">
+          <p>Developed by <a href="mailto:aungching.jack420@gmail.com" class="dev-link"><i class="fas fa-code"></i> Aung Ching</a></p>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2026 ALHAZ MARINE. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== BACK TO TOP ===== -->
+  <a href="#home" id="backToTop" class="back-to-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script src="script.js"></script>
 </body>
 </html>
