@@ -1,6 +1,7 @@
 /* ============================================
    ALHAZ MARINE - SCRIPT.JS
    Single Page Navigation with Loader
+   Version: 2.0 (Complete)
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -109,15 +110,6 @@ document.addEventListener('DOMContentLoaded', function() {
           }
         });
       }, 100);
-
-      // Restart testimonial slider
-      if (pageId === 'testimonials') {
-        setTimeout(() => {
-          if (typeof restartTestimonialSlider === 'function') {
-            restartTestimonialSlider();
-          }
-        }, 300);
-      }
 
       // Hide page change loader
       setTimeout(() => {
@@ -274,147 +266,6 @@ document.addEventListener('DOMContentLoaded', function() {
   window.addEventListener('scroll', revealOnScroll, { passive: true });
 
   // ===============================
-  // TESTIMONIAL SLIDER
-  // ===============================
-  let testimonials = document.querySelectorAll('.test-item');
-  let dots = document.querySelectorAll('.dot');
-  let prevBtn = document.querySelector('.slider-prev');
-  let nextBtn = document.querySelector('.slider-next');
-  let currentIndex = 0;
-  let intervalId = null;
-
-  function showTestimonial(index) {
-    if (!testimonials.length) return;
-    
-    testimonials.forEach(t => t.style.display = 'none');
-    if (testimonials[index]) {
-      testimonials[index].style.display = 'block';
-      testimonials[index].style.animation = 'none';
-      testimonials[index].offsetHeight;
-      testimonials[index].style.animation = 'fadeSlide 0.5s ease-out';
-    }
-
-    dots.forEach(d => d.classList.remove('active'));
-    if (dots[index]) {
-      dots[index].classList.add('active');
-    }
-
-    currentIndex = index;
-  }
-
-  function nextTestimonial() {
-    if (testimonials.length > 0) {
-      const nextIndex = (currentIndex + 1) % testimonials.length;
-      showTestimonial(nextIndex);
-    }
-  }
-
-  function prevTestimonial() {
-    if (testimonials.length > 0) {
-      const prevIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
-      showTestimonial(prevIndex);
-    }
-  }
-
-  function startSlider() {
-    if (intervalId) {
-      clearInterval(intervalId);
-      intervalId = null;
-    }
-    if (testimonials.length > 1) {
-      intervalId = setInterval(nextTestimonial, 4000);
-    }
-  }
-
-  function restartTestimonialSlider() {
-    testimonials = document.querySelectorAll('.test-item');
-    dots = document.querySelectorAll('.dot');
-    prevBtn = document.querySelector('.slider-prev');
-    nextBtn = document.querySelector('.slider-next');
-    
-    if (testimonials.length > 0) {
-      showTestimonial(0);
-      startSlider();
-    }
-  }
-
-  if (testimonials.length > 0) {
-    showTestimonial(0);
-    startSlider();
-  }
-
-  dots.forEach(dot => {
-    dot.addEventListener('click', function() {
-      const index = parseInt(this.getAttribute('data-index'));
-      if (!isNaN(index) && testimonials[index]) {
-        showTestimonial(index);
-        if (intervalId) {
-          clearInterval(intervalId);
-          intervalId = null;
-        }
-        startSlider();
-      }
-    });
-  });
-
-  if (prevBtn) {
-    prevBtn.addEventListener('click', function() {
-      prevTestimonial();
-      if (intervalId) {
-        clearInterval(intervalId);
-        intervalId = null;
-      }
-      startSlider();
-    });
-  }
-
-  if (nextBtn) {
-    nextBtn.addEventListener('click', function() {
-      nextTestimonial();
-      if (intervalId) {
-        clearInterval(intervalId);
-        intervalId = null;
-      }
-      startSlider();
-    });
-  }
-
-  const sliderContainer = document.querySelector('.testimonials-slider');
-  if (sliderContainer && testimonials.length > 0) {
-    sliderContainer.addEventListener('mouseenter', () => {
-      if (intervalId) {
-        clearInterval(intervalId);
-        intervalId = null;
-      }
-    });
-    sliderContainer.addEventListener('mouseleave', () => {
-      if (!intervalId) {
-        startSlider();
-      }
-    });
-
-    sliderContainer.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowLeft') {
-        e.preventDefault();
-        prevTestimonial();
-        if (intervalId) {
-          clearInterval(intervalId);
-          intervalId = null;
-        }
-        startSlider();
-      } else if (e.key === 'ArrowRight') {
-        e.preventDefault();
-        nextTestimonial();
-        if (intervalId) {
-          clearInterval(intervalId);
-          intervalId = null;
-        }
-        startSlider();
-      }
-    });
-  }
-
-  // ===============================
   // CONTACT FORM
   // ===============================
   const contactForm = document.getElementById('creative-contact');
@@ -464,7 +315,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // ===============================
-  // MESSENGER BUTTON
+  // MESSENGER BUTTON (Draggable)
   // ===============================
   const messengerBtn = document.getElementById('messengerBtn');
   let isDragging = false;
