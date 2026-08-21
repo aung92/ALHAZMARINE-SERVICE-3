@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const pageLoader = document.getElementById('pageLoader');
   const pageChangeLoader = document.getElementById('pageChangeLoader');
 
-  // Hide page loader after 2.5 seconds
   setTimeout(function() {
     if (pageLoader) {
       pageLoader.classList.add('hidden');
@@ -29,9 +28,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const backToTop = document.getElementById('backToTop');
   const header = document.querySelector('.header');
   
-  // ===============================
-  // LOGO CLICK - GO TO HOME
-  // ===============================
   const logoLink = document.getElementById('logoLink');
   if (logoLink) {
     logoLink.addEventListener('click', function(e) {
@@ -47,9 +43,109 @@ document.addEventListener('DOMContentLoaded', function() {
 
   let isChangingPage = false;
 
-  // Function to switch page with loader
+  // ===============================
+  // DROPDOWN - Hover to show/hide
+  // ===============================
+  const navDropdown = document.querySelector('.nav-dropdown');
+  let dropdownTimeout = null;
+  let isHovering = false;
+
+  if (navDropdown) {
+    navDropdown.addEventListener('mouseenter', function(e) {
+      if (dropdownTimeout) {
+        clearTimeout(dropdownTimeout);
+        dropdownTimeout = null;
+      }
+      isHovering = true;
+      if (window.innerWidth > 768) {
+        this.classList.add('active');
+      }
+    });
+    
+    navDropdown.addEventListener('mouseleave', function(e) {
+      isHovering = false;
+      if (window.innerWidth > 768) {
+        dropdownTimeout = setTimeout(() => {
+          if (!isHovering && !navDropdown.matches(':hover')) {
+            navDropdown.classList.remove('active');
+          }
+          dropdownTimeout = null;
+        }, 200);
+      }
+    });
+    
+    const dropdownToggle = document.querySelector('.dropdown-toggle');
+    if (dropdownToggle) {
+      dropdownToggle.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          e.stopPropagation();
+          navDropdown.classList.toggle('active');
+        }
+      });
+    }
+  }
+
+  // ===============================
+  // DROPDOWN LINKS - Click to navigate
+  // ===============================
+  document.querySelectorAll('.dropdown-menu a[data-page]').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const pageId = this.getAttribute('data-page');
+      
+      if (pageId) {
+        const nav = document.querySelector('.nav');
+        const hamburger = document.querySelector('.hamburger-menu');
+        if (nav) nav.classList.remove('active');
+        if (hamburger) hamburger.classList.remove('active');
+        if (navDropdown) {
+          navDropdown.classList.remove('active');
+          if (dropdownTimeout) {
+            clearTimeout(dropdownTimeout);
+            dropdownTimeout = null;
+          }
+        }
+        document.body.style.overflow = '';
+        switchPage(pageId);
+      }
+    });
+  });
+
+  // ===============================
+  // SERVICE CARD LINKS
+  // ===============================
+  document.querySelectorAll('.service-link[data-page]').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const pageId = this.getAttribute('data-page');
+      if (pageId) {
+        switchPage(pageId);
+      }
+    });
+  });
+
+  // ===============================
+  // SERVICE LIST LINKS
+  // ===============================
+  document.querySelectorAll('.service-list-link[data-page]').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const pageId = this.getAttribute('data-page');
+      if (pageId) {
+        switchPage(pageId);
+      }
+    });
+  });
+
+  // ===============================
+  // Switch Page Function
+  // ===============================
   function switchPage(pageId) {
     if (isChangingPage) return;
+    
+    const isServicePage = pageId.startsWith('service-');
+    
     if (pageId === getCurrentPage()) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
@@ -57,24 +153,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
     isChangingPage = true;
 
-    // Show page change loader
     if (pageChangeLoader) {
       pageChangeLoader.classList.add('active');
     }
 
-    // Hide all pages
     allPages.forEach(page => {
       page.classList.remove('active');
     });
 
-    // Show target page after delay
     setTimeout(() => {
       const targetPage = document.getElementById(pageId);
       if (targetPage) {
         targetPage.classList.add('active');
       }
 
-      // Handle hero section separately
       if (heroSection) {
         if (pageId === 'home') {
           heroSection.classList.remove('hidden');
@@ -83,12 +175,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       }
 
-      // Update URL hash
       if (history.pushState) {
         history.pushState(null, null, '#' + pageId);
       }
 
-      // Update active nav link
       navLinks.forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('data-page') === pageId) {
@@ -96,12 +186,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
 
-      // Scroll to top
       window.scrollTo({ top: 0, behavior: 'smooth' });
 
-      // Trigger reveal animations
       setTimeout(() => {
-        const reveals = targetPage.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
+        const reveals = targetPage ? targetPage.querySelectorAll('.reveal-up, .reveal-left, .reveal-right') : [];
         reveals.forEach(el => {
           const elementTop = el.getBoundingClientRect().top;
           const windowHeight = window.innerHeight;
@@ -111,7 +199,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       }, 100);
 
-      // Hide page change loader
       setTimeout(() => {
         if (pageChangeLoader) {
           pageChangeLoader.classList.remove('active');
@@ -122,7 +209,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 500);
   }
 
-  // Get current active page
+  // ===============================
+  // Get Current Page
+  // ===============================
   function getCurrentPage() {
     let current = 'home';
     navLinks.forEach(link => {
@@ -130,21 +219,33 @@ document.addEventListener('DOMContentLoaded', function() {
         current = link.getAttribute('data-page');
       }
     });
+    allPages.forEach(page => {
+      if (page.classList.contains('active') && page.id.startsWith('service-')) {
+        current = page.id;
+      }
+    });
     return current;
   }
 
+  // ===============================
   // Nav link click handler
+  // ===============================
   navLinks.forEach(link => {
     link.addEventListener('click', function(e) {
       e.preventDefault();
       const pageId = this.getAttribute('data-page');
       if (pageId) {
+        if (pageId === 'services' && window.innerWidth <= 768) {
+          if (navDropdown) navDropdown.classList.remove('active');
+        }
         switchPage(pageId);
       }
     });
   });
 
+  // ===============================
   // Handle CTA button clicks
+  // ===============================
   document.querySelectorAll('[data-page]').forEach(el => {
     if (el.tagName === 'A' && el.getAttribute('data-page')) {
       el.addEventListener('click', function(e) {
@@ -162,6 +263,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // ===============================
   function handleHashOnLoad() {
     const hash = window.location.hash.replace('#', '');
+    
     if (hash && document.getElementById(hash)) {
       allPages.forEach(page => {
         page.classList.remove('active');
@@ -197,7 +299,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
+  // ===============================
   // Handle browser back/forward
+  // ===============================
   window.addEventListener('popstate', function() {
     const hash = window.location.hash.replace('#', '');
     if (hash && document.getElementById(hash)) {
@@ -242,7 +346,6 @@ document.addEventListener('DOMContentLoaded', function() {
   // PARALLAX HERO
   // ===============================
   const hero = document.querySelector('.hero-parallax');
-
   window.addEventListener('scroll', function() {
     if (hero && !hero.classList.contains('hidden')) {
       hero.style.backgroundPositionY = window.scrollY * 0.5 + 'px';
@@ -435,7 +538,6 @@ document.addEventListener('DOMContentLoaded', function() {
   if (navbar && nav) {
     let hamburger = document.querySelector('.hamburger-menu');
     
-    // Create hamburger if not exists
     if (!hamburger) {
       hamburger = document.createElement('button');
       hamburger.className = 'hamburger-menu';
@@ -450,11 +552,12 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
     
-    // Toggle menu on hamburger click
     hamburger.addEventListener('click', function(e) {
       e.stopPropagation();
       this.classList.toggle('active');
       nav.classList.toggle('active');
+      
+      if (navDropdown) navDropdown.classList.remove('active');
       
       if (nav.classList.contains('active')) {
         document.body.style.overflow = 'hidden';
@@ -463,32 +566,32 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
     
-    // Close menu when clicking on a link
     nav.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', function() {
         nav.classList.remove('active');
         hamburger.classList.remove('active');
         document.body.style.overflow = '';
+        if (navDropdown) navDropdown.classList.remove('active');
       });
     });
     
-    // Close menu when clicking outside
     document.addEventListener('click', function(e) {
       if (window.innerWidth <= 768) {
         if (!navbar.contains(e.target) && nav.classList.contains('active')) {
           nav.classList.remove('active');
           hamburger.classList.remove('active');
           document.body.style.overflow = '';
+          if (navDropdown) navDropdown.classList.remove('active');
         }
       }
     });
     
-    // Close menu on window resize to desktop
     window.addEventListener('resize', function() {
       if (window.innerWidth > 768) {
         nav.classList.remove('active');
         hamburger.classList.remove('active');
         document.body.style.overflow = '';
+        if (navDropdown) navDropdown.classList.remove('active');
       }
     });
   }
@@ -545,9 +648,6 @@ document.addEventListener('DOMContentLoaded', function() {
   handleHashOnLoad();
   setTimeout(revealOnScroll, 500);
 
-  // ===============================
-  // CONSOLE
-  // ===============================
   console.log('🚢 ALHAZ MARINE - Single Page App Loaded');
   console.log('📅 ' + new Date().toLocaleDateString('en-US', {
     weekday: 'long',
@@ -555,4 +655,7 @@ document.addEventListener('DOMContentLoaded', function() {
     month: 'long',
     day: 'numeric'
   }));
+  console.log('📋 Services Available: 23+ Independent Pages');
+  console.log('💡 Hover on "Services" menu to see dropdown');
+  console.log('💡 Click on any service to view its dedicated page');
 });

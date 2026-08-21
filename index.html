@@ -25,6 +25,209 @@
   
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/logo-new.png" />
+  
+  <style>
+    .service-detail-image {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 16px;
+      margin-bottom: 20px;
+    }
+    .service-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .service-detail-grid .left-col {
+      background: var(--gray-bg);
+      border-radius: 20px;
+      padding: 30px 25px;
+    }
+    .service-detail-grid .right-col {
+      background: var(--ocean-deep);
+      border-radius: 20px;
+      padding: 30px 25px;
+      color: var(--white);
+    }
+    .service-detail-grid .right-col h3 {
+      color: var(--accent-orange);
+    }
+    .service-detail-grid ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .service-detail-grid ul li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .service-detail-grid ul li i {
+      color: var(--accent-orange);
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+    .service-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    .service-tags span {
+      background: rgba(255,255,255,0.1);
+      padding: 4px 14px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+    .service-cta-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .service-cta-buttons .btn {
+      flex: 1;
+      min-width: 140px;
+      text-align: center;
+    }
+    .service-back-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px 0;
+    }
+    .service-features-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .service-features-list span {
+      background: var(--white);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      text-align: center;
+      border: 1px solid #e8edf2;
+      transition: all 0.3s ease;
+    }
+    .service-features-list span:hover {
+      background: var(--accent-orange);
+      color: var(--white);
+      border-color: var(--accent-orange);
+    }
+    .service-categories-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+    }
+    .service-category {
+      background: var(--white);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: all 0.3s ease;
+    }
+    .service-category:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    }
+    .service-category ul li {
+      transition: all 0.3s ease;
+      border-radius: 8px;
+    }
+    .service-category ul li:hover {
+      background: rgba(0, 119, 182, 0.08) !important;
+      padding-left: 14px;
+    }
+    .service-category ul li a {
+      display: flex !important;
+      align-items: center !important;
+      gap: 10px !important;
+      padding: 8px 12px !important;
+      border-radius: 8px !important;
+      transition: all 0.3s ease !important;
+      background: var(--gray-bg) !important;
+      color: var(--text-dark) !important;
+      text-decoration: none !important;
+    }
+    .service-category ul li a:hover {
+      color: var(--accent-orange) !important;
+      padding-left: 16px !important;
+    }
+    .service-category ul li a i {
+      color: var(--accent-orange);
+      flex-shrink: 0;
+    }
+    
+    @media (max-width: 1024px) {
+      .service-categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+    }
+    @media (max-width: 768px) {
+      .service-detail-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+      .service-detail-image {
+        height: 200px;
+      }
+      .service-detail-grid ul li {
+        font-size: 0.85rem;
+      }
+      .service-features-list {
+        grid-template-columns: 1fr 1fr;
+      }
+      .service-categories-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+    @media (max-width: 425px) {
+      .service-features-list {
+        grid-template-columns: 1fr;
+      }
+      .service-detail-hero {
+        padding: 20px 16px !important;
+      }
+      .service-detail-hero h1 {
+        font-size: 1.5rem !important;
+      }
+      .service-detail-hero img {
+        width: 100% !important;
+        height: 120px !important;
+      }
+      .service-detail-grid .left-col,
+      .service-detail-grid .right-col {
+        padding: 18px 14px !important;
+      }
+      .service-cta-buttons .btn {
+        min-width: 100% !important;
+      }
+      .service-stats {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+        padding: 20px 15px !important;
+      }
+      .service-stats span:first-child {
+        font-size: 1.8rem !important;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- ===== PAGE LOADER ===== -->
@@ -120,7 +323,59 @@
       </a>
       <nav class="nav" id="nav" aria-label="Main Navigation">
         <a href="#home" class="active" data-page="home">Home</a>
-        <a href="#services" data-page="services">Services</a>
+        
+        <!-- ===== SERVICES WITH DROPDOWN ===== -->
+        <div class="nav-dropdown">
+          <a href="#services" data-page="services" class="dropdown-toggle">
+            Services <i class="fas fa-chevron-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-group">
+              <span class="dropdown-group-title"><i class="fas fa-anchor"></i> Marine Services</span>
+              <ul>
+                <li><a href="#service-provision" data-page="service-provision">Provision Supply</a></li>
+                <li><a href="#service-repairing" data-page="service-repairing">Ship Repairing</a></li>
+                <li><a href="#service-store" data-page="service-store">Store Supply</a></li>
+                <li><a href="#service-bunker" data-page="service-bunker">Bunker Supply</a></li>
+                <li><a href="#service-cleaning" data-page="service-cleaning">Cleaning Service</a></li>
+                <li><a href="#service-underwater" data-page="service-underwater">Underwater Services</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-group">
+              <span class="dropdown-group-title"><i class="fas fa-wrench"></i> Engine &amp; Mechanical</span>
+              <ul>
+                <li><a href="#service-engine-repair" data-page="service-engine-repair">Main Engine &amp; Generator Repairs</a></li>
+                <li><a href="#service-hydraulic-repair" data-page="service-hydraulic-repair">Hydraulic System Repair</a></li>
+                <li><a href="#service-grab" data-page="service-grab">Grab Repairs</a></li>
+                <li><a href="#service-pump" data-page="service-pump">Pump Repair &amp; Maintenance</a></li>
+                <li><a href="#service-compressor" data-page="service-compressor">Compressor Repair &amp; Maintenance</a></li>
+                <li><a href="#service-crane" data-page="service-crane">Crane &amp; Deck Machinery Repair</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-group">
+              <span class="dropdown-group-title"><i class="fas fa-bolt"></i> Electrical &amp; Systems</span>
+              <ul>
+                <li><a href="#service-electrical-repair" data-page="service-electrical-repair">Electrical Repairs &amp; Maintenance</a></li>
+                <li><a href="#service-automation" data-page="service-automation">Electrical &amp; Automation Services</a></li>
+                <li><a href="#service-hvac" data-page="service-hvac">Refrigeration &amp; Air Conditioning</a></li>
+                <li><a href="#service-boiler" data-page="service-boiler">Boiler Repair &amp; Maintenance</a></li>
+                <li><a href="#service-welding" data-page="service-welding">Welding &amp; Fabrication</a></li>
+                <li><a href="#service-spare" data-page="service-spare">Marine Spare Parts Supply</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-group">
+              <span class="dropdown-group-title"><i class="fas fa-handshake"></i> Support &amp; Consultancy</span>
+              <ul>
+                <li><a href="#service-shipping" data-page="service-shipping">Shipping Agency Services</a></li>
+                <li><a href="#service-security" data-page="service-security">Security Services</a></li>
+                <li><a href="#service-bond" data-page="service-bond">Bond Store Supply</a></li>
+                <li><a href="#service-safety" data-page="service-safety">Safety Equipment Supply &amp; Service</a></li>
+                <li><a href="#service-consultancy" data-page="service-consultancy">Marine Consultancy / Technical Support</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        
         <a href="#about" data-page="about">About</a>
         <a href="#gallery" data-page="gallery">Gallery</a>
         <a href="#testimonials" data-page="testimonials">Testimonials</a>
@@ -165,7 +420,7 @@
   </section>
 
   <!-- ============================================ -->
-  <!-- PAGE: SERVICES                               -->
+  <!-- PAGE: SERVICES - All Services List           -->
   <!-- ============================================ -->
   <section id="services" class="page-section page-content">
     <div class="container">
@@ -176,133 +431,1483 @@
       </div>
 
       <div class="services-visual-grid reveal-right">
-        <!-- Service 1 -->
+        <!-- Service Card 1 -->
         <div class="service-visual-card">
           <div class="service-image service-image-1">
             <div class="pattern-overlay"></div>
             <div class="service-icon-big"><i class="fas fa-ship"></i></div>
-            <div class="service-icon-overlay">
-              <i class="fas fa-ship"></i>
-            </div>
+            <div class="service-icon-overlay"><i class="fas fa-ship"></i></div>
           </div>
           <div class="service-body">
             <h3>Engines &amp; <span>Propulsion</span></h3>
             <p>Complete outboard engine solutions from sales to maintenance and repair.</p>
-            <div class="service-features">
-              <span>Sales</span>
-              <span>Repair</span>
-              <span>Maintenance</span>
-              <span>Re-powering</span>
-            </div>
-            <a href="#contact" class="service-link" data-page="contact">Learn More <i class="fas fa-arrow-right"></i></a>
+            <div class="service-features"><span>Sales</span><span>Repair</span><span>Maintenance</span></div>
+            <a href="#service-engine-repair" class="service-link" data-page="service-engine-repair">Learn More <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
-
-        <!-- Service 2 -->
+        <!-- Service Card 2 -->
         <div class="service-visual-card">
           <div class="service-image service-image-2">
             <div class="pattern-overlay"></div>
             <div class="service-icon-big"><i class="fas fa-pencil-ruler"></i></div>
-            <div class="service-icon-overlay">
-              <i class="fas fa-pencil-ruler"></i>
-            </div>
+            <div class="service-icon-overlay"><i class="fas fa-pencil-ruler"></i></div>
           </div>
           <div class="service-body">
             <h3>Boat Sales &amp; <span>Design</span></h3>
             <p>New and used boat sales with custom design and project management.</p>
-            <div class="service-features">
-              <span>New Boats</span>
-              <span>Used Boats</span>
-              <span>Custom Design</span>
-              <span>Fabrication</span>
-            </div>
+            <div class="service-features"><span>New Boats</span><span>Used Boats</span><span>Custom Design</span></div>
             <a href="#contact" class="service-link" data-page="contact">Learn More <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
-
-        <!-- Service 3 -->
+        <!-- Service Card 3 -->
         <div class="service-visual-card">
           <div class="service-image service-image-3">
             <div class="pattern-overlay"></div>
             <div class="service-icon-big"><i class="fas fa-cogs"></i></div>
-            <div class="service-icon-overlay">
-              <i class="fas fa-cogs"></i>
-            </div>
+            <div class="service-icon-overlay"><i class="fas fa-cogs"></i></div>
           </div>
           <div class="service-body">
             <h3>Mechanical &amp; <span>Hydraulics</span></h3>
             <p>Expert mechanical repair and hydraulic system maintenance services.</p>
-            <div class="service-features">
-              <span>Mechanical Repair</span>
-              <span>Hydraulic Systems</span>
-              <span>Fabrication</span>
-            </div>
-            <a href="#contact" class="service-link" data-page="contact">Learn More <i class="fas fa-arrow-right"></i></a>
+            <div class="service-features"><span>Mechanical Repair</span><span>Hydraulic Systems</span></div>
+            <a href="#service-hydraulic-repair" class="service-link" data-page="service-hydraulic-repair">Learn More <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
-
-        <!-- Service 4 -->
+        <!-- Service Card 4 -->
         <div class="service-visual-card">
           <div class="service-image service-image-4">
             <div class="pattern-overlay"></div>
             <div class="service-icon-big"><i class="fas fa-bolt"></i></div>
-            <div class="service-icon-overlay">
-              <i class="fas fa-bolt"></i>
-            </div>
+            <div class="service-icon-overlay"><i class="fas fa-bolt"></i></div>
           </div>
           <div class="service-body">
             <h3>Electrical &amp; <span>Electronics</span></h3>
             <p>Complete electrical wiring, electronics repair, and rewiring solutions.</p>
-            <div class="service-features">
-              <span>Wiring</span>
-              <span>Electronics Repair</span>
-              <span>Rewiring</span>
-            </div>
-            <a href="#contact" class="service-link" data-page="contact">Learn More <i class="fas fa-arrow-right"></i></a>
+            <div class="service-features"><span>Wiring</span><span>Electronics Repair</span><span>Rewiring</span></div>
+            <a href="#service-electrical-repair" class="service-link" data-page="service-electrical-repair">Learn More <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
-
-        <!-- Service 5 -->
+        <!-- Service Card 5 -->
         <div class="service-visual-card">
           <div class="service-image service-image-5">
             <div class="pattern-overlay"></div>
             <div class="service-icon-big"><i class="fas fa-toolbox"></i></div>
-            <div class="service-icon-overlay">
-              <i class="fas fa-toolbox"></i>
-            </div>
+            <div class="service-icon-overlay"><i class="fas fa-toolbox"></i></div>
           </div>
           <div class="service-body">
             <h3>Accessories &amp; <span>Supplies</span></h3>
             <p>Wide range of boat accessories with after-sales technical support.</p>
-            <div class="service-features">
-              <span>Accessories</span>
-              <span>Technical Support</span>
-              <span>After-Sales</span>
-            </div>
+            <div class="service-features"><span>Accessories</span><span>Technical Support</span></div>
             <a href="#contact" class="service-link" data-page="contact">Learn More <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
-
-        <!-- Service 6 -->
+        <!-- Service Card 6 -->
         <div class="service-visual-card">
           <div class="service-image service-image-6">
             <div class="pattern-overlay"></div>
             <div class="service-icon-big"><i class="fas fa-certificate"></i></div>
-            <div class="service-icon-overlay">
-              <i class="fas fa-certificate"></i>
-            </div>
+            <div class="service-icon-overlay"><i class="fas fa-certificate"></i></div>
           </div>
           <div class="service-body">
             <h3>Warranty &amp; <span>Support</span></h3>
             <p>Mercury warranty service and dedicated after-sales technical support.</p>
-            <div class="service-features">
-              <span>Mercury Warranty</span>
-              <span>Technical Support</span>
-              <span>After-Sales</span>
-            </div>
+            <div class="service-features"><span>Mercury Warranty</span><span>Technical Support</span></div>
             <a href="#contact" class="service-link" data-page="contact">Learn More <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
+      </div>
+
+      <!-- Complete Service Categories List -->
+      <div class="service-detail-section" style="margin-top: 80px;">
+        <div class="text-center reveal-up">
+          <span class="pre-title">COMPLETE CAPABILITIES</span>
+          <h2 style="font-size: 2.8rem; font-weight: 700; margin-bottom: 15px;">
+            Our Full <span style="color: var(--ocean-mid);">Service Portfolio</span>
+          </h2>
+          <p style="font-size: 1.05rem; color: #666; max-width: 750px; margin: 0 auto 50px;">
+            Click on any service below to view detailed information
+          </p>
+        </div>
+
+        <div class="service-categories-grid">
+          <!-- Marine Services -->
+          <div class="service-category">
+            <div style="background: var(--ocean-deep); padding: 18px 20px; color: var(--white); border-radius: 16px 16px 0 0;">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <i class="fas fa-anchor" style="font-size: 1.4rem; color: var(--accent-orange);"></i>
+                <div><h4 style="font-size: 1.1rem; font-weight: 700; margin: 0;">Marine Services</h4><p style="font-size: 0.75rem; opacity: 0.7; margin: 2px 0 0;">Core Operations</p></div>
+              </div>
+            </div>
+            <div style="padding: 16px 18px;">
+              <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;">
+                <li><a href="#service-provision" data-page="service-provision" class="service-list-link"><i class="fas fa-utensils"></i> Provision Supply</a></li>
+                <li><a href="#service-repairing" data-page="service-repairing" class="service-list-link"><i class="fas fa-tools"></i> Ship Repairing</a></li>
+                <li><a href="#service-store" data-page="service-store" class="service-list-link"><i class="fas fa-warehouse"></i> Store Supply</a></li>
+                <li><a href="#service-bunker" data-page="service-bunker" class="service-list-link"><i class="fas fa-oil-can"></i> Bunker Supply</a></li>
+                <li><a href="#service-cleaning" data-page="service-cleaning" class="service-list-link"><i class="fas fa-broom"></i> Cleaning Service</a></li>
+                <li><a href="#service-underwater" data-page="service-underwater" class="service-list-link"><i class="fas fa-water"></i> Underwater Services</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Engine & Mechanical -->
+          <div class="service-category">
+            <div style="background: var(--ocean-deep); padding: 18px 20px; color: var(--white); border-radius: 16px 16px 0 0;">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <i class="fas fa-wrench" style="font-size: 1.4rem; color: var(--accent-orange);"></i>
+                <div><h4 style="font-size: 1.1rem; font-weight: 700; margin: 0;">Engine &amp; Mechanical</h4><p style="font-size: 0.75rem; opacity: 0.7; margin: 2px 0 0;">Power &amp; Motion</p></div>
+              </div>
+            </div>
+            <div style="padding: 16px 18px;">
+              <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;">
+                <li><a href="#service-engine-repair" data-page="service-engine-repair" class="service-list-link"><i class="fas fa-microchip"></i> Main Engine &amp; Generator Repairs</a></li>
+                <li><a href="#service-hydraulic-repair" data-page="service-hydraulic-repair" class="service-list-link"><i class="fas fa-oil-can"></i> Hydraulic System Repair</a></li>
+                <li><a href="#service-grab" data-page="service-grab" class="service-list-link"><i class="fas fa-hand-rock"></i> Grab Repairs</a></li>
+                <li><a href="#service-pump" data-page="service-pump" class="service-list-link"><i class="fas fa-water"></i> Pump Repair &amp; Maintenance</a></li>
+                <li><a href="#service-compressor" data-page="service-compressor" class="service-list-link"><i class="fas fa-compress"></i> Compressor Repair &amp; Maintenance</a></li>
+                <li><a href="#service-crane" data-page="service-crane" class="service-list-link"><i class="fas fa-crane"></i> Crane &amp; Deck Machinery Repair</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Electrical & Systems -->
+          <div class="service-category">
+            <div style="background: var(--ocean-deep); padding: 18px 20px; color: var(--white); border-radius: 16px 16px 0 0;">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <i class="fas fa-bolt" style="font-size: 1.4rem; color: var(--accent-orange);"></i>
+                <div><h4 style="font-size: 1.1rem; font-weight: 700; margin: 0;">Electrical &amp; Systems</h4><p style="font-size: 0.75rem; opacity: 0.7; margin: 2px 0 0;">Power &amp; Control</p></div>
+              </div>
+            </div>
+            <div style="padding: 16px 18px;">
+              <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;">
+                <li><a href="#service-electrical-repair" data-page="service-electrical-repair" class="service-list-link"><i class="fas fa-bolt"></i> Electrical Repairs &amp; Maintenance</a></li>
+                <li><a href="#service-automation" data-page="service-automation" class="service-list-link"><i class="fas fa-robot"></i> Electrical &amp; Automation Services</a></li>
+                <li><a href="#service-hvac" data-page="service-hvac" class="service-list-link"><i class="fas fa-snowflake"></i> Refrigeration &amp; Air Conditioning</a></li>
+                <li><a href="#service-boiler" data-page="service-boiler" class="service-list-link"><i class="fas fa-fire"></i> Boiler Repair &amp; Maintenance</a></li>
+                <li><a href="#service-welding" data-page="service-welding" class="service-list-link"><i class="fas fa-fire-extinguisher"></i> Welding &amp; Fabrication</a></li>
+                <li><a href="#service-spare" data-page="service-spare" class="service-list-link"><i class="fas fa-cogs"></i> Marine Spare Parts Supply</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Support & Consultancy -->
+          <div class="service-category">
+            <div style="background: var(--ocean-deep); padding: 18px 20px; color: var(--white); border-radius: 16px 16px 0 0;">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <i class="fas fa-handshake" style="font-size: 1.4rem; color: var(--accent-orange);"></i>
+                <div><h4 style="font-size: 1.1rem; font-weight: 700; margin: 0;">Support &amp; Consultancy</h4><p style="font-size: 0.75rem; opacity: 0.7; margin: 2px 0 0;">Expert Guidance</p></div>
+              </div>
+            </div>
+            <div style="padding: 16px 18px;">
+              <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;">
+                <li><a href="#service-shipping" data-page="service-shipping" class="service-list-link"><i class="fas fa-ship"></i> Shipping Agency Services</a></li>
+                <li><a href="#service-security" data-page="service-security" class="service-list-link"><i class="fas fa-shield-alt"></i> Security Services</a></li>
+                <li><a href="#service-bond" data-page="service-bond" class="service-list-link"><i class="fas fa-box"></i> Bond Store Supply</a></li>
+                <li><a href="#service-safety" data-page="service-safety" class="service-list-link"><i class="fas fa-hard-hat"></i> Safety Equipment Supply &amp; Service</a></li>
+                <li><a href="#service-consultancy" data-page="service-consultancy" class="service-list-link"><i class="fas fa-chart-line"></i> Marine Consultancy / Technical Support</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-stats" style="margin-top: 50px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; background: var(--ocean-deep); border-radius: 20px; padding: 35px 30px; color: var(--white); text-align: center;">
+          <div><span style="font-size: 2.8rem; font-weight: 800; color: var(--accent-orange); display: block; line-height: 1;">28+</span><span style="font-size: 0.9rem; opacity: 0.8;">Service Categories</span></div>
+          <div><span style="font-size: 2.8rem; font-weight: 800; color: var(--accent-orange); display: block; line-height: 1;">100%</span><span style="font-size: 0.9rem; opacity: 0.8;">Client Commitment</span></div>
+          <div><span style="font-size: 2.8rem; font-weight: 800; color: var(--accent-orange); display: block; line-height: 1;">24/7</span><span style="font-size: 0.9rem; opacity: 0.8;">Emergency Support</span></div>
+          <div><span style="font-size: 2.8rem; font-weight: 800; color: var(--accent-orange); display: block; line-height: 1;">Global</span><span style="font-size: 0.9rem; opacity: 0.8;">Service Coverage</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SERVICE PAGES - ALL 23 SERVICES WITH MARINE IMAGES -->
+  <!-- ============================================ -->
+
+  <!-- ===== 1. Provision Supply ===== -->
+  <section id="service-provision" class="page-section page-content service-detail-page">
+    <div class="container">
+      <div class="service-detail-hero" style="background: linear-gradient(135deg, var(--ocean-deep), var(--ocean-mid)); border-radius: 24px; padding: 40px 40px; color: var(--white); margin-bottom: 40px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -50%; right: -10%; font-size: 20rem; opacity: 0.05; pointer-events: none;"><i class="fas fa-utensils"></i></div>
+        <div style="position: relative; z-index: 2; display: flex; align-items: center; gap: 30px; flex-wrap: wrap;">
+          <img src="assets/images/Provision Supply.jpg" alt="Ship Provision Supply" style="width: 200px; height: 160px; object-fit: cover; border-radius: 16px; border: 3px solid rgba(255,255,255,0.2);">
+          <div>
+            <span style="background: var(--accent-orange); padding: 4px 16px; border-radius: 50px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 12px;">Marine Services</span>
+            <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 8px; display: flex; align-items: center; gap: 12px;"><i class="fas fa-utensils" style="color: var(--accent-orange); font-size: 2rem;"></i>Provision Supply</h1>
+            <p style="font-size: 1rem; opacity: 0.9; max-width: 600px; line-height: 1.6;">We provide comprehensive provision supply services for vessels of all sizes. Our team ensures that every ship receives fresh, high-quality food, water, and essential supplies before and during voyages.</p>
+            <div class="service-tags"><span>24/7 availability</span><span>Global supply network</span><span>Competitive pricing</span><span>Hygiene certified</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="service-detail-grid">
+        <div class="left-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px; color: var(--ocean-deep);"><i class="fas fa-list-check" style="color: var(--accent-orange); margin-right: 10px;"></i>Service Details</h3>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Fresh food and grocery supplies</li>
+            <li><i class="fas fa-check-circle"></i> Drinking water and beverages</li>
+            <li><i class="fas fa-check-circle"></i> Galley and catering equipment</li>
+            <li><i class="fas fa-check-circle"></i> Customized provisioning plans</li>
+            <li><i class="fas fa-check-circle"></i> Just-in-time delivery to ports</li>
+            <li><i class="fas fa-check-circle"></i> Quality assurance and freshness guarantee</li>
+          </ul>
+          <div class="service-features-list">
+            <span>Fresh Produce</span>
+            <span>Frozen Foods</span>
+            <span>Dry Goods</span>
+            <span>Beverages</span>
+            <span>Galley Equipment</span>
+            <span>Cleaning Supplies</span>
+          </div>
+        </div>
+        <div class="right-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px;"><i class="fas fa-headset" style="margin-right: 10px;"></i>Need This Service?</h3>
+          <p style="opacity: 0.8; line-height: 1.7; margin-bottom: 25px;">Our team of marine experts is ready to assist you with professional provision supply services. We understand the unique requirements of maritime provisioning and deliver quality products to your vessel wherever it may be.</p>
+          <div class="service-cta-buttons">
+            <a href="#contact" class="btn btn-accent" data-page="contact"><i class="fas fa-paper-plane"></i> Request Quote</a>
+            <a href="tel:+8801815406539" class="btn btn-white"><i class="fas fa-phone"></i> Call Now</a>
+          </div>
+          <div style="margin-top: 18px; display: flex; gap: 20px; font-size: 0.85rem; opacity: 0.6;">
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quick Response</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Expert Team</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quality Guaranteed</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-back-buttons">
+        <a href="#services" class="btn btn-accent" data-page="services" style="padding: 12px 30px; font-size: 0.9rem;"><i class="fas fa-arrow-left"></i> Back to All Services</a>
+        <a href="#contact" class="btn btn-white" data-page="contact" style="padding: 12px 30px; font-size: 0.9rem; background: var(--gray-bg); color: var(--text-dark); border: 2px solid #ddd;"><i class="fas fa-envelope"></i> Contact for More Info</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 2. Ship Repairing ===== -->
+  <section id="service-repairing" class="page-section page-content service-detail-page">
+    <div class="container">
+      <div class="service-detail-hero" style="background: linear-gradient(135deg, #1a1a2e, #16213e); border-radius: 24px; padding: 40px 40px; color: var(--white); margin-bottom: 40px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -50%; right: -10%; font-size: 20rem; opacity: 0.05; pointer-events: none;"><i class="fas fa-tools"></i></div>
+        <div style="position: relative; z-index: 2; display: flex; align-items: center; gap: 30px; flex-wrap: wrap;">
+          <img src="assets/images/Ship Repairing.jpg" alt="Ship Repairing" style="width: 200px; height: 160px; object-fit: cover; border-radius: 16px; border: 3px solid rgba(255,255,255,0.2);">
+          <div>
+            <span style="background: var(--accent-orange); padding: 4px 16px; border-radius: 50px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 12px;">Marine Services</span>
+            <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 8px; display: flex; align-items: center; gap: 12px;"><i class="fas fa-tools" style="color: var(--accent-orange); font-size: 2rem;"></i>Ship Repairing</h1>
+            <p style="font-size: 1rem; opacity: 0.9; max-width: 600px; line-height: 1.6;">ALHAZ MARINE offers comprehensive ship repair services covering hull, deck, and structural repairs. Our skilled technicians and engineers ensure that your vessel is restored to optimal condition with minimal downtime.</p>
+            <div class="service-tags"><span>Experienced teams</span><span>Mobile workshops</span><span>24/7 response</span><span>Class approved</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="service-detail-grid">
+        <div class="left-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px; color: var(--ocean-deep);"><i class="fas fa-list-check" style="color: var(--accent-orange); margin-right: 10px;"></i>Service Details</h3>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Hull repair and maintenance</li>
+            <li><i class="fas fa-check-circle"></i> Deck equipment servicing</li>
+            <li><i class="fas fa-check-circle"></i> Structural steel work</li>
+            <li><i class="fas fa-check-circle"></i> Pipe fitting and welding</li>
+            <li><i class="fas fa-check-circle"></i> Propeller and shaft repair</li>
+            <li><i class="fas fa-check-circle"></i> Emergency repair services</li>
+          </ul>
+          <div class="service-features-list">
+            <span>Hull Repair</span>
+            <span>Deck Repairs</span>
+            <span>Steel Work</span>
+            <span>Pipe Fitting</span>
+            <span>Propeller Repair</span>
+            <span>Emergency Services</span>
+          </div>
+        </div>
+        <div class="right-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px;"><i class="fas fa-headset" style="margin-right: 10px;"></i>Need This Service?</h3>
+          <p style="opacity: 0.8; line-height: 1.7; margin-bottom: 25px;">Our team of marine experts is ready to assist you with professional ship repairing services. We have the expertise and facilities to handle any repair job, big or small, ensuring your vessel returns to service quickly and safely.</p>
+          <div class="service-cta-buttons">
+            <a href="#contact" class="btn btn-accent" data-page="contact"><i class="fas fa-paper-plane"></i> Request Quote</a>
+            <a href="tel:+8801815406539" class="btn btn-white"><i class="fas fa-phone"></i> Call Now</a>
+          </div>
+          <div style="margin-top: 18px; display: flex; gap: 20px; font-size: 0.85rem; opacity: 0.6;">
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quick Response</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Expert Team</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quality Guaranteed</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-back-buttons">
+        <a href="#services" class="btn btn-accent" data-page="services" style="padding: 12px 30px; font-size: 0.9rem;"><i class="fas fa-arrow-left"></i> Back to All Services</a>
+        <a href="#contact" class="btn btn-white" data-page="contact" style="padding: 12px 30px; font-size: 0.9rem; background: var(--gray-bg); color: var(--text-dark); border: 2px solid #ddd;"><i class="fas fa-envelope"></i> Contact for More Info</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 3. Store Supply ===== -->
+  <section id="service-store" class="page-section page-content service-detail-page">
+    <div class="container">
+      <div class="service-detail-hero" style="background: linear-gradient(135deg, #2d1b69, #4a1a7a); border-radius: 24px; padding: 40px 40px; color: var(--white); margin-bottom: 40px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -50%; right: -10%; font-size: 20rem; opacity: 0.05; pointer-events: none;"><i class="fas fa-warehouse"></i></div>
+        <div style="position: relative; z-index: 2; display: flex; align-items: center; gap: 30px; flex-wrap: wrap;">
+          <img src="assets/images/Store Supply.jpg" alt="Ship Store Supply" style="width: 200px; height: 160px; object-fit: cover; border-radius: 16px; border: 3px solid rgba(255,255,255,0.2);">
+          <div>
+            <span style="background: var(--accent-orange); padding: 4px 16px; border-radius: 50px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 12px;">Marine Services</span>
+            <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 8px; display: flex; align-items: center; gap: 12px;"><i class="fas fa-warehouse" style="color: var(--accent-orange); font-size: 2rem;"></i>Store Supply</h1>
+            <p style="font-size: 1rem; opacity: 0.9; max-width: 600px; line-height: 1.6;">We supply a wide range of operational stores including spare parts, tools, and essential equipment for marine vessels. Our comprehensive inventory management ensures that you have exactly what you need, when you need it.</p>
+            <div class="service-tags"><span>Extensive inventory</span><span>Global sourcing</span><span>Quality products</span><span>Efficient logistics</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="service-detail-grid">
+        <div class="left-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px; color: var(--ocean-deep);"><i class="fas fa-list-check" style="color: var(--accent-orange); margin-right: 10px;"></i>Service Details</h3>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Engine spare parts</li>
+            <li><i class="fas fa-check-circle"></i> Deck and machinery stores</li>
+            <li><i class="fas fa-check-circle"></i> Electrical components</li>
+            <li><i class="fas fa-check-circle"></i> Safety equipment</li>
+            <li><i class="fas fa-check-circle"></i> Operational consumables</li>
+            <li><i class="fas fa-check-circle"></i> Custom store packages</li>
+          </ul>
+          <div class="service-features-list">
+            <span>Engine Parts</span>
+            <span>Deck Stores</span>
+            <span>Electrical Supplies</span>
+            <span>Safety Gear</span>
+            <span>Lubricants</span>
+            <span>Custom Packages</span>
+          </div>
+        </div>
+        <div class="right-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px;"><i class="fas fa-headset" style="margin-right: 10px;"></i>Need This Service?</h3>
+          <p style="opacity: 0.8; line-height: 1.7; margin-bottom: 25px;">Our team of marine experts is ready to assist you with professional store supply services. We maintain strong relationships with manufacturers worldwide to ensure you get authentic, high-quality products at competitive prices.</p>
+          <div class="service-cta-buttons">
+            <a href="#contact" class="btn btn-accent" data-page="contact"><i class="fas fa-paper-plane"></i> Request Quote</a>
+            <a href="tel:+8801815406539" class="btn btn-white"><i class="fas fa-phone"></i> Call Now</a>
+          </div>
+          <div style="margin-top: 18px; display: flex; gap: 20px; font-size: 0.85rem; opacity: 0.6;">
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quick Response</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Expert Team</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quality Guaranteed</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-back-buttons">
+        <a href="#services" class="btn btn-accent" data-page="services" style="padding: 12px 30px; font-size: 0.9rem;"><i class="fas fa-arrow-left"></i> Back to All Services</a>
+        <a href="#contact" class="btn btn-white" data-page="contact" style="padding: 12px 30px; font-size: 0.9rem; background: var(--gray-bg); color: var(--text-dark); border: 2px solid #ddd;"><i class="fas fa-envelope"></i> Contact for More Info</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 4. Bunker Supply ===== -->
+  <section id="service-bunker" class="page-section page-content service-detail-page">
+    <div class="container">
+      <div class="service-detail-hero" style="background: linear-gradient(135deg, #1a3a3a, #2d5a5a); border-radius: 24px; padding: 40px 40px; color: var(--white); margin-bottom: 40px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -50%; right: -10%; font-size: 20rem; opacity: 0.05; pointer-events: none;"><i class="fas fa-oil-can"></i></div>
+        <div style="position: relative; z-index: 2; display: flex; align-items: center; gap: 30px; flex-wrap: wrap;">
+          <img src="assets/images/Bunker Supply.jpg" alt="Ship Bunker Supply" style="width: 200px; height: 160px; object-fit: cover; border-radius: 16px; border: 3px solid rgba(255,255,255,0.2);">
+          <div>
+            <span style="background: var(--accent-orange); padding: 4px 16px; border-radius: 50px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 12px;">Marine Services</span>
+            <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 8px; display: flex; align-items: center; gap: 12px;"><i class="fas fa-oil-can" style="color: var(--accent-orange); font-size: 2rem;"></i>Bunker Supply</h1>
+            <p style="font-size: 1rem; opacity: 0.9; max-width: 600px; line-height: 1.6;">Our bunker supply services provide high-quality fuel, oil, and lubrication products to vessels worldwide. We ensure competitive pricing and reliable delivery schedules for all your fuel requirements.</p>
+            <div class="service-tags"><span>Competitive pricing</span><span>Quality certified</span><span>Flexible delivery</span><span>Global coverage</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="service-detail-grid">
+        <div class="left-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px; color: var(--ocean-deep);"><i class="fas fa-list-check" style="color: var(--accent-orange); margin-right: 10px;"></i>Service Details</h3>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Marine fuel oil supply</li>
+            <li><i class="fas fa-check-circle"></i> Diesel and heavy fuel oil</li>
+            <li><i class="fas fa-check-circle"></i> Lubricating oils and greases</li>
+            <li><i class="fas fa-check-circle"></i> Fuel testing and analysis</li>
+            <li><i class="fas fa-check-circle"></i> Bunkering operations</li>
+            <li><i class="fas fa-check-circle"></i> Fuel management consultancy</li>
+          </ul>
+          <div class="service-features-list">
+            <span>IFO Supply</span>
+            <span>MDO Supply</span>
+            <span>Lubricants</span>
+            <span>Fuel Testing</span>
+            <span>Bunkering</span>
+            <span>Consultancy</span>
+          </div>
+        </div>
+        <div class="right-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px;"><i class="fas fa-headset" style="margin-right: 10px;"></i>Need This Service?</h3>
+          <p style="opacity: 0.8; line-height: 1.7; margin-bottom: 25px;">Our team of marine experts is ready to assist you with professional bunker supply services. We work with major suppliers to ensure you receive the highest quality fuels at competitive prices.</p>
+          <div class="service-cta-buttons">
+            <a href="#contact" class="btn btn-accent" data-page="contact"><i class="fas fa-paper-plane"></i> Request Quote</a>
+            <a href="tel:+8801815406539" class="btn btn-white"><i class="fas fa-phone"></i> Call Now</a>
+          </div>
+          <div style="margin-top: 18px; display: flex; gap: 20px; font-size: 0.85rem; opacity: 0.6;">
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quick Response</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Expert Team</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quality Guaranteed</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-back-buttons">
+        <a href="#services" class="btn btn-accent" data-page="services" style="padding: 12px 30px; font-size: 0.9rem;"><i class="fas fa-arrow-left"></i> Back to All Services</a>
+        <a href="#contact" class="btn btn-white" data-page="contact" style="padding: 12px 30px; font-size: 0.9rem; background: var(--gray-bg); color: var(--text-dark); border: 2px solid #ddd;"><i class="fas fa-envelope"></i> Contact for More Info</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 5. Cleaning Service ===== -->
+  <section id="service-cleaning" class="page-section page-content service-detail-page">
+    <div class="container">
+      <div class="service-detail-hero" style="background: linear-gradient(135deg, #4a2a1a, #6b3a2a); border-radius: 24px; padding: 40px 40px; color: var(--white); margin-bottom: 40px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -50%; right: -10%; font-size: 20rem; opacity: 0.05; pointer-events: none;"><i class="fas fa-broom"></i></div>
+        <div style="position: relative; z-index: 2; display: flex; align-items: center; gap: 30px; flex-wrap: wrap;">
+          <img src="assets/images/Cleaning Service.jpg" alt="Ship Cleaning Service" style="width: 200px; height: 160px; object-fit: cover; border-radius: 16px; border: 3px solid rgba(255,255,255,0.2);">
+          <div>
+            <span style="background: var(--accent-orange); padding: 4px 16px; border-radius: 50px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 12px;">Marine Services</span>
+            <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 8px; display: flex; align-items: center; gap: 12px;"><i class="fas fa-broom" style="color: var(--accent-orange); font-size: 2rem;"></i>Cleaning Service</h1>
+            <p style="font-size: 1rem; opacity: 0.9; max-width: 600px; line-height: 1.6;">Professional cleaning services for vessels including hull cleaning, tank cleaning, and comprehensive sanitation. Our eco-friendly cleaning methods ensure your vessel meets all environmental and health standards.</p>
+            <div class="service-tags"><span>Eco-friendly</span><span>Experienced teams</span><span>Regulatory compliance</span><span>Fast turnaround</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="service-detail-grid">
+        <div class="left-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px; color: var(--ocean-deep);"><i class="fas fa-list-check" style="color: var(--accent-orange); margin-right: 10px;"></i>Service Details</h3>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Hull and underwater cleaning</li>
+            <li><i class="fas fa-check-circle"></i> Tank cleaning and degassing</li>
+            <li><i class="fas fa-check-circle"></i> Cargo hold cleaning</li>
+            <li><i class="fas fa-check-circle"></i> Accommodation cleaning</li>
+            <li><i class="fas fa-check-circle"></i> Galley and food preparation areas</li>
+            <li><i class="fas fa-check-circle"></i> Waste management services</li>
+          </ul>
+          <div class="service-features-list">
+            <span>Hull Cleaning</span>
+            <span>Tank Cleaning</span>
+            <span>Cargo Hold</span>
+            <span>Accommodation</span>
+            <span>Galley Sanitation</span>
+            <span>Waste Management</span>
+          </div>
+        </div>
+        <div class="right-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px;"><i class="fas fa-headset" style="margin-right: 10px;"></i>Need This Service?</h3>
+          <p style="opacity: 0.8; line-height: 1.7; margin-bottom: 25px;">Our team of marine experts is ready to assist you with professional cleaning services. We use environmentally responsible cleaning agents and methods to ensure your vessel is clean, safe, and compliant.</p>
+          <div class="service-cta-buttons">
+            <a href="#contact" class="btn btn-accent" data-page="contact"><i class="fas fa-paper-plane"></i> Request Quote</a>
+            <a href="tel:+8801815406539" class="btn btn-white"><i class="fas fa-phone"></i> Call Now</a>
+          </div>
+          <div style="margin-top: 18px; display: flex; gap: 20px; font-size: 0.85rem; opacity: 0.6;">
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quick Response</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Expert Team</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quality Guaranteed</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-back-buttons">
+        <a href="#services" class="btn btn-accent" data-page="services" style="padding: 12px 30px; font-size: 0.9rem;"><i class="fas fa-arrow-left"></i> Back to All Services</a>
+        <a href="#contact" class="btn btn-white" data-page="contact" style="padding: 12px 30px; font-size: 0.9rem; background: var(--gray-bg); color: var(--text-dark); border: 2px solid #ddd;"><i class="fas fa-envelope"></i> Contact for More Info</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 6. Underwater Services ===== -->
+  <section id="service-underwater" class="page-section page-content service-detail-page">
+    <div class="container">
+      <div class="service-detail-hero" style="background: linear-gradient(135deg, #1a2a4a, #2a4a6a); border-radius: 24px; padding: 40px 40px; color: var(--white); margin-bottom: 40px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -50%; right: -10%; font-size: 20rem; opacity: 0.05; pointer-events: none;"><i class="fas fa-water"></i></div>
+        <div style="position: relative; z-index: 2; display: flex; align-items: center; gap: 30px; flex-wrap: wrap;">
+          <img src="assets/images/Underwater Services.jpg" alt="Underwater Ship Services" style="width: 200px; height: 160px; object-fit: cover; border-radius: 16px; border: 3px solid rgba(255,255,255,0.2);">
+          <div>
+            <span style="background: var(--accent-orange); padding: 4px 16px; border-radius: 50px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 12px;">Marine Services</span>
+            <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 8px; display: flex; align-items: center; gap: 12px;"><i class="fas fa-water" style="color: var(--accent-orange); font-size: 2rem;"></i>Underwater Services</h1>
+            <p style="font-size: 1rem; opacity: 0.9; max-width: 600px; line-height: 1.6;">Complete underwater services including hull inspection, cleaning, and repairs. Our certified divers and specialized equipment ensure thorough inspection and maintenance of underwater vessel components.</p>
+            <div class="service-tags"><span>Certified divers</span><span>Advanced equipment</span><span>Detailed reports</span><span>Cost-effective</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="service-detail-grid">
+        <div class="left-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px; color: var(--ocean-deep);"><i class="fas fa-list-check" style="color: var(--accent-orange); margin-right: 10px;"></i>Service Details</h3>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Hull inspection and survey</li>
+            <li><i class="fas fa-check-circle"></i> Underwater cleaning</li>
+            <li><i class="fas fa-check-circle"></i> Propeller polishing</li>
+            <li><i class="fas fa-check-circle"></i> Underwater welding and repairs</li>
+            <li><i class="fas fa-check-circle"></i> Seachest and valve maintenance</li>
+            <li><i class="fas fa-check-circle"></i> Marine growth removal</li>
+          </ul>
+          <div class="service-features-list">
+            <span>Hull Inspection</span>
+            <span>Underwater Cleaning</span>
+            <span>Propeller Polishing</span>
+            <span>Underwater Welding</span>
+            <span>Valve Maintenance</span>
+            <span>Marine Growth Removal</span>
+          </div>
+        </div>
+        <div class="right-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px;"><i class="fas fa-headset" style="margin-right: 10px;"></i>Need This Service?</h3>
+          <p style="opacity: 0.8; line-height: 1.7; margin-bottom: 25px;">Our team of marine experts is ready to assist you with professional underwater services. Our certified divers and state-of-the-art equipment ensure your vessel's underwater components are maintained to the highest standards.</p>
+          <div class="service-cta-buttons">
+            <a href="#contact" class="btn btn-accent" data-page="contact"><i class="fas fa-paper-plane"></i> Request Quote</a>
+            <a href="tel:+8801815406539" class="btn btn-white"><i class="fas fa-phone"></i> Call Now</a>
+          </div>
+          <div style="margin-top: 18px; display: flex; gap: 20px; font-size: 0.85rem; opacity: 0.6;">
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quick Response</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Expert Team</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quality Guaranteed</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-back-buttons">
+        <a href="#services" class="btn btn-accent" data-page="services" style="padding: 12px 30px; font-size: 0.9rem;"><i class="fas fa-arrow-left"></i> Back to All Services</a>
+        <a href="#contact" class="btn btn-white" data-page="contact" style="padding: 12px 30px; font-size: 0.9rem; background: var(--gray-bg); color: var(--text-dark); border: 2px solid #ddd;"><i class="fas fa-envelope"></i> Contact for More Info</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 7. Main Engine & Generator Repairs ===== -->
+  <section id="service-engine-repair" class="page-section page-content service-detail-page">
+    <div class="container">
+      <div class="service-detail-hero" style="background: linear-gradient(135deg, #003049, #0077b6); border-radius: 24px; padding: 40px 40px; color: var(--white); margin-bottom: 40px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -50%; right: -10%; font-size: 20rem; opacity: 0.05; pointer-events: none;"><i class="fas fa-microchip"></i></div>
+        <div style="position: relative; z-index: 2; display: flex; align-items: center; gap: 30px; flex-wrap: wrap;">
+          <img src="assets/images/Main Engine & Generator Repairs.jpg" alt="Ship Engine Repair" style="width: 200px; height: 160px; object-fit: cover; border-radius: 16px; border: 3px solid rgba(255,255,255,0.2);">
+          <div>
+            <span style="background: var(--accent-orange); padding: 4px 16px; border-radius: 50px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 12px;">Engine &amp; Mechanical</span>
+            <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 8px; display: flex; align-items: center; gap: 12px;"><i class="fas fa-microchip" style="color: var(--accent-orange); font-size: 2rem;"></i>Main Engine &amp; Generator Repairs</h1>
+            <p style="font-size: 1rem; opacity: 0.9; max-width: 600px; line-height: 1.6;">Expert repair and overhaul services for main engines and generator engines. Our team of certified marine engineers provides comprehensive diagnostics, repairs, and maintenance for all major engine brands.</p>
+            <div class="service-tags"><span>Certified engineers</span><span>OEM quality</span><span>Comprehensive diagnostics</span><span>Performance guaranteed</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="service-detail-grid">
+        <div class="left-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px; color: var(--ocean-deep);"><i class="fas fa-list-check" style="color: var(--accent-orange); margin-right: 10px;"></i>Service Details</h3>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Complete engine overhaul</li>
+            <li><i class="fas fa-check-circle"></i> Fuel injection system repair</li>
+            <li><i class="fas fa-check-circle"></i> Turbocharger servicing</li>
+            <li><i class="fas fa-check-circle"></i> Crankshaft and bearing repair</li>
+            <li><i class="fas fa-check-circle"></i> Engine control system diagnostics</li>
+            <li><i class="fas fa-check-circle"></i> Performance optimization</li>
+          </ul>
+          <div class="service-features-list">
+            <span>Engine Overhaul</span>
+            <span>Fuel Injection</span>
+            <span>Turbocharger</span>
+            <span>Crankshaft</span>
+            <span>Control Systems</span>
+            <span>Performance Tuning</span>
+          </div>
+        </div>
+        <div class="right-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px;"><i class="fas fa-headset" style="margin-right: 10px;"></i>Need This Service?</h3>
+          <p style="opacity: 0.8; line-height: 1.7; margin-bottom: 25px;">Our team of marine experts is ready to assist you with professional engine repair services. We have the expertise and OEM parts to ensure your engines perform at their best.</p>
+          <div class="service-cta-buttons">
+            <a href="#contact" class="btn btn-accent" data-page="contact"><i class="fas fa-paper-plane"></i> Request Quote</a>
+            <a href="tel:+8801815406539" class="btn btn-white"><i class="fas fa-phone"></i> Call Now</a>
+          </div>
+          <div style="margin-top: 18px; display: flex; gap: 20px; font-size: 0.85rem; opacity: 0.6;">
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quick Response</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Expert Team</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quality Guaranteed</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-back-buttons">
+        <a href="#services" class="btn btn-accent" data-page="services" style="padding: 12px 30px; font-size: 0.9rem;"><i class="fas fa-arrow-left"></i> Back to All Services</a>
+        <a href="#contact" class="btn btn-white" data-page="contact" style="padding: 12px 30px; font-size: 0.9rem; background: var(--gray-bg); color: var(--text-dark); border: 2px solid #ddd;"><i class="fas fa-envelope"></i> Contact for More Info</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 8. Hydraulic System Repair ===== -->
+  <section id="service-hydraulic-repair" class="page-section page-content service-detail-page">
+    <div class="container">
+      <div class="service-detail-hero" style="background: linear-gradient(135deg, #2d1b69, #4a1a7a); border-radius: 24px; padding: 40px 40px; color: var(--white); margin-bottom: 40px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -50%; right: -10%; font-size: 20rem; opacity: 0.05; pointer-events: none;"><i class="fas fa-oil-can"></i></div>
+        <div style="position: relative; z-index: 2; display: flex; align-items: center; gap: 30px; flex-wrap: wrap;">
+          <img src="assets/images/Hydraulic System Repair.jpg" alt="Ship Hydraulic Repair" style="width: 200px; height: 160px; object-fit: cover; border-radius: 16px; border: 3px solid rgba(255,255,255,0.2);">
+          <div>
+            <span style="background: var(--accent-orange); padding: 4px 16px; border-radius: 50px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 12px;">Engine &amp; Mechanical</span>
+            <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 8px; display: flex; align-items: center; gap: 12px;"><i class="fas fa-oil-can" style="color: var(--accent-orange); font-size: 2rem;"></i>Hydraulic System Repair</h1>
+            <p style="font-size: 1rem; opacity: 0.9; max-width: 600px; line-height: 1.6;">Specialized hydraulic system repair and maintenance services for marine vessels. We service hydraulic pumps, motors, valves, and complete hydraulic systems to ensure reliable operation.</p>
+            <div class="service-tags"><span>Specialized expertise</span><span>Full diagnostics</span><span>Quality parts</span><span>Preventive maintenance</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="service-detail-grid">
+        <div class="left-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px; color: var(--ocean-deep);"><i class="fas fa-list-check" style="color: var(--accent-orange); margin-right: 10px;"></i>Service Details</h3>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Hydraulic pump repair</li>
+            <li><i class="fas fa-check-circle"></i> Hydraulic motor servicing</li>
+            <li><i class="fas fa-check-circle"></i> Valve and control system repair</li>
+            <li><i class="fas fa-check-circle"></i> Hydraulic cylinder overhaul</li>
+            <li><i class="fas fa-check-circle"></i> System flushing and oil replacement</li>
+            <li><i class="fas fa-check-circle"></i> Hydraulic system diagnostics</li>
+          </ul>
+          <div class="service-features-list">
+            <span>Pump Repair</span>
+            <span>Motor Servicing</span>
+            <span>Valve Repair</span>
+            <span>Cylinder Overhaul</span>
+            <span>System Flushing</span>
+            <span>Diagnostics</span>
+          </div>
+        </div>
+        <div class="right-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px;"><i class="fas fa-headset" style="margin-right: 10px;"></i>Need This Service?</h3>
+          <p style="opacity: 0.8; line-height: 1.7; margin-bottom: 25px;">Our team of marine experts is ready to assist you with professional hydraulic system repair services. We have the specialized knowledge and equipment to diagnose and repair all types of hydraulic systems.</p>
+          <div class="service-cta-buttons">
+            <a href="#contact" class="btn btn-accent" data-page="contact"><i class="fas fa-paper-plane"></i> Request Quote</a>
+            <a href="tel:+8801815406539" class="btn btn-white"><i class="fas fa-phone"></i> Call Now</a>
+          </div>
+          <div style="margin-top: 18px; display: flex; gap: 20px; font-size: 0.85rem; opacity: 0.6;">
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quick Response</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Expert Team</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quality Guaranteed</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-back-buttons">
+        <a href="#services" class="btn btn-accent" data-page="services" style="padding: 12px 30px; font-size: 0.9rem;"><i class="fas fa-arrow-left"></i> Back to All Services</a>
+        <a href="#contact" class="btn btn-white" data-page="contact" style="padding: 12px 30px; font-size: 0.9rem; background: var(--gray-bg); color: var(--text-dark); border: 2px solid #ddd;"><i class="fas fa-envelope"></i> Contact for More Info</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 9. Grab Repairs ===== -->
+  <section id="service-grab" class="page-section page-content service-detail-page">
+    <div class="container">
+      <div class="service-detail-hero" style="background: linear-gradient(135deg, #1a3a3a, #2d5a5a); border-radius: 24px; padding: 40px 40px; color: var(--white); margin-bottom: 40px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -50%; right: -10%; font-size: 20rem; opacity: 0.05; pointer-events: none;"><i class="fas fa-hand-rock"></i></div>
+        <div style="position: relative; z-index: 2; display: flex; align-items: center; gap: 30px; flex-wrap: wrap;">
+          <img src="assets/images/Grab Repairs.jpg" alt="Ship Grab Repairs" style="width: 200px; height: 160px; object-fit: cover; border-radius: 16px; border: 3px solid rgba(255,255,255,0.2);">
+          <div>
+            <span style="background: var(--accent-orange); padding: 4px 16px; border-radius: 50px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 12px;">Engine &amp; Mechanical</span>
+            <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 8px; display: flex; align-items: center; gap: 12px;"><i class="fas fa-hand-rock" style="color: var(--accent-orange); font-size: 2rem;"></i>Grab Repairs</h1>
+            <p style="font-size: 1rem; opacity: 0.9; max-width: 600px; line-height: 1.6;">Comprehensive repair and maintenance services for cargo grabs and handling equipment. Our team ensures that your grab systems operate safely and efficiently, minimizing downtime and maximizing productivity.</p>
+            <div class="service-tags"><span>Experienced technicians</span><span>Quick turnaround</span><span>Quality fabrication</span><span>Safety compliant</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="service-detail-grid">
+        <div class="left-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px; color: var(--ocean-deep);"><i class="fas fa-list-check" style="color: var(--accent-orange); margin-right: 10px;"></i>Service Details</h3>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Grab structure repair</li>
+            <li><i class="fas fa-check-circle"></i> Hydraulic system servicing</li>
+            <li><i class="fas fa-check-circle"></i> Electrical system diagnostics</li>
+            <li><i class="fas fa-check-circle"></i> Wear part replacement</li>
+            <li><i class="fas fa-check-circle"></i> Performance optimization</li>
+            <li><i class="fas fa-check-circle"></i> Safety inspection and certification</li>
+          </ul>
+          <div class="service-features-list">
+            <span>Structure Repair</span>
+            <span>Hydraulic Service</span>
+            <span>Electrical Repair</span>
+            <span>Wear Parts</span>
+            <span>Performance Testing</span>
+            <span>Safety Certification</span>
+          </div>
+        </div>
+        <div class="right-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px;"><i class="fas fa-headset" style="margin-right: 10px;"></i>Need This Service?</h3>
+          <p style="opacity: 0.8; line-height: 1.7; margin-bottom: 25px;">Our team of marine experts is ready to assist you with professional grab repair services. We understand the importance of reliable cargo handling equipment and provide quality repairs that ensure safe operations.</p>
+          <div class="service-cta-buttons">
+            <a href="#contact" class="btn btn-accent" data-page="contact"><i class="fas fa-paper-plane"></i> Request Quote</a>
+            <a href="tel:+8801815406539" class="btn btn-white"><i class="fas fa-phone"></i> Call Now</a>
+          </div>
+          <div style="margin-top: 18px; display: flex; gap: 20px; font-size: 0.85rem; opacity: 0.6;">
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quick Response</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Expert Team</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quality Guaranteed</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-back-buttons">
+        <a href="#services" class="btn btn-accent" data-page="services" style="padding: 12px 30px; font-size: 0.9rem;"><i class="fas fa-arrow-left"></i> Back to All Services</a>
+        <a href="#contact" class="btn btn-white" data-page="contact" style="padding: 12px 30px; font-size: 0.9rem; background: var(--gray-bg); color: var(--text-dark); border: 2px solid #ddd;"><i class="fas fa-envelope"></i> Contact for More Info</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 10. Pump Repair & Maintenance ===== -->
+  <section id="service-pump" class="page-section page-content service-detail-page">
+    <div class="container">
+      <div class="service-detail-hero" style="background: linear-gradient(135deg, #4a2a1a, #6b3a2a); border-radius: 24px; padding: 40px 40px; color: var(--white); margin-bottom: 40px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -50%; right: -10%; font-size: 20rem; opacity: 0.05; pointer-events: none;"><i class="fas fa-water"></i></div>
+        <div style="position: relative; z-index: 2; display: flex; align-items: center; gap: 30px; flex-wrap: wrap;">
+          <img src="assets/images/Pump Repair & Maintenance.jpg" alt="Ship Pump Repair" style="width: 200px; height: 160px; object-fit: cover; border-radius: 16px; border: 3px solid rgba(255,255,255,0.2);">
+          <div>
+            <span style="background: var(--accent-orange); padding: 4px 16px; border-radius: 50px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 12px;">Engine &amp; Mechanical</span>
+            <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 8px; display: flex; align-items: center; gap: 12px;"><i class="fas fa-water" style="color: var(--accent-orange); font-size: 2rem;"></i>Pump Repair &amp; Maintenance</h1>
+            <p style="font-size: 1rem; opacity: 0.9; max-width: 600px; line-height: 1.6;">Professional pump repair and maintenance services for all types of marine pumps including centrifugal, gear, and piston pumps. We ensure reliable pump operation for your vessel's systems.</p>
+            <div class="service-tags"><span>All pump types</span><span>In-house workshop</span><span>Emergency repair</span><span>Quality parts</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="service-detail-grid">
+        <div class="left-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px; color: var(--ocean-deep);"><i class="fas fa-list-check" style="color: var(--accent-orange); margin-right: 10px;"></i>Service Details</h3>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Centrifugal pump repair</li>
+            <li><i class="fas fa-check-circle"></i> Gear pump servicing</li>
+            <li><i class="fas fa-check-circle"></i> Piston pump overhaul</li>
+            <li><i class="fas fa-check-circle"></i> Seal and bearing replacement</li>
+            <li><i class="fas fa-check-circle"></i> Pump alignment and balancing</li>
+            <li><i class="fas fa-check-circle"></i> Performance testing</li>
+          </ul>
+          <div class="service-features-list">
+            <span>Centrifugal Pumps</span>
+            <span>Gear Pumps</span>
+            <span>Piston Pumps</span>
+            <span>Seal Replacement</span>
+            <span>Alignment</span>
+            <span>Performance Testing</span>
+          </div>
+        </div>
+        <div class="right-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px;"><i class="fas fa-headset" style="margin-right: 10px;"></i>Need This Service?</h3>
+          <p style="opacity: 0.8; line-height: 1.7; margin-bottom: 25px;">Our team of marine experts is ready to assist you with professional pump repair services. We have the expertise and facilities to repair all types of marine pumps.</p>
+          <div class="service-cta-buttons">
+            <a href="#contact" class="btn btn-accent" data-page="contact"><i class="fas fa-paper-plane"></i> Request Quote</a>
+            <a href="tel:+8801815406539" class="btn btn-white"><i class="fas fa-phone"></i> Call Now</a>
+          </div>
+          <div style="margin-top: 18px; display: flex; gap: 20px; font-size: 0.85rem; opacity: 0.6;">
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quick Response</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Expert Team</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quality Guaranteed</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-back-buttons">
+        <a href="#services" class="btn btn-accent" data-page="services" style="padding: 12px 30px; font-size: 0.9rem;"><i class="fas fa-arrow-left"></i> Back to All Services</a>
+        <a href="#contact" class="btn btn-white" data-page="contact" style="padding: 12px 30px; font-size: 0.9rem; background: var(--gray-bg); color: var(--text-dark); border: 2px solid #ddd;"><i class="fas fa-envelope"></i> Contact for More Info</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 11. Compressor Repair & Maintenance ===== -->
+  <section id="service-compressor" class="page-section page-content service-detail-page">
+    <div class="container">
+      <div class="service-detail-hero" style="background: linear-gradient(135deg, #1a2a4a, #2a4a6a); border-radius: 24px; padding: 40px 40px; color: var(--white); margin-bottom: 40px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -50%; right: -10%; font-size: 20rem; opacity: 0.05; pointer-events: none;"><i class="fas fa-compress"></i></div>
+        <div style="position: relative; z-index: 2; display: flex; align-items: center; gap: 30px; flex-wrap: wrap;">
+          <img src="assets/images/Compressor Repair & Maintenance.jpg" alt="Ship Compressor Repair" style="width: 200px; height: 160px; object-fit: cover; border-radius: 16px; border: 3px solid rgba(255,255,255,0.2);">
+          <div>
+            <span style="background: var(--accent-orange); padding: 4px 16px; border-radius: 50px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 12px;">Engine &amp; Mechanical</span>
+            <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 8px; display: flex; align-items: center; gap: 12px;"><i class="fas fa-compress" style="color: var(--accent-orange); font-size: 2rem;"></i>Compressor Repair &amp; Maintenance</h1>
+            <p style="font-size: 1rem; opacity: 0.9; max-width: 600px; line-height: 1.6;">Air compressor and refrigeration compressor repair services. We service all types of compressors used in marine applications to ensure reliable operation.</p>
+            <div class="service-tags"><span>Certified technicians</span><span>All major brands</span><span>Preventive maintenance</span><span>24/7 support</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="service-detail-grid">
+        <div class="left-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px; color: var(--ocean-deep);"><i class="fas fa-list-check" style="color: var(--accent-orange); margin-right: 10px;"></i>Service Details</h3>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Air compressor overhaul</li>
+            <li><i class="fas fa-check-circle"></i> Refrigeration compressor repair</li>
+            <li><i class="fas fa-check-circle"></i> Valve and piston replacement</li>
+            <li><i class="fas fa-check-circle"></i> Cooling system servicing</li>
+            <li><i class="fas fa-check-circle"></i> Pressure testing and calibration</li>
+            <li><i class="fas fa-check-circle"></i> Performance optimization</li>
+          </ul>
+          <div class="service-features-list">
+            <span>Air Compressor</span>
+            <span>Refrigeration</span>
+            <span>Valve Replacement</span>
+            <span>Cooling System</span>
+            <span>Pressure Testing</span>
+            <span>Performance Optimization</span>
+          </div>
+        </div>
+        <div class="right-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px;"><i class="fas fa-headset" style="margin-right: 10px;"></i>Need This Service?</h3>
+          <p style="opacity: 0.8; line-height: 1.7; margin-bottom: 25px;">Our team of marine experts is ready to assist you with professional compressor repair services. We have the expertise to handle all types of marine compressors.</p>
+          <div class="service-cta-buttons">
+            <a href="#contact" class="btn btn-accent" data-page="contact"><i class="fas fa-paper-plane"></i> Request Quote</a>
+            <a href="tel:+8801815406539" class="btn btn-white"><i class="fas fa-phone"></i> Call Now</a>
+          </div>
+          <div style="margin-top: 18px; display: flex; gap: 20px; font-size: 0.85rem; opacity: 0.6;">
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quick Response</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Expert Team</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quality Guaranteed</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-back-buttons">
+        <a href="#services" class="btn btn-accent" data-page="services" style="padding: 12px 30px; font-size: 0.9rem;"><i class="fas fa-arrow-left"></i> Back to All Services</a>
+        <a href="#contact" class="btn btn-white" data-page="contact" style="padding: 12px 30px; font-size: 0.9rem; background: var(--gray-bg); color: var(--text-dark); border: 2px solid #ddd;"><i class="fas fa-envelope"></i> Contact for More Info</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 12. Crane & Deck Machinery Repair ===== -->
+  <section id="service-crane" class="page-section page-content service-detail-page">
+    <div class="container">
+      <div class="service-detail-hero" style="background: linear-gradient(135deg, #2d1b69, #4a1a7a); border-radius: 24px; padding: 40px 40px; color: var(--white); margin-bottom: 40px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -50%; right: -10%; font-size: 20rem; opacity: 0.05; pointer-events: none;"><i class="fas fa-crane"></i></div>
+        <div style="position: relative; z-index: 2; display: flex; align-items: center; gap: 30px; flex-wrap: wrap;">
+          <img src="assets/images/Crane & Deck Machinery Repair.jpg" alt="Ship Crane Repair" style="width: 200px; height: 160px; object-fit: cover; border-radius: 16px; border: 3px solid rgba(255,255,255,0.2);">
+          <div>
+            <span style="background: var(--accent-orange); padding: 4px 16px; border-radius: 50px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 12px;">Engine &amp; Mechanical</span>
+            <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 8px; display: flex; align-items: center; gap: 12px;"><i class="fas fa-crane" style="color: var(--accent-orange); font-size: 2rem;"></i>Crane &amp; Deck Machinery Repair</h1>
+            <p style="font-size: 1rem; opacity: 0.9; max-width: 600px; line-height: 1.6;">Expert repair and maintenance services for marine cranes, winches, and deck machinery. Our team ensures safe and reliable operation of all deck equipment.</p>
+            <div class="service-tags"><span>Experienced mechanics</span><span>Load testing</span><span>Safety certified</span><span>Comprehensive reports</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="service-detail-grid">
+        <div class="left-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px; color: var(--ocean-deep);"><i class="fas fa-list-check" style="color: var(--accent-orange); margin-right: 10px;"></i>Service Details</h3>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Crane structure repair</li>
+            <li><i class="fas fa-check-circle"></i> Winch and windlass servicing</li>
+            <li><i class="fas fa-check-circle"></i> Hydraulic system maintenance</li>
+            <li><i class="fas fa-check-circle"></i> Electrical control system repair</li>
+            <li><i class="fas fa-check-circle"></i> Load testing and certification</li>
+            <li><i class="fas fa-check-circle"></i> Safety system inspection</li>
+          </ul>
+          <div class="service-features-list">
+            <span>Crane Repair</span>
+            <span>Winch Service</span>
+            <span>Hydraulic Maintenance</span>
+            <span>Electrical Repair</span>
+            <span>Load Testing</span>
+            <span>Safety Inspection</span>
+          </div>
+        </div>
+        <div class="right-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px;"><i class="fas fa-headset" style="margin-right: 10px;"></i>Need This Service?</h3>
+          <p style="opacity: 0.8; line-height: 1.7; margin-bottom: 25px;">Our team of marine experts is ready to assist you with professional crane and deck machinery repair services. We ensure your deck equipment operates safely and reliably.</p>
+          <div class="service-cta-buttons">
+            <a href="#contact" class="btn btn-accent" data-page="contact"><i class="fas fa-paper-plane"></i> Request Quote</a>
+            <a href="tel:+8801815406539" class="btn btn-white"><i class="fas fa-phone"></i> Call Now</a>
+          </div>
+          <div style="margin-top: 18px; display: flex; gap: 20px; font-size: 0.85rem; opacity: 0.6;">
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quick Response</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Expert Team</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quality Guaranteed</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-back-buttons">
+        <a href="#services" class="btn btn-accent" data-page="services" style="padding: 12px 30px; font-size: 0.9rem;"><i class="fas fa-arrow-left"></i> Back to All Services</a>
+        <a href="#contact" class="btn btn-white" data-page="contact" style="padding: 12px 30px; font-size: 0.9rem; background: var(--gray-bg); color: var(--text-dark); border: 2px solid #ddd;"><i class="fas fa-envelope"></i> Contact for More Info</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 13. Electrical Repairs & Maintenance ===== -->
+  <section id="service-electrical-repair" class="page-section page-content service-detail-page">
+    <div class="container">
+      <div class="service-detail-hero" style="background: linear-gradient(135deg, #1a3a3a, #2d5a5a); border-radius: 24px; padding: 40px 40px; color: var(--white); margin-bottom: 40px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -50%; right: -10%; font-size: 20rem; opacity: 0.05; pointer-events: none;"><i class="fas fa-bolt"></i></div>
+        <div style="position: relative; z-index: 2; display: flex; align-items: center; gap: 30px; flex-wrap: wrap;">
+          <img src="assets/images/Electrical Repairs & Maintenance.jpg" alt="Ship Electrical Repair" style="width: 200px; height: 160px; object-fit: cover; border-radius: 16px; border: 3px solid rgba(255,255,255,0.2);">
+          <div>
+            <span style="background: var(--accent-orange); padding: 4px 16px; border-radius: 50px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 12px;">Electrical &amp; Systems</span>
+            <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 8px; display: flex; align-items: center; gap: 12px;"><i class="fas fa-bolt" style="color: var(--accent-orange); font-size: 2rem;"></i>Electrical Repairs &amp; Maintenance</h1>
+            <p style="font-size: 1rem; opacity: 0.9; max-width: 600px; line-height: 1.6;">Complete electrical repair and maintenance services for marine vessels. We provide diagnostics, repair, and maintenance for all electrical systems onboard.</p>
+            <div class="service-tags"><span>Qualified engineers</span><span>Comprehensive diagnostics</span><span>Safety compliant</span><span>24/7 support</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="service-detail-grid">
+        <div class="left-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px; color: var(--ocean-deep);"><i class="fas fa-list-check" style="color: var(--accent-orange); margin-right: 10px;"></i>Service Details</h3>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Electrical system diagnostics</li>
+            <li><i class="fas fa-check-circle"></i> Motor and generator repair</li>
+            <li><i class="fas fa-check-circle"></i> Switchboard maintenance</li>
+            <li><i class="fas fa-check-circle"></i> Cable and wiring repair</li>
+            <li><i class="fas fa-check-circle"></i> Lighting system servicing</li>
+            <li><i class="fas fa-check-circle"></i> Emergency electrical repairs</li>
+          </ul>
+          <div class="service-features-list">
+            <span>Diagnostics</span>
+            <span>Motor Repair</span>
+            <span>Switchboard</span>
+            <span>Wiring</span>
+            <span>Lighting</span>
+            <span>Emergency Service</span>
+          </div>
+        </div>
+        <div class="right-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px;"><i class="fas fa-headset" style="margin-right: 10px;"></i>Need This Service?</h3>
+          <p style="opacity: 0.8; line-height: 1.7; margin-bottom: 25px;">Our team of marine experts is ready to assist you with professional electrical repair services. We have the expertise to handle all marine electrical systems.</p>
+          <div class="service-cta-buttons">
+            <a href="#contact" class="btn btn-accent" data-page="contact"><i class="fas fa-paper-plane"></i> Request Quote</a>
+            <a href="tel:+8801815406539" class="btn btn-white"><i class="fas fa-phone"></i> Call Now</a>
+          </div>
+          <div style="margin-top: 18px; display: flex; gap: 20px; font-size: 0.85rem; opacity: 0.6;">
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quick Response</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Expert Team</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quality Guaranteed</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-back-buttons">
+        <a href="#services" class="btn btn-accent" data-page="services" style="padding: 12px 30px; font-size: 0.9rem;"><i class="fas fa-arrow-left"></i> Back to All Services</a>
+        <a href="#contact" class="btn btn-white" data-page="contact" style="padding: 12px 30px; font-size: 0.9rem; background: var(--gray-bg); color: var(--text-dark); border: 2px solid #ddd;"><i class="fas fa-envelope"></i> Contact for More Info</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 14. Electrical & Automation Services ===== -->
+  <section id="service-automation" class="page-section page-content service-detail-page">
+    <div class="container">
+      <div class="service-detail-hero" style="background: linear-gradient(135deg, #4a2a1a, #6b3a2a); border-radius: 24px; padding: 40px 40px; color: var(--white); margin-bottom: 40px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -50%; right: -10%; font-size: 20rem; opacity: 0.05; pointer-events: none;"><i class="fas fa-robot"></i></div>
+        <div style="position: relative; z-index: 2; display: flex; align-items: center; gap: 30px; flex-wrap: wrap;">
+          <img src="assets/images/Electrical & Automation Services.jpg" alt="Ship Automation" style="width: 200px; height: 160px; object-fit: cover; border-radius: 16px; border: 3px solid rgba(255,255,255,0.2);">
+          <div>
+            <span style="background: var(--accent-orange); padding: 4px 16px; border-radius: 50px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 12px;">Electrical &amp; Systems</span>
+            <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 8px; display: flex; align-items: center; gap: 12px;"><i class="fas fa-robot" style="color: var(--accent-orange); font-size: 2rem;"></i>Electrical &amp; Automation Services</h1>
+            <p style="font-size: 1rem; opacity: 0.9; max-width: 600px; line-height: 1.6;">Advanced automation services for marine vessels including PLC systems, control panels, and integrated automation solutions. We help modernize your vessel with state-of-the-art automation technology.</p>
+            <div class="service-tags"><span>Automation experts</span><span>Custom solutions</span><span>System integration</span><span>Future-proof technology</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="service-detail-grid">
+        <div class="left-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px; color: var(--ocean-deep);"><i class="fas fa-list-check" style="color: var(--accent-orange); margin-right: 10px;"></i>Service Details</h3>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> PLC programming and repair</li>
+            <li><i class="fas fa-check-circle"></i> Control panel design and build</li>
+            <li><i class="fas fa-check-circle"></i> Automation system integration</li>
+            <li><i class="fas fa-check-circle"></i> Sensors and instrumentation</li>
+            <li><i class="fas fa-check-circle"></i> Remote monitoring systems</li>
+            <li><i class="fas fa-check-circle"></i> System upgrades and modernization</li>
+          </ul>
+          <div class="service-features-list">
+            <span>PLC Programming</span>
+            <span>Control Panels</span>
+            <span>System Integration</span>
+            <span>Sensors</span>
+            <span>Remote Monitoring</span>
+            <span>System Upgrades</span>
+          </div>
+        </div>
+        <div class="right-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px;"><i class="fas fa-headset" style="margin-right: 10px;"></i>Need This Service?</h3>
+          <p style="opacity: 0.8; line-height: 1.7; margin-bottom: 25px;">Our team of marine experts is ready to assist you with professional automation services. We design and implement automation solutions that improve vessel efficiency and safety.</p>
+          <div class="service-cta-buttons">
+            <a href="#contact" class="btn btn-accent" data-page="contact"><i class="fas fa-paper-plane"></i> Request Quote</a>
+            <a href="tel:+8801815406539" class="btn btn-white"><i class="fas fa-phone"></i> Call Now</a>
+          </div>
+          <div style="margin-top: 18px; display: flex; gap: 20px; font-size: 0.85rem; opacity: 0.6;">
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quick Response</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Expert Team</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quality Guaranteed</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-back-buttons">
+        <a href="#services" class="btn btn-accent" data-page="services" style="padding: 12px 30px; font-size: 0.9rem;"><i class="fas fa-arrow-left"></i> Back to All Services</a>
+        <a href="#contact" class="btn btn-white" data-page="contact" style="padding: 12px 30px; font-size: 0.9rem; background: var(--gray-bg); color: var(--text-dark); border: 2px solid #ddd;"><i class="fas fa-envelope"></i> Contact for More Info</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 15. Refrigeration & Air Conditioning ===== -->
+  <section id="service-hvac" class="page-section page-content service-detail-page">
+    <div class="container">
+      <div class="service-detail-hero" style="background: linear-gradient(135deg, #1a2a4a, #2a4a6a); border-radius: 24px; padding: 40px 40px; color: var(--white); margin-bottom: 40px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -50%; right: -10%; font-size: 20rem; opacity: 0.05; pointer-events: none;"><i class="fas fa-snowflake"></i></div>
+        <div style="position: relative; z-index: 2; display: flex; align-items: center; gap: 30px; flex-wrap: wrap;">
+          <img src="assets/images/Refrigeration & Air Conditioning .jpg" alt="Ship HVAC" style="width: 200px; height: 160px; object-fit: cover; border-radius: 16px; border: 3px solid rgba(255,255,255,0.2);">
+          <div>
+            <span style="background: var(--accent-orange); padding: 4px 16px; border-radius: 50px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 12px;">Electrical &amp; Systems</span>
+            <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 8px; display: flex; align-items: center; gap: 12px;"><i class="fas fa-snowflake" style="color: var(--accent-orange); font-size: 2rem;"></i>Refrigeration &amp; Air Conditioning</h1>
+            <p style="font-size: 1rem; opacity: 0.9; max-width: 600px; line-height: 1.6;">Marine HVAC, refrigeration, and cooling system services. We design, install, and maintain all types of marine climate control systems.</p>
+            <div class="service-tags"><span>HVAC specialists</span><span>Energy-efficient</span><span>Comprehensive maintenance</span><span>All vessel types</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="service-detail-grid">
+        <div class="left-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px; color: var(--ocean-deep);"><i class="fas fa-list-check" style="color: var(--accent-orange); margin-right: 10px;"></i>Service Details</h3>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> HVAC system design and installation</li>
+            <li><i class="fas fa-check-circle"></i> Refrigeration system repair</li>
+            <li><i class="fas fa-check-circle"></i> Air conditioning servicing</li>
+            <li><i class="fas fa-check-circle"></i> Cooling system maintenance</li>
+            <li><i class="fas fa-check-circle"></i> Chiller and freezer repair</li>
+            <li><i class="fas fa-check-circle"></i> Climate control upgrades</li>
+          </ul>
+          <div class="service-features-list">
+            <span>HVAC Design</span>
+            <span>Refrigeration</span>
+            <span>Air Conditioning</span>
+            <span>Cooling Systems</span>
+            <span>Chiller Repair</span>
+            <span>System Upgrades</span>
+          </div>
+        </div>
+        <div class="right-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px;"><i class="fas fa-headset" style="margin-right: 10px;"></i>Need This Service?</h3>
+          <p style="opacity: 0.8; line-height: 1.7; margin-bottom: 25px;">Our team of marine experts is ready to assist you with professional HVAC and refrigeration services. We ensure your vessel's climate control systems operate efficiently.</p>
+          <div class="service-cta-buttons">
+            <a href="#contact" class="btn btn-accent" data-page="contact"><i class="fas fa-paper-plane"></i> Request Quote</a>
+            <a href="tel:+8801815406539" class="btn btn-white"><i class="fas fa-phone"></i> Call Now</a>
+          </div>
+          <div style="margin-top: 18px; display: flex; gap: 20px; font-size: 0.85rem; opacity: 0.6;">
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quick Response</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Expert Team</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quality Guaranteed</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-back-buttons">
+        <a href="#services" class="btn btn-accent" data-page="services" style="padding: 12px 30px; font-size: 0.9rem;"><i class="fas fa-arrow-left"></i> Back to All Services</a>
+        <a href="#contact" class="btn btn-white" data-page="contact" style="padding: 12px 30px; font-size: 0.9rem; background: var(--gray-bg); color: var(--text-dark); border: 2px solid #ddd;"><i class="fas fa-envelope"></i> Contact for More Info</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 16. Boiler Repair & Maintenance ===== -->
+  <section id="service-boiler" class="page-section page-content service-detail-page">
+    <div class="container">
+      <div class="service-detail-hero" style="background: linear-gradient(135deg, #2d1b69, #4a1a7a); border-radius: 24px; padding: 40px 40px; color: var(--white); margin-bottom: 40px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -50%; right: -10%; font-size: 20rem; opacity: 0.05; pointer-events: none;"><i class="fas fa-fire"></i></div>
+        <div style="position: relative; z-index: 2; display: flex; align-items: center; gap: 30px; flex-wrap: wrap;">
+          <img src="assets/images/Boiler Repair & Maintenance.jpg" alt="Ship Boiler Repair" style="width: 200px; height: 160px; object-fit: cover; border-radius: 16px; border: 3px solid rgba(255,255,255,0.2);">
+          <div>
+            <span style="background: var(--accent-orange); padding: 4px 16px; border-radius: 50px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 12px;">Electrical &amp; Systems</span>
+            <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 8px; display: flex; align-items: center; gap: 12px;"><i class="fas fa-fire" style="color: var(--accent-orange); font-size: 2rem;"></i>Boiler Repair &amp; Maintenance</h1>
+            <p style="font-size: 1rem; opacity: 0.9; max-width: 600px; line-height: 1.6;">Professional boiler inspection, repair, and maintenance services for marine vessels. We ensure safe and efficient boiler operation.</p>
+            <div class="service-tags"><span>Certified engineers</span><span>Safety compliance</span><span>Quality repairs</span><span>Preventive maintenance</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="service-detail-grid">
+        <div class="left-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px; color: var(--ocean-deep);"><i class="fas fa-list-check" style="color: var(--accent-orange); margin-right: 10px;"></i>Service Details</h3>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Boiler inspection and testing</li>
+            <li><i class="fas fa-check-circle"></i> Tube repair and replacement</li>
+            <li><i class="fas fa-check-circle"></i> Burner servicing</li>
+            <li><i class="fas fa-check-circle"></i> Control system diagnostics</li>
+            <li><i class="fas fa-check-circle"></i> Safety valve maintenance</li>
+            <li><i class="fas fa-check-circle"></i> Performance optimization</li>
+          </ul>
+          <div class="service-features-list">
+            <span>Inspection</span>
+            <span>Tube Repair</span>
+            <span>Burner Service</span>
+            <span>Control Systems</span>
+            <span>Safety Valves</span>
+            <span>Optimization</span>
+          </div>
+        </div>
+        <div class="right-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px;"><i class="fas fa-headset" style="margin-right: 10px;"></i>Need This Service?</h3>
+          <p style="opacity: 0.8; line-height: 1.7; margin-bottom: 25px;">Our team of marine experts is ready to assist you with professional boiler repair services. We ensure your vessel's boilers operate safely and efficiently.</p>
+          <div class="service-cta-buttons">
+            <a href="#contact" class="btn btn-accent" data-page="contact"><i class="fas fa-paper-plane"></i> Request Quote</a>
+            <a href="tel:+8801815406539" class="btn btn-white"><i class="fas fa-phone"></i> Call Now</a>
+          </div>
+          <div style="margin-top: 18px; display: flex; gap: 20px; font-size: 0.85rem; opacity: 0.6;">
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quick Response</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Expert Team</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quality Guaranteed</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-back-buttons">
+        <a href="#services" class="btn btn-accent" data-page="services" style="padding: 12px 30px; font-size: 0.9rem;"><i class="fas fa-arrow-left"></i> Back to All Services</a>
+        <a href="#contact" class="btn btn-white" data-page="contact" style="padding: 12px 30px; font-size: 0.9rem; background: var(--gray-bg); color: var(--text-dark); border: 2px solid #ddd;"><i class="fas fa-envelope"></i> Contact for More Info</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 17. Welding & Fabrication ===== -->
+  <section id="service-welding" class="page-section page-content service-detail-page">
+    <div class="container">
+      <div class="service-detail-hero" style="background: linear-gradient(135deg, #1a3a3a, #2d5a5a); border-radius: 24px; padding: 40px 40px; color: var(--white); margin-bottom: 40px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -50%; right: -10%; font-size: 20rem; opacity: 0.05; pointer-events: none;"><i class="fas fa-fire-extinguisher"></i></div>
+        <div style="position: relative; z-index: 2; display: flex; align-items: center; gap: 30px; flex-wrap: wrap;">
+          <img src="assets/images/Welding & Fabrication.jpg" alt="Ship Welding" style="width: 200px; height: 160px; object-fit: cover; border-radius: 16px; border: 3px solid rgba(255,255,255,0.2);">
+          <div>
+            <span style="background: var(--accent-orange); padding: 4px 16px; border-radius: 50px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 12px;">Electrical &amp; Systems</span>
+            <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 8px; display: flex; align-items: center; gap: 12px;"><i class="fas fa-fire-extinguisher" style="color: var(--accent-orange); font-size: 2rem;"></i>Welding &amp; Fabrication</h1>
+            <p style="font-size: 1rem; opacity: 0.9; max-width: 600px; line-height: 1.6;">Expert welding and fabrication services for marine vessels. We provide custom metal fabrication, pipe welding, and structural repairs using the latest welding technologies.</p>
+            <div class="service-tags"><span>Certified welders</span><span>All processes</span><span>Quality control</span><span>On-site capabilities</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="service-detail-grid">
+        <div class="left-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px; color: var(--ocean-deep);"><i class="fas fa-list-check" style="color: var(--accent-orange); margin-right: 10px;"></i>Service Details</h3>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Structural steel fabrication</li>
+            <li><i class="fas fa-check-circle"></i> Pipe welding and fitting</li>
+            <li><i class="fas fa-check-circle"></i> Custom metal work</li>
+            <li><i class="fas fa-check-circle"></i> Aluminum welding</li>
+            <li><i class="fas fa-check-circle"></i> Stainless steel fabrication</li>
+            <li><i class="fas fa-check-circle"></i> On-site welding services</li>
+          </ul>
+          <div class="service-features-list">
+            <span>Structural Steel</span>
+            <span>Pipe Welding</span>
+            <span>Custom Fabrication</span>
+            <span>Aluminum Welding</span>
+            <span>Stainless Steel</span>
+            <span>On-site Service</span>
+          </div>
+        </div>
+        <div class="right-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px;"><i class="fas fa-headset" style="margin-right: 10px;"></i>Need This Service?</h3>
+          <p style="opacity: 0.8; line-height: 1.7; margin-bottom: 25px;">Our team of marine experts is ready to assist you with professional welding and fabrication services. We have certified welders to handle all your welding needs.</p>
+          <div class="service-cta-buttons">
+            <a href="#contact" class="btn btn-accent" data-page="contact"><i class="fas fa-paper-plane"></i> Request Quote</a>
+            <a href="tel:+8801815406539" class="btn btn-white"><i class="fas fa-phone"></i> Call Now</a>
+          </div>
+          <div style="margin-top: 18px; display: flex; gap: 20px; font-size: 0.85rem; opacity: 0.6;">
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quick Response</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Expert Team</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quality Guaranteed</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-back-buttons">
+        <a href="#services" class="btn btn-accent" data-page="services" style="padding: 12px 30px; font-size: 0.9rem;"><i class="fas fa-arrow-left"></i> Back to All Services</a>
+        <a href="#contact" class="btn btn-white" data-page="contact" style="padding: 12px 30px; font-size: 0.9rem; background: var(--gray-bg); color: var(--text-dark); border: 2px solid #ddd;"><i class="fas fa-envelope"></i> Contact for More Info</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 18. Marine Spare Parts Supply ===== -->
+  <section id="service-spare" class="page-section page-content service-detail-page">
+    <div class="container">
+      <div class="service-detail-hero" style="background: linear-gradient(135deg, #4a2a1a, #6b3a2a); border-radius: 24px; padding: 40px 40px; color: var(--white); margin-bottom: 40px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -50%; right: -10%; font-size: 20rem; opacity: 0.05; pointer-events: none;"><i class="fas fa-cogs"></i></div>
+        <div style="position: relative; z-index: 2; display: flex; align-items: center; gap: 30px; flex-wrap: wrap;">
+          <img src="assets/images/Marine Spare Parts Supply.jpg" alt="Ship Spare Parts" style="width: 200px; height: 160px; object-fit: cover; border-radius: 16px; border: 3px solid rgba(255,255,255,0.2);">
+          <div>
+            <span style="background: var(--accent-orange); padding: 4px 16px; border-radius: 50px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 12px;">Electrical &amp; Systems</span>
+            <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 8px; display: flex; align-items: center; gap: 12px;"><i class="fas fa-cogs" style="color: var(--accent-orange); font-size: 2rem;"></i>Marine Spare Parts Supply</h1>
+            <p style="font-size: 1rem; opacity: 0.9; max-width: 600px; line-height: 1.6;">Genuine OEM and aftermarket marine spare parts supply. We maintain an extensive inventory of quality parts for all types of marine equipment.</p>
+            <div class="service-tags"><span>Quality guaranteed</span><span>Global sourcing</span><span>Competitive pricing</span><span>Fast delivery</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="service-detail-grid">
+        <div class="left-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px; color: var(--ocean-deep);"><i class="fas fa-list-check" style="color: var(--accent-orange); margin-right: 10px;"></i>Service Details</h3>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Engine spare parts</li>
+            <li><i class="fas fa-check-circle"></i> Electrical components</li>
+            <li><i class="fas fa-check-circle"></i> Hydraulic system parts</li>
+            <li><i class="fas fa-check-circle"></i> Pump and compressor parts</li>
+            <li><i class="fas fa-check-circle"></i> Safety equipment</li>
+            <li><i class="fas fa-check-circle"></i> Custom parts sourcing</li>
+          </ul>
+          <div class="service-features-list">
+            <span>Engine Parts</span>
+            <span>Electrical Components</span>
+            <span>Hydraulic Parts</span>
+            <span>Pump Parts</span>
+            <span>Safety Gear</span>
+            <span>Custom Sourcing</span>
+          </div>
+        </div>
+        <div class="right-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px;"><i class="fas fa-headset" style="margin-right: 10px;"></i>Need This Service?</h3>
+          <p style="opacity: 0.8; line-height: 1.7; margin-bottom: 25px;">Our team of marine experts is ready to assist you with professional spare parts supply. We source genuine parts from trusted manufacturers worldwide.</p>
+          <div class="service-cta-buttons">
+            <a href="#contact" class="btn btn-accent" data-page="contact"><i class="fas fa-paper-plane"></i> Request Quote</a>
+            <a href="tel:+8801815406539" class="btn btn-white"><i class="fas fa-phone"></i> Call Now</a>
+          </div>
+          <div style="margin-top: 18px; display: flex; gap: 20px; font-size: 0.85rem; opacity: 0.6;">
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quick Response</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Expert Team</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quality Guaranteed</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-back-buttons">
+        <a href="#services" class="btn btn-accent" data-page="services" style="padding: 12px 30px; font-size: 0.9rem;"><i class="fas fa-arrow-left"></i> Back to All Services</a>
+        <a href="#contact" class="btn btn-white" data-page="contact" style="padding: 12px 30px; font-size: 0.9rem; background: var(--gray-bg); color: var(--text-dark); border: 2px solid #ddd;"><i class="fas fa-envelope"></i> Contact for More Info</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 19. Shipping Agency Services ===== -->
+  <section id="service-shipping" class="page-section page-content service-detail-page">
+    <div class="container">
+      <div class="service-detail-hero" style="background: linear-gradient(135deg, #1a2a4a, #2a4a6a); border-radius: 24px; padding: 40px 40px; color: var(--white); margin-bottom: 40px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -50%; right: -10%; font-size: 20rem; opacity: 0.05; pointer-events: none;"><i class="fas fa-ship"></i></div>
+        <div style="position: relative; z-index: 2; display: flex; align-items: center; gap: 30px; flex-wrap: wrap;">
+          <img src="assets/images/Shipping Agency Services.jpg" alt="Shipping Agency" style="width: 200px; height: 160px; object-fit: cover; border-radius: 16px; border: 3px solid rgba(255,255,255,0.2);">
+          <div>
+            <span style="background: var(--accent-orange); padding: 4px 16px; border-radius: 50px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 12px;">Support &amp; Consultancy</span>
+            <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 8px; display: flex; align-items: center; gap: 12px;"><i class="fas fa-ship" style="color: var(--accent-orange); font-size: 2rem;"></i>Shipping Agency Services</h1>
+            <p style="font-size: 1rem; opacity: 0.9; max-width: 600px; line-height: 1.6;">Comprehensive shipping agency services including port agency, vessel clearance, and logistics coordination. We ensure smooth port operations for your vessels.</p>
+            <div class="service-tags"><span>Experienced agents</span><span>Port relationships</span><span>24/7 support</span><span>Efficient operations</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="service-detail-grid">
+        <div class="left-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px; color: var(--ocean-deep);"><i class="fas fa-list-check" style="color: var(--accent-orange); margin-right: 10px;"></i>Service Details</h3>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Port agency services</li>
+            <li><i class="fas fa-check-circle"></i> Vessel clearance and documentation</li>
+            <li><i class="fas fa-check-circle"></i> Cargo handling coordination</li>
+            <li><i class="fas fa-check-circle"></i> Crew services and logistics</li>
+            <li><i class="fas fa-check-circle"></i> Customs clearance support</li>
+            <li><i class="fas fa-check-circle"></i> Port arrival/departure coordination</li>
+          </ul>
+          <div class="service-features-list">
+            <span>Port Agency</span>
+            <span>Vessel Clearance</span>
+            <span>Cargo Coordination</span>
+            <span>Crew Services</span>
+            <span>Customs Clearance</span>
+            <span>Port Coordination</span>
+          </div>
+        </div>
+        <div class="right-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px;"><i class="fas fa-headset" style="margin-right: 10px;"></i>Need This Service?</h3>
+          <p style="opacity: 0.8; line-height: 1.7; margin-bottom: 25px;">Our team of marine experts is ready to assist you with professional shipping agency services. We have extensive experience in port operations.</p>
+          <div class="service-cta-buttons">
+            <a href="#contact" class="btn btn-accent" data-page="contact"><i class="fas fa-paper-plane"></i> Request Quote</a>
+            <a href="tel:+8801815406539" class="btn btn-white"><i class="fas fa-phone"></i> Call Now</a>
+          </div>
+          <div style="margin-top: 18px; display: flex; gap: 20px; font-size: 0.85rem; opacity: 0.6;">
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quick Response</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Expert Team</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quality Guaranteed</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-back-buttons">
+        <a href="#services" class="btn btn-accent" data-page="services" style="padding: 12px 30px; font-size: 0.9rem;"><i class="fas fa-arrow-left"></i> Back to All Services</a>
+        <a href="#contact" class="btn btn-white" data-page="contact" style="padding: 12px 30px; font-size: 0.9rem; background: var(--gray-bg); color: var(--text-dark); border: 2px solid #ddd;"><i class="fas fa-envelope"></i> Contact for More Info</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 20. Security Services ===== -->
+  <section id="service-security" class="page-section page-content service-detail-page">
+    <div class="container">
+      <div class="service-detail-hero" style="background: linear-gradient(135deg, #2d1b69, #4a1a7a); border-radius: 24px; padding: 40px 40px; color: var(--white); margin-bottom: 40px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -50%; right: -10%; font-size: 20rem; opacity: 0.05; pointer-events: none;"><i class="fas fa-shield-alt"></i></div>
+        <div style="position: relative; z-index: 2; display: flex; align-items: center; gap: 30px; flex-wrap: wrap;">
+          <img src="assets/images/Security Services.jpg" alt="Ship Security" style="width: 200px; height: 160px; object-fit: cover; border-radius: 16px; border: 3px solid rgba(255,255,255,0.2);">
+          <div>
+            <span style="background: var(--accent-orange); padding: 4px 16px; border-radius: 50px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 12px;">Support &amp; Consultancy</span>
+            <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 8px; display: flex; align-items: center; gap: 12px;"><i class="fas fa-shield-alt" style="color: var(--accent-orange); font-size: 2rem;"></i>Security Services</h1>
+            <p style="font-size: 1rem; opacity: 0.9; max-width: 600px; line-height: 1.6;">Professional vessel security services including risk assessment, security protocols, and safety management. We ensure the safety of your vessel, crew, and cargo.</p>
+            <div class="service-tags"><span>Security experts</span><span>Risk assessment</span><span>Regulatory compliance</span><span>Customized solutions</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="service-detail-grid">
+        <div class="left-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px; color: var(--ocean-deep);"><i class="fas fa-list-check" style="color: var(--accent-orange); margin-right: 10px;"></i>Service Details</h3>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Vessel security assessment</li>
+            <li><i class="fas fa-check-circle"></i> Security protocol development</li>
+            <li><i class="fas fa-check-circle"></i> Crew safety training</li>
+            <li><i class="fas fa-check-circle"></i> ISPS compliance support</li>
+            <li><i class="fas fa-check-circle"></i> Security personnel placement</li>
+            <li><i class="fas fa-check-circle"></i> Emergency response planning</li>
+          </ul>
+          <div class="service-features-list">
+            <span>Risk Assessment</span>
+            <span>Security Protocols</span>
+            <span>Crew Training</span>
+            <span>ISPS Compliance</span>
+            <span>Security Personnel</span>
+            <span>Emergency Planning</span>
+          </div>
+        </div>
+        <div class="right-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px;"><i class="fas fa-headset" style="margin-right: 10px;"></i>Need This Service?</h3>
+          <p style="opacity: 0.8; line-height: 1.7; margin-bottom: 25px;">Our team of marine experts is ready to assist you with professional security services. We provide comprehensive security solutions tailored to your vessel's needs.</p>
+          <div class="service-cta-buttons">
+            <a href="#contact" class="btn btn-accent" data-page="contact"><i class="fas fa-paper-plane"></i> Request Quote</a>
+            <a href="tel:+8801815406539" class="btn btn-white"><i class="fas fa-phone"></i> Call Now</a>
+          </div>
+          <div style="margin-top: 18px; display: flex; gap: 20px; font-size: 0.85rem; opacity: 0.6;">
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quick Response</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Expert Team</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quality Guaranteed</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-back-buttons">
+        <a href="#services" class="btn btn-accent" data-page="services" style="padding: 12px 30px; font-size: 0.9rem;"><i class="fas fa-arrow-left"></i> Back to All Services</a>
+        <a href="#contact" class="btn btn-white" data-page="contact" style="padding: 12px 30px; font-size: 0.9rem; background: var(--gray-bg); color: var(--text-dark); border: 2px solid #ddd;"><i class="fas fa-envelope"></i> Contact for More Info</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 21. Bond Store Supply ===== -->
+  <section id="service-bond" class="page-section page-content service-detail-page">
+    <div class="container">
+      <div class="service-detail-hero" style="background: linear-gradient(135deg, #1a3a3a, #2d5a5a); border-radius: 24px; padding: 40px 40px; color: var(--white); margin-bottom: 40px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -50%; right: -10%; font-size: 20rem; opacity: 0.05; pointer-events: none;"><i class="fas fa-box"></i></div>
+        <div style="position: relative; z-index: 2; display: flex; align-items: center; gap: 30px; flex-wrap: wrap;">
+          <img src="assets/images/Bond Store Supply.jpg" alt="Ship Bond Store" style="width: 200px; height: 160px; object-fit: cover; border-radius: 16px; border: 3px solid rgba(255,255,255,0.2);">
+          <div>
+            <span style="background: var(--accent-orange); padding: 4px 16px; border-radius: 50px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 12px;">Support &amp; Consultancy</span>
+            <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 8px; display: flex; align-items: center; gap: 12px;"><i class="fas fa-box" style="color: var(--accent-orange); font-size: 2rem;"></i>Bond Store Supply</h1>
+            <p style="font-size: 1rem; opacity: 0.9; max-width: 600px; line-height: 1.6;">Duty-free supplies and bonded store management services. We provide efficient bonded store solutions for vessels, ensuring compliance with customs regulations.</p>
+            <div class="service-tags"><span>Duty-free expertise</span><span>Quality products</span><span>Compliance assured</span><span>Efficient operations</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="service-detail-grid">
+        <div class="left-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px; color: var(--ocean-deep);"><i class="fas fa-list-check" style="color: var(--accent-orange); margin-right: 10px;"></i>Service Details</h3>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Bonded store supply</li>
+            <li><i class="fas fa-check-circle"></i> Duty-free products</li>
+            <li><i class="fas fa-check-circle"></i> Store management</li>
+            <li><i class="fas fa-check-circle"></i> Inventory control</li>
+            <li><i class="fas fa-check-circle"></i> Documentation support</li>
+            <li><i class="fas fa-check-circle"></i> Customs compliance</li>
+          </ul>
+          <div class="service-features-list">
+            <span>Bonded Store</span>
+            <span>Duty-Free Supply</span>
+            <span>Inventory Management</span>
+            <span>Record Keeping</span>
+            <span>Documentation</span>
+            <span>Customs Compliance</span>
+          </div>
+        </div>
+        <div class="right-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px;"><i class="fas fa-headset" style="margin-right: 10px;"></i>Need This Service?</h3>
+          <p style="opacity: 0.8; line-height: 1.7; margin-bottom: 25px;">Our team of marine experts is ready to assist you with professional bond store supply services. We ensure your bonded store operations are efficient and compliant.</p>
+          <div class="service-cta-buttons">
+            <a href="#contact" class="btn btn-accent" data-page="contact"><i class="fas fa-paper-plane"></i> Request Quote</a>
+            <a href="tel:+8801815406539" class="btn btn-white"><i class="fas fa-phone"></i> Call Now</a>
+          </div>
+          <div style="margin-top: 18px; display: flex; gap: 20px; font-size: 0.85rem; opacity: 0.6;">
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quick Response</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Expert Team</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quality Guaranteed</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-back-buttons">
+        <a href="#services" class="btn btn-accent" data-page="services" style="padding: 12px 30px; font-size: 0.9rem;"><i class="fas fa-arrow-left"></i> Back to All Services</a>
+        <a href="#contact" class="btn btn-white" data-page="contact" style="padding: 12px 30px; font-size: 0.9rem; background: var(--gray-bg); color: var(--text-dark); border: 2px solid #ddd;"><i class="fas fa-envelope"></i> Contact for More Info</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 22. Safety Equipment Supply & Service ===== -->
+  <section id="service-safety" class="page-section page-content service-detail-page">
+    <div class="container">
+      <div class="service-detail-hero" style="background: linear-gradient(135deg, #4a2a1a, #6b3a2a); border-radius: 24px; padding: 40px 40px; color: var(--white); margin-bottom: 40px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -50%; right: -10%; font-size: 20rem; opacity: 0.05; pointer-events: none;"><i class="fas fa-hard-hat"></i></div>
+        <div style="position: relative; z-index: 2; display: flex; align-items: center; gap: 30px; flex-wrap: wrap;">
+          <img src="assets/images/Safety Equipment Supply & Service.jpg" alt="Ship Safety Equipment" style="width: 200px; height: 160px; object-fit: cover; border-radius: 16px; border: 3px solid rgba(255,255,255,0.2);">
+          <div>
+            <span style="background: var(--accent-orange); padding: 4px 16px; border-radius: 50px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 12px;">Support &amp; Consultancy</span>
+            <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 8px; display: flex; align-items: center; gap: 12px;"><i class="fas fa-hard-hat" style="color: var(--accent-orange); font-size: 2rem;"></i>Safety Equipment Supply &amp; Service</h1>
+            <p style="font-size: 1rem; opacity: 0.9; max-width: 600px; line-height: 1.6;">Complete safety equipment supply and servicing including life rafts, fire extinguishers, PPE, and safety gear. We ensure your vessel meets all safety regulations.</p>
+            <div class="service-tags"><span>Quality certified</span><span>Regular servicing</span><span>Regulatory compliance</span><span>Training programs</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="service-detail-grid">
+        <div class="left-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px; color: var(--ocean-deep);"><i class="fas fa-list-check" style="color: var(--accent-orange); margin-right: 10px;"></i>Service Details</h3>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Life raft servicing</li>
+            <li><i class="fas fa-check-circle"></i> Fire extinguisher maintenance</li>
+            <li><i class="fas fa-check-circle"></i> PPE supply and inspection</li>
+            <li><i class="fas fa-check-circle"></i> Emergency equipment servicing</li>
+            <li><i class="fas fa-check-circle"></i> Safety system testing</li>
+            <li><i class="fas fa-check-circle"></i> Training and certification</li>
+          </ul>
+          <div class="service-features-list">
+            <span>Life Rafts</span>
+            <span>Fire Extinguishers</span>
+            <span>PPE Supply</span>
+            <span>Emergency Equipment</span>
+            <span>Safety Testing</span>
+            <span>Training Programs</span>
+          </div>
+        </div>
+        <div class="right-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px;"><i class="fas fa-headset" style="margin-right: 10px;"></i>Need This Service?</h3>
+          <p style="opacity: 0.8; line-height: 1.7; margin-bottom: 25px;">Our team of marine experts is ready to assist you with professional safety equipment services. We provide certified equipment and servicing to ensure your vessel meets all safety requirements.</p>
+          <div class="service-cta-buttons">
+            <a href="#contact" class="btn btn-accent" data-page="contact"><i class="fas fa-paper-plane"></i> Request Quote</a>
+            <a href="tel:+8801815406539" class="btn btn-white"><i class="fas fa-phone"></i> Call Now</a>
+          </div>
+          <div style="margin-top: 18px; display: flex; gap: 20px; font-size: 0.85rem; opacity: 0.6;">
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quick Response</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Expert Team</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quality Guaranteed</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-back-buttons">
+        <a href="#services" class="btn btn-accent" data-page="services" style="padding: 12px 30px; font-size: 0.9rem;"><i class="fas fa-arrow-left"></i> Back to All Services</a>
+        <a href="#contact" class="btn btn-white" data-page="contact" style="padding: 12px 30px; font-size: 0.9rem; background: var(--gray-bg); color: var(--text-dark); border: 2px solid #ddd;"><i class="fas fa-envelope"></i> Contact for More Info</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 23. Marine Consultancy / Technical Support ===== -->
+  <section id="service-consultancy" class="page-section page-content service-detail-page">
+    <div class="container">
+      <div class="service-detail-hero" style="background: linear-gradient(135deg, #1a2a4a, #2a4a6a); border-radius: 24px; padding: 40px 40px; color: var(--white); margin-bottom: 40px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -50%; right: -10%; font-size: 20rem; opacity: 0.05; pointer-events: none;"><i class="fas fa-chart-line"></i></div>
+        <div style="position: relative; z-index: 2; display: flex; align-items: center; gap: 30px; flex-wrap: wrap;">
+          <img src="assets/images/Marine Consultancy & Technical Support.jpg" alt="Marine Consultancy" style="width: 200px; height: 160px; object-fit: cover; border-radius: 16px; border: 3px solid rgba(255,255,255,0.2);">
+          <div>
+            <span style="background: var(--accent-orange); padding: 4px 16px; border-radius: 50px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 12px;">Support &amp; Consultancy</span>
+            <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 8px; display: flex; align-items: center; gap: 12px;"><i class="fas fa-chart-line" style="color: var(--accent-orange); font-size: 2rem;"></i>Marine Consultancy / Technical Support</h1>
+            <p style="font-size: 1rem; opacity: 0.9; max-width: 600px; line-height: 1.6;">Professional marine consultancy and technical support services. We provide expert advice, project management, and operational support for maritime operations.</p>
+            <div class="service-tags"><span>Expert consultants</span><span>Industry experience</span><span>Tailored solutions</span><span>Results-driven</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="service-detail-grid">
+        <div class="left-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px; color: var(--ocean-deep);"><i class="fas fa-list-check" style="color: var(--accent-orange); margin-right: 10px;"></i>Service Details</h3>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Technical advisory services</li>
+            <li><i class="fas fa-check-circle"></i> Project management</li>
+            <li><i class="fas fa-check-circle"></i> Operational support</li>
+            <li><i class="fas fa-check-circle"></i> Marine engineering consultancy</li>
+            <li><i class="fas fa-check-circle"></i> Fleet management support</li>
+            <li><i class="fas fa-check-circle"></i> Regulatory compliance advisory</li>
+          </ul>
+          <div class="service-features-list">
+            <span>Technical Advisory</span>
+            <span>Project Management</span>
+            <span>Operational Support</span>
+            <span>Engineering Consultancy</span>
+            <span>Fleet Management</span>
+            <span>Regulatory Compliance</span>
+          </div>
+        </div>
+        <div class="right-col">
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 20px;"><i class="fas fa-headset" style="margin-right: 10px;"></i>Need This Service?</h3>
+          <p style="opacity: 0.8; line-height: 1.7; margin-bottom: 25px;">Our team of marine experts is ready to assist you with professional consultancy and technical support services. We bring years of industry experience to help you optimize your maritime operations.</p>
+          <div class="service-cta-buttons">
+            <a href="#contact" class="btn btn-accent" data-page="contact"><i class="fas fa-paper-plane"></i> Request Quote</a>
+            <a href="tel:+8801815406539" class="btn btn-white"><i class="fas fa-phone"></i> Call Now</a>
+          </div>
+          <div style="margin-top: 18px; display: flex; gap: 20px; font-size: 0.85rem; opacity: 0.6;">
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quick Response</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Expert Team</span>
+            <span><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> Quality Guaranteed</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-back-buttons">
+        <a href="#services" class="btn btn-accent" data-page="services" style="padding: 12px 30px; font-size: 0.9rem;"><i class="fas fa-arrow-left"></i> Back to All Services</a>
+        <a href="#contact" class="btn btn-white" data-page="contact" style="padding: 12px 30px; font-size: 0.9rem; background: var(--gray-bg); color: var(--text-dark); border: 2px solid #ddd;"><i class="fas fa-envelope"></i> Contact for More Info</a>
       </div>
     </div>
   </section>
@@ -332,18 +1937,10 @@
           <h2>Forging the Future of <span>Maritime Supply</span></h2>
           <p>Founded on a passion for precision and a deep respect for the ocean, ALHAZ MARINE has grown from a specialized workshop into a global partner for maritime excellence.</p>
           <div class="stats-grid">
-            <div class="stat-item">
-              <h3>500+</h3>
-              <p>Vessels Served</p>
-            </div>
-            <div class="stat-item">
-              <h3>10k+</h3>
-              <p>Parts Cataloged</p>
-            </div>
+            <div class="stat-item"><h3>500+</h3><p>Vessels Served</p></div>
+            <div class="stat-item"><h3>10k+</h3><p>Parts Cataloged</p></div>
           </div>
-          <div class="quote-block">
-            <p class="quote">&ldquo;We don't just supply parts; we ensure the safety and efficiency of every voyage.&rdquo;</p>
-          </div>
+          <div class="quote-block"><p class="quote">&ldquo;We don't just supply parts; we ensure the safety and efficiency of every voyage.&rdquo;</p></div>
         </div>
       </div>
     </div>
@@ -357,196 +1954,21 @@
   </section>
 
   <!-- ============================================ -->
-  <!-- PAGE: GALLERY - CDN + Local Images           -->
+  <!-- PAGE: GALLERY                               -->
   <!-- ============================================ -->
   <section id="gallery" class="page-section page-content">
     <div class="container">
       <h2 class="text-center">Visual <span style="color: var(--ocean-mid);">Logbook</span></h2>
-      <p class="text-center" style="color: #666; max-width: 600px; margin: 8px auto 0; font-size: 1.05rem;">
-        A glimpse into our world of marine engineering and industrial excellence
-      </p>
-
+      <p class="text-center" style="color: #666; max-width: 600px; margin: 8px auto 0; font-size: 1.05rem;">A glimpse into our world of marine engineering and industrial excellence</p>
       <div class="gallery-grid">
-        <!-- Image 1 - Featured - Local -->
-        <div class="gallery-item featured">
-          <img src="assets/images/hero.png" alt="Marine Vessel" loading="lazy" />
-          <div class="gallery-overlay">
-            <h4>Marine Vessel</h4>
-            <p>Commercial ship at sea</p>
-          </div>
-          <span class="gallery-tag">Featured</span>
-        </div>
-
-        <!-- Image 2 - Unsplash -->
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1567003903033-f74b4b75b3b0?w=600&h=600&fit=crop&crop=center" alt="Ship Engine" loading="lazy" />
-          <div class="gallery-overlay">
-            <h4>Ship Engine</h4>
-            <p>High-performance marine engine</p>
-          </div>
-        </div>
-
-        <!-- Image 3 - Unsplash -->
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1597428179570-8e3b9b7412ab?w=600&h=600&fit=crop&crop=center" alt="Boat at Dock" loading="lazy" />
-          <div class="gallery-overlay">
-            <h4>Boat Docking</h4>
-            <p>Vessel at port</p>
-          </div>
-        </div>
-
-        <!-- Image 4 - Unsplash -->
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1535531688125-d3d9f4720ad9?w=600&h=600&fit=crop&crop=center" alt="Ship Propeller" loading="lazy" />
-          <div class="gallery-overlay">
-            <h4>Propeller System</h4>
-            <p>Marine propeller repair</p>
-          </div>
-        </div>
-
-        <!-- Image 5 - Unsplash -->
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1583358172679-4e3a3d2a5c93?w=600&h=600&fit=crop&crop=center" alt="Port Crane" loading="lazy" />
-          <div class="gallery-overlay">
-            <h4>Heavy Lift</h4>
-            <p>Industrial crane operations</p>
-          </div>
-        </div>
-
-        <!-- Image 6 - Local -->
-        <div class="gallery-item">
-          <img src="assets/images/panel.png" alt="Electrical Panel" loading="lazy" />
-          <div class="gallery-overlay">
-            <h4>Electrical Systems</h4>
-            <p>Marine electrical wiring</p>
-          </div>
-        </div>
-
-        <!-- Image 7 - Unsplash -->
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1535043489050-6aa8fe5446a5?w=600&h=600&fit=crop&crop=center" alt="Ship Bridge" loading="lazy" />
-          <div class="gallery-overlay">
-            <h4>Navigation Bridge</h4>
-            <p>Ship control room</p>
-          </div>
-        </div>
-
-        <!-- Image 8 - Local -->
-        <div class="gallery-item">
-          <img src="assets/images/fire.png" alt="Fire Safety" loading="lazy" />
-          <div class="gallery-overlay">
-            <h4>Safety Equipment</h4>
-            <p>Marine fire safety gear</p>
-          </div>
-        </div>
-
-        <!-- Image 9 - Unsplash -->
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1569138514179-e3c8a2dd3c5e?w=600&h=600&fit=crop&crop=center" alt="Ship Maintenance" loading="lazy" />
-          <div class="gallery-overlay">
-            <h4>Maintenance Work</h4>
-            <p>Vessel repair services</p>
-          </div>
-        </div>
-
-        <!-- Image 10 - Pixabay -->
-        <div class="gallery-item">
-          <img src="https://cdn.pixabay.com/photo/2017/01/08/12/48/ship-1963136_640.jpg" alt="Boat Wiring" loading="lazy" />
-          <div class="gallery-overlay">
-            <h4>Boat Wiring</h4>
-            <p>Professional rewiring services</p>
-          </div>
-        </div>
-
-        <!-- Image 11 - Unsplash -->
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1544910595-16c7810da5e0?w=600&h=600&fit=crop&crop=center" alt="Technical Support" loading="lazy" />
-          <div class="gallery-overlay">
-            <h4>Technical Support</h4>
-            <p>After-sales assistance</p>
-          </div>
-        </div>
-
-        <!-- Image 12 - Pixabay -->
-        <div class="gallery-item">
-          <img src="https://cdn.pixabay.com/photo/2016/11/29/03/29/engine-1867240_640.jpg" alt="Industrial Worker" loading="lazy" />
-          <div class="gallery-overlay">
-            <h4>Industrial Service</h4>
-            <p>Marine engineering work</p>
-          </div>
-        </div>
-      </div>
-
-      <h3 class="text-center" style="margin-top: 60px; font-size: 1.8rem; font-weight: 700; color: var(--text-dark);">
-        Our <span style="color: var(--ocean-mid);">Work in Progress</span>
-      </h3>
-      <p class="text-center" style="color: #666; max-width: 600px; margin: 6px auto 0; font-size: 0.95rem;">
-        Behind the scenes of our marine engineering projects
-      </p>
-
-      <div class="gallery-masonry">
-        <!-- Image 13 - Unsplash -->
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1605281317010-fe5ffe798166?w=600&h=400&fit=crop&crop=center" alt="Engine Room" loading="lazy" />
-          <div class="gallery-overlay">
-            <h4>Engine Room</h4>
-            <p>Marine engine overhaul</p>
-          </div>
-        </div>
-
-        <!-- Image 14 - Unsplash -->
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1542295747577-f59e0b25cc03?w=600&h=400&fit=crop&crop=center" alt="Boat Fabrication" loading="lazy" />
-          <div class="gallery-overlay">
-            <h4>Boat Fabrication</h4>
-            <p>Custom vessel construction</p>
-          </div>
-        </div>
-
-        <!-- Image 15 - Pixabay -->
-        <div class="gallery-item">
-          <img src="https://cdn.pixabay.com/photo/2017/06/19/10/36/navigation-2419351_640.jpg" alt="Navigation Equipment" loading="lazy" />
-          <div class="gallery-overlay">
-            <h4>Navigation Systems</h4>
-            <p>Marine electronics installation</p>
-          </div>
-        </div>
-
-        <!-- Image 16 - Unsplash -->
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1583484700463-7911bf7558ef?w=600&h=400&fit=crop&crop=center" alt="Ship Construction" loading="lazy" />
-          <div class="gallery-overlay">
-            <h4>Ship Building</h4>
-            <p>Vessel construction project</p>
-          </div>
-        </div>
-
-        <!-- Image 17 - Pixabay -->
-        <div class="gallery-item">
-          <img src="https://cdn.pixabay.com/photo/2018/12/12/08/25/parts-3871273_640.jpg" alt="Marine Parts" loading="lazy" />
-          <div class="gallery-overlay">
-            <h4>Parts Supply</h4>
-            <p>Marine parts inventory</p>
-          </div>
-        </div>
-
-        <!-- Image 18 - Unsplash -->
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1514474959180-9b9778c15ad7?w=600&h=400&fit=crop&crop=center" alt="Marine Engineering" loading="lazy" />
-          <div class="gallery-overlay">
-            <h4>Engineering Work</h4>
-            <p>Marine engineering solutions</p>
-          </div>
-        </div>
-      </div>
-
-      <div style="text-align: center; margin-top: 50px;">
-        <a href="#contact" class="btn btn-accent" data-page="contact" style="padding: 14px 40px; font-size: 1rem;">
-          <i class="fas fa-paper-plane"></i> Request a Quote
-        </a>
-        <p style="margin-top: 12px; font-size: 0.85rem; color: #888;">
-          Need specific parts or services? Contact our team today.
-        </p>
+        <div class="gallery-item featured"><img src="assets/images/hero.png" alt="Marine Vessel" loading="lazy" /><div class="gallery-overlay"><h4>Marine Vessel</h4><p>Commercial ship at sea</p></div><span class="gallery-tag">Featured</span></div>
+        <div class="gallery-item"><img src="https://images.pexels.com/photos/1567003903033-f74b4b75b3b0?w=600&h=600&fit=crop&crop=center" alt="Ship Engine" loading="lazy" /><div class="gallery-overlay"><h4>Ship Engine</h4><p>High-performance marine engine</p></div></div>
+        <div class="gallery-item"><img src="https://images.pexels.com/photos/1597428179570-8e3b9b7412ab?w=600&h=600&fit=crop&crop=center" alt="Boat at Dock" loading="lazy" /><div class="gallery-overlay"><h4>Boat Docking</h4><p>Vessel at port</p></div></div>
+        <div class="gallery-item"><img src="https://images.pexels.com/photos/1535531688125-d3d9f4720ad9?w=600&h=600&fit=crop&crop=center" alt="Ship Propeller" loading="lazy" /><div class="gallery-overlay"><h4>Propeller System</h4><p>Marine propeller repair</p></div></div>
+        <div class="gallery-item"><img src="https://images.pexels.com/photos/1583358172679-4e3a3d2a5c93?w=600&h=600&fit=crop&crop=center" alt="Port Crane" loading="lazy" /><div class="gallery-overlay"><h4>Heavy Lift</h4><p>Industrial crane operations</p></div></div>
+        <div class="gallery-item"><img src="assets/images/panel.png" alt="Electrical Panel" loading="lazy" /><div class="gallery-overlay"><h4>Electrical Systems</h4><p>Marine electrical wiring</p></div></div>
+        <div class="gallery-item"><img src="https://images.pexels.com/photos/1535043489050-6aa8fe5446a5?w=600&h=600&fit=crop&crop=center" alt="Ship Bridge" loading="lazy" /><div class="gallery-overlay"><h4>Navigation Bridge</h4><p>Ship control room</p></div></div>
+        <div class="gallery-item"><img src="assets/images/fire.png" alt="Fire Safety" loading="lazy" /><div class="gallery-overlay"><h4>Safety Equipment</h4><p>Marine fire safety gear</p></div></div>
       </div>
     </div>
   </section>
@@ -558,318 +1980,37 @@
     <div class="container">
       <div class="text-center reveal-up">
         <span class="pre-title">WHAT OUR CLIENTS SAY</span>
-        <h2 style="font-size: 3rem; font-weight: 700; margin-bottom: 15px;">
-          Trusted By <span style="color: var(--ocean-mid);">Maritime Leaders</span>
-        </h2>
-        <p style="font-size: 1.1rem; color: #666; max-width: 700px; margin: 0 auto 40px;">
-          Real feedback from industry professionals who rely on ALHAZ MARINE for quality, reliability, and expertise.
-        </p>
+        <h2 style="font-size: 3rem; font-weight: 700; margin-bottom: 15px;">Trusted By <span style="color: var(--ocean-mid);">Maritime Leaders</span></h2>
+        <p style="font-size: 1.1rem; color: #666; max-width: 700px; margin: 0 auto 40px;">Real feedback from industry professionals who rely on ALHAZ MARINE for quality, reliability, and expertise.</p>
       </div>
-
       <div class="testimonials-grid">
-        <!-- Testimonial 1 -->
         <div class="testimonial-card reveal-up">
           <div class="testimonial-header">
-            <div class="testimonial-avatar">
-              <img src="https://i.pravatar.cc/150?img=12" alt="Capt. James Miller" />
-              <div class="testimonial-rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-            </div>
-            <div class="testimonial-user-info">
-              <h4>Capt. James Miller</h4>
-              <span class="designation">Chief Engineer</span>
-              <span class="company">OceanLine Tankers</span>
-            </div>
-            <div class="testimonial-quote-icon">
-              <i class="fas fa-quote-right"></i>
-            </div>
+            <div class="testimonial-avatar"><img src="https://i.pravatar.cc/150?img=12" alt="Capt. James Miller" /><div class="testimonial-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div>
+            <div class="testimonial-user-info"><h4>Capt. James Miller</h4><span class="designation">Chief Engineer</span><span class="company">OceanLine Tankers</span></div>
+            <div class="testimonial-quote-icon"><i class="fas fa-quote-right"></i></div>
           </div>
-          <div class="testimonial-body">
-            <p>&ldquo;The automation parts supplied were exactly what we needed for our tanker overhaul. Exceptional service and fast delivery across the ocean! Their technical team provided excellent support throughout the installation process.&rdquo;</p>
-          </div>
-          <div class="testimonial-footer">
-            <span class="testimonial-date"><i class="far fa-calendar-alt"></i> March 2026</span>
-            <span class="testimonial-tag tag-automation">Automation</span>
-          </div>
+          <div class="testimonial-body"><p>&ldquo;The automation parts supplied were exactly what we needed for our tanker overhaul. Exceptional service and fast delivery across the ocean!&rdquo;</p></div>
+          <div class="testimonial-footer"><span class="testimonial-date"><i class="far fa-calendar-alt"></i> March 2026</span><span class="testimonial-tag tag-automation">Automation</span></div>
         </div>
-
-        <!-- Testimonial 2 -->
         <div class="testimonial-card reveal-up">
           <div class="testimonial-header">
-            <div class="testimonial-avatar">
-              <img src="https://i.pravatar.cc/150?img=32" alt="Maria Gonzalez" />
-              <div class="testimonial-rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-            </div>
-            <div class="testimonial-user-info">
-              <h4>Maria Gonzalez</h4>
-              <span class="designation">Procurement Director</span>
-              <span class="company">BlueWave Maritime</span>
-            </div>
-            <div class="testimonial-quote-icon">
-              <i class="fas fa-quote-right"></i>
-            </div>
+            <div class="testimonial-avatar"><img src="https://i.pravatar.cc/150?img=32" alt="Maria Gonzalez" /><div class="testimonial-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div>
+            <div class="testimonial-user-info"><h4>Maria Gonzalez</h4><span class="designation">Procurement Director</span><span class="company">BlueWave Maritime</span></div>
+            <div class="testimonial-quote-icon"><i class="fas fa-quote-right"></i></div>
           </div>
-          <div class="testimonial-body">
-            <p>&ldquo;ALHAZ MARINE is our go-to partner for marine electrical components. Their catalog is vast, quality is impeccable, and the team genuinely cares about vessel safety. They have never missed a delivery deadline in our 3-year partnership. Highly recommended!&rdquo;</p>
-          </div>
-          <div class="testimonial-footer">
-            <span class="testimonial-date"><i class="far fa-calendar-alt"></i> February 2026</span>
-            <span class="testimonial-tag tag-electrical">Electrical</span>
-          </div>
+          <div class="testimonial-body"><p>&ldquo;ALHAZ MARINE is our go-to partner for marine electrical components. Their catalog is vast, quality is impeccable, and the team genuinely cares about vessel safety.&rdquo;</p></div>
+          <div class="testimonial-footer"><span class="testimonial-date"><i class="far fa-calendar-alt"></i> February 2026</span><span class="testimonial-tag tag-electrical">Electrical</span></div>
         </div>
-
-        <!-- Testimonial 3 -->
         <div class="testimonial-card reveal-up">
           <div class="testimonial-header">
-            <div class="testimonial-avatar">
-              <img src="https://i.pravatar.cc/150?img=47" alt="Rajiv Kapoor" />
-              <div class="testimonial-rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-            </div>
-            <div class="testimonial-user-info">
-              <h4>Rajiv Kapoor</h4>
-              <span class="designation">Fleet Manager</span>
-              <span class="company">Asia Pacific Shipping</span>
-            </div>
-            <div class="testimonial-quote-icon">
-              <i class="fas fa-quote-right"></i>
-            </div>
+            <div class="testimonial-avatar"><img src="https://i.pravatar.cc/150?img=47" alt="Rajiv Kapoor" /><div class="testimonial-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div>
+            <div class="testimonial-user-info"><h4>Rajiv Kapoor</h4><span class="designation">Fleet Manager</span><span class="company">Asia Pacific Shipping</span></div>
+            <div class="testimonial-quote-icon"><i class="fas fa-quote-right"></i></div>
           </div>
-          <div class="testimonial-body">
-            <p>&ldquo;We've sourced engine sensors and fire safety gear from them for over 5 years. Consistent quality, excellent logistics, and they understand the urgency of vessel operations. Their after-sales support is truly remarkable. A true industrial ally.&rdquo;</p>
-          </div>
-          <div class="testimonial-footer">
-            <span class="testimonial-date"><i class="far fa-calendar-alt"></i> January 2026</span>
-            <span class="testimonial-tag tag-safety">Safety</span>
-          </div>
+          <div class="testimonial-body"><p>&ldquo;We've sourced engine sensors and fire safety gear from them for over 5 years. Consistent quality, excellent logistics, and they understand the urgency of vessel operations.&rdquo;</p></div>
+          <div class="testimonial-footer"><span class="testimonial-date"><i class="far fa-calendar-alt"></i> January 2026</span><span class="testimonial-tag tag-safety">Safety</span></div>
         </div>
-
-        <!-- Testimonial 4 -->
-        <div class="testimonial-card reveal-up">
-          <div class="testimonial-header">
-            <div class="testimonial-avatar">
-              <img src="https://i.pravatar.cc/150?img=58" alt="Emily Clarke" />
-              <div class="testimonial-rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-            </div>
-            <div class="testimonial-user-info">
-              <h4>Emily Clarke</h4>
-              <span class="designation">Senior Superintendent</span>
-              <span class="company">NorthSea Marine</span>
-            </div>
-            <div class="testimonial-quote-icon">
-              <i class="fas fa-quote-right"></i>
-            </div>
-          </div>
-          <div class="testimonial-body">
-            <p>&ldquo;Impressed by their technical expertise in automation and control systems. They helped modernize our vessel's navigation suite within a tight schedule. The team was professional, knowledgeable, and completed the project ahead of time. Professional and innovative!&rdquo;</p>
-          </div>
-          <div class="testimonial-footer">
-            <span class="testimonial-date"><i class="far fa-calendar-alt"></i> December 2025</span>
-            <span class="testimonial-tag tag-navigation">Navigation</span>
-          </div>
-        </div>
-
-        <!-- Testimonial 5 -->
-        <div class="testimonial-card reveal-up">
-          <div class="testimonial-header">
-            <div class="testimonial-avatar">
-              <img src="https://i.pravatar.cc/150?img=72" alt="Abdul Rahman" />
-              <div class="testimonial-rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-            </div>
-            <div class="testimonial-user-info">
-              <h4>Abdul Rahman</h4>
-              <span class="designation">CEO</span>
-              <span class="company">Gulf Marine Services</span>
-            </div>
-            <div class="testimonial-quote-icon">
-              <i class="fas fa-quote-right"></i>
-            </div>
-          </div>
-          <div class="testimonial-body">
-            <p>&ldquo;From spare parts to full-scale project support, ALHAZ MARINE delivers excellence. Their team's deep knowledge of marine engineering gives us total confidence. They are not just a supplier but a true partner in our success. A world-class supplier.&rdquo;</p>
-          </div>
-          <div class="testimonial-footer">
-            <span class="testimonial-date"><i class="far fa-calendar-alt"></i> November 2025</span>
-            <span class="testimonial-tag tag-full-service">Full Service</span>
-          </div>
-        </div>
-
-        <!-- Testimonial 6 -->
-        <div class="testimonial-card reveal-up">
-          <div class="testimonial-header">
-            <div class="testimonial-avatar">
-              <img src="https://i.pravatar.cc/150?img=91" alt="David Chen" />
-              <div class="testimonial-rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-            </div>
-            <div class="testimonial-user-info">
-              <h4>David Chen</h4>
-              <span class="designation">Operations Director</span>
-              <span class="company">Pacific Star Shipping</span>
-            </div>
-            <div class="testimonial-quote-icon">
-              <i class="fas fa-quote-right"></i>
-            </div>
-          </div>
-          <div class="testimonial-body">
-            <p>&ldquo;Working with ALHAZ MARINE has been a game-changer for our fleet operations. Their responsiveness and technical knowledge are unmatched in the industry. We've reduced our downtime significantly. Their team is available 24/7 for emergency support.&rdquo;</p>
-          </div>
-          <div class="testimonial-footer">
-            <span class="testimonial-date"><i class="far fa-calendar-alt"></i> October 2025</span>
-            <span class="testimonial-tag tag-support">Support</span>
-          </div>
-        </div>
-
-        <!-- Testimonial 7 -->
-        <div class="testimonial-card reveal-up">
-          <div class="testimonial-header">
-            <div class="testimonial-avatar">
-              <img src="https://i.pravatar.cc/150?img=45" alt="Sarah Williams" />
-              <div class="testimonial-rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-            </div>
-            <div class="testimonial-user-info">
-              <h4>Sarah Williams</h4>
-              <span class="designation">Technical Director</span>
-              <span class="company">Atlantic Marine Group</span>
-            </div>
-            <div class="testimonial-quote-icon">
-              <i class="fas fa-quote-right"></i>
-            </div>
-          </div>
-          <div class="testimonial-body">
-            <p>&ldquo;ALHAZ MARINE provided us with custom-engineered solutions that perfectly matched our vessel's requirements. Their attention to detail and commitment to quality is truly world-class. The engineering team went above and beyond to ensure our satisfaction.&rdquo;</p>
-          </div>
-          <div class="testimonial-footer">
-            <span class="testimonial-date"><i class="far fa-calendar-alt"></i> September 2025</span>
-            <span class="testimonial-tag tag-engineering">Engineering</span>
-          </div>
-        </div>
-
-        <!-- Testimonial 8 -->
-        <div class="testimonial-card reveal-up">
-          <div class="testimonial-header">
-            <div class="testimonial-avatar">
-              <img src="https://i.pravatar.cc/150?img=25" alt="Michael Okafor" />
-              <div class="testimonial-rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-            </div>
-            <div class="testimonial-user-info">
-              <h4>Michael Okafor</h4>
-              <span class="designation">Chief Marine Engineer</span>
-              <span class="company">African Maritime Services</span>
-            </div>
-            <div class="testimonial-quote-icon">
-              <i class="fas fa-quote-right"></i>
-            </div>
-          </div>
-          <div class="testimonial-body">
-            <p>&ldquo;The hydraulic systems and mechanical parts supplied by ALHAZ MARINE have significantly improved our vessel performance. Their quality control is exceptional and every part meets international standards. A trusted partner for our fleet operations.&rdquo;</p>
-          </div>
-          <div class="testimonial-footer">
-            <span class="testimonial-date"><i class="far fa-calendar-alt"></i> August 2025</span>
-            <span class="testimonial-tag tag-hydraulics">Hydraulics</span>
-          </div>
-        </div>
-
-        <!-- Testimonial 9 -->
-        <div class="testimonial-card reveal-up">
-          <div class="testimonial-header">
-            <div class="testimonial-avatar">
-              <img src="https://i.pravatar.cc/150?img=66" alt="Li Wei" />
-              <div class="testimonial-rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-            </div>
-            <div class="testimonial-user-info">
-              <h4>Li Wei</h4>
-              <span class="designation">Fleet Operations Manager</span>
-              <span class="company">Shanghai Maritime Group</span>
-            </div>
-            <div class="testimonial-quote-icon">
-              <i class="fas fa-quote-right"></i>
-            </div>
-          </div>
-          <div class="testimonial-body">
-            <p>&ldquo;ALHAZ MARINE's electrical rewiring services transformed our aging vessel. Their team worked efficiently, minimized downtime, and delivered exceptional results. The new electrical systems are more reliable and energy-efficient. Highly professional service.&rdquo;</p>
-          </div>
-          <div class="testimonial-footer">
-            <span class="testimonial-date"><i class="far fa-calendar-alt"></i> July 2025</span>
-            <span class="testimonial-tag tag-electrical">Electrical</span>
-          </div>
-        </div>
-      </div>
-
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin-top: 60px; padding-top: 50px; border-top: 2px solid #eee;">
-        <div style="text-align: center;">
-          <h3 style="font-size: 2.8rem; font-weight: 800; color: var(--ocean-mid);">500+</h3>
-          <p style="color: #666; font-weight: 600;">Vessels Served</p>
-        </div>
-        <div style="text-align: center;">
-          <h3 style="font-size: 2.8rem; font-weight: 800; color: var(--ocean-mid);">10k+</h3>
-          <p style="color: #666; font-weight: 600;">Parts Cataloged</p>
-        </div>
-        <div style="text-align: center;">
-          <h3 style="font-size: 2.8rem; font-weight: 800; color: var(--ocean-mid);">98%</h3>
-          <p style="color: #666; font-weight: 600;">Client Satisfaction</p>
-        </div>
-        <div style="text-align: center;">
-          <h3 style="font-size: 2.8rem; font-weight: 800; color: var(--ocean-mid);">24/7</h3>
-          <p style="color: #666; font-weight: 600;">Technical Support</p>
-        </div>
-      </div>
-
-      <div style="text-align: center; margin-top: 50px;">
-        <a href="#contact" class="btn btn-accent" data-page="contact" style="padding: 14px 40px; font-size: 1rem;">
-          <i class="fas fa-paper-plane"></i> Become Our Next Satisfied Client
-        </a>
       </div>
     </div>
   </section>
@@ -889,74 +2030,51 @@
             <input type="hidden" name="_next" value="https://alhazmarine.com/thank-you.html">
             <input type="hidden" name="_subject" value="New Contact Form Submission - ALHAZ MARINE">
             <div class="form-row">
-              <div class="form-group">
-                <label for="name">Full Name <span class="required">*</span></label>
-                <input type="text" id="name" name="Name" placeholder="Enter your full name" required />
-              </div>
-              <div class="form-group">
-                <label for="email">Email Address <span class="required">*</span></label>
-                <input type="email" id="email" name="Email" placeholder="Enter your email address" required />
-              </div>
+              <div class="form-group"><label for="name">Full Name <span class="required">*</span></label><input type="text" id="name" name="Name" placeholder="Enter your full name" required /></div>
+              <div class="form-group"><label for="email">Email Address <span class="required">*</span></label><input type="email" id="email" name="Email" placeholder="Enter your email address" required /></div>
             </div>
             <div class="form-row">
-              <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="Phone" placeholder="Enter your phone number" />
-              </div>
-              <div class="form-group">
-                <label for="interest">Service Interest <span class="required">*</span></label>
+              <div class="form-group"><label for="phone">Phone Number</label><input type="tel" id="phone" name="Phone" placeholder="Enter your phone number" /></div>
+              <div class="form-group"><label for="interest">Service Interest <span class="required">*</span></label>
                 <select id="interest" name="Interest" required>
                   <option value="">Select a service...</option>
-                  <option value="Engines & Repair">Engines &amp; Repair</option>
-                  <option value="Boat Sales & Design">Boat Sales &amp; Design</option>
-                  <option value="Electrical & Rewiring">Electrical &amp; Rewiring</option>
-                  <option value="Hydraulics & Mechanics">Hydraulics &amp; Mechanics</option>
-                  <option value="Accessories & Parts">Accessories &amp; Parts</option>
-                  <option value="Mercury Warranty">Mercury Warranty Service</option>
+                  <option value="Provision Supply">Provision Supply</option>
+                  <option value="Ship Repairing">Ship Repairing</option>
+                  <option value="Store Supply">Store Supply</option>
+                  <option value="Bunker Supply">Bunker Supply</option>
+                  <option value="Cleaning Service">Cleaning Service</option>
+                  <option value="Underwater Services">Underwater Services</option>
+                  <option value="Main Engine & Generator Engine Repairs">Main Engine & Generator Engine Repairs</option>
+                  <option value="Hydraulic System Repair">Hydraulic System Repair</option>
+                  <option value="Grab Repairs">Grab Repairs</option>
+                  <option value="Pump Repair & Maintenance">Pump Repair & Maintenance</option>
+                  <option value="Compressor Repair & Maintenance">Compressor Repair & Maintenance</option>
+                  <option value="Crane & Deck Machinery Repair">Crane & Deck Machinery Repair</option>
+                  <option value="Electrical Repairs & Maintenance">Electrical Repairs & Maintenance</option>
+                  <option value="Electrical & Automation Services">Electrical & Automation Services</option>
+                  <option value="Refrigeration & Air Conditioning">Refrigeration & Air Conditioning</option>
+                  <option value="Boiler Repair & Maintenance">Boiler Repair & Maintenance</option>
+                  <option value="Welding & Fabrication">Welding & Fabrication</option>
+                  <option value="Marine Spare Parts Supply">Marine Spare Parts Supply</option>
+                  <option value="Shipping Agency Services">Shipping Agency Services</option>
+                  <option value="Security Services">Security Services</option>
+                  <option value="Bond Store Supply">Bond Store Supply</option>
+                  <option value="Safety Equipment Supply & Service">Safety Equipment Supply & Service</option>
+                  <option value="Marine Consultancy / Technical Support">Marine Consultancy / Technical Support</option>
                   <option value="General Inquiry">General Inquiry</option>
                   <option value="Others">Others</option>
                 </select>
               </div>
             </div>
-            <div class="form-group full-width">
-              <label for="message">Your Message <span class="required">*</span></label>
-              <textarea id="message" name="Message" placeholder="Tell us about your project, requirements, or any questions..." rows="5" required></textarea>
-            </div>
-            <div class="form-group full-width">
-              <button type="submit" class="btn btn-accent-full submit-btn">
-                <i class="fas fa-paper-plane"></i> Send Message
-              </button>
-            </div>
+            <div class="form-group full-width"><label for="message">Your Message <span class="required">*</span></label><textarea id="message" name="Message" placeholder="Tell us about your project, requirements, or any questions..." rows="5" required></textarea></div>
+            <div class="form-group full-width"><button type="submit" class="btn btn-accent-full submit-btn"><i class="fas fa-paper-plane"></i> Send Message</button></div>
             <div class="form-status" id="formStatus"></div>
           </form>
         </div>
         <div class="contact-info">
-          <div class="info-block">
-            <i class="fas fa-map-marker-alt"></i>
-            <div>
-              <h4>Headquarters</h4>
-              <p>Agrabad Commercial Area, Chittagong, Bangladesh</p>
-            </div>
-          </div>
-          <div class="info-block">
-            <i class="fas fa-phone"></i>
-            <div>
-              <h4>Call or WhatsApp</h4>
-              <p>
-                <a href="tel:+8801815406539" class="phone-link">+8801815-406539</a><br />
-                <a href="https://wa.me/8801590016859" target="_blank" class="whatsapp-link">
-                  <i class="fab fa-whatsapp"></i> +8801590-016859
-                </a>
-              </p>
-            </div>
-          </div>
-          <div class="info-block">
-            <i class="fas fa-paper-plane"></i>
-            <div>
-              <h4>Online Support</h4>
-              <p><a href="mailto:info@alhazmarine.com">info@alhazmarine.com</a></p>
-            </div>
-          </div>
+          <div class="info-block"><i class="fas fa-map-marker-alt"></i><div><h4>Headquarters</h4><p>Agrabad Commercial Area, Chittagong, Bangladesh</p></div></div>
+          <div class="info-block"><i class="fas fa-phone"></i><div><h4>Call or WhatsApp</h4><p><a href="tel:+8801815406539" class="phone-link">+8801815-406539</a><br /><a href="https://wa.me/8801590016859" target="_blank" class="whatsapp-link"><i class="fab fa-whatsapp"></i> +8801590-016859</a></p></div></div>
+          <div class="info-block"><i class="fas fa-paper-plane"></i><div><h4>Online Support</h4><p><a href="mailto:info@alhazmarine.com">info@alhazmarine.com</a></p></div></div>
         </div>
       </div>
     </div>
@@ -967,30 +2085,18 @@
     <div class="container">
       <div class="footer-bottom">
         <div class="socials">
-          <a href="https://www.facebook.com/alhazmarine/" target="_blank" aria-label="Facebook">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-          <a href="https://www.linkedin.com/company/alhaz-marine-industrial-service/" target="_blank" aria-label="LinkedIn">
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-          <a href="https://wa.me/8801590016859" target="_blank" aria-label="WhatsApp">
-            <i class="fab fa-whatsapp"></i>
-          </a>
+          <a href="https://www.facebook.com/alhazmarine/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.linkedin.com/company/alhaz-marine-industrial-service/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://wa.me/8801590016859" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         </div>
-        <div class="developer-credit">
-          <p>Developed by <a href="mailto:aungching.jack420@gmail.com" class="dev-link"><i class="fas fa-code"></i> Aung Ching</a></p>
-        </div>
-        <div class="copyright">
-          <p>&copy; 2026 ALHAZ MARINE. All rights reserved.</p>
-        </div>
+        <div class="developer-credit"><p>Developed by <a href="mailto:aungching.jack420@gmail.com" class="dev-link"><i class="fas fa-code"></i> Aung Ching</a></p></div>
+        <div class="copyright"><p>&copy; 2026 ALHAZ MARINE. All rights reserved.</p></div>
       </div>
     </div>
   </footer>
 
   <!-- ===== BACK TO TOP ===== -->
-  <a href="#home" id="backToTop" class="back-to-top" aria-label="Back to top">
-    <i class="fas fa-arrow-up"></i>
-  </a>
+  <a href="#home" id="backToTop" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
 
   <!-- ===== JAVASCRIPT ===== -->
   <script src="script.js"></script>
