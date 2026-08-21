@@ -659,3 +659,492 @@ document.addEventListener('DOMContentLoaded', function() {
   console.log('💡 Hover on "Services" menu to see dropdown');
   console.log('💡 Click on any service to view its dedicated page');
 });
+
+// ============================================
+// FIXED GALLERY AUTO-PLAY COURSEL LOGIC
+// ============================================
+const galleryData = [
+  { src: 'assets/images/hero.png', title: 'Marine Vessel', desc: 'Commercial ship at sea' },
+  { src: 'assets/images/engine.jpg', title: 'Ship Engine', desc: 'High-performance marine engine' },
+  { src: 'assets/images/cleaning.jpg', title: 'Boat Docking', desc: 'Vessel at port' },
+  { src: 'assets/images/underwater.jpg', title: 'Propeller System', desc: 'Marine propeller repair' },
+  { src: 'assets/images/crane.jpg', title: 'Heavy Lift', desc: 'Industrial crane operations' },
+  { src: 'assets/images/automation.jpg', title: 'Electrical Systems', desc: 'Marine electrical wiring' },
+  { src: 'assets/images/compressor.jpg', title: 'Navigation Bridge', desc: 'Ship control room' },
+  { src: 'assets/images/safety.jpg', title: 'Safety Equipment', desc: 'Marine fire safety gear' }
+];
+
+let currentGalleryIndex = 0;
+let galleryInterval = null;
+let galleryAutoPlay = true;
+
+// Function to initialize gallery thumbnails
+function initGallery() {
+  const galleryThumbs = document.getElementById('galleryThumbs');
+  if (!galleryThumbs) return;
+  
+  galleryThumbs.innerHTML = '';
+  
+  galleryData.forEach((item, index) => {
+    const thumbWrapper = document.createElement('div');
+    thumbWrapper.className = 'gallery-thumb-wrapper';
+    thumbWrapper.onclick = () => showGallerySlide(index);
+    
+    const thumb = document.createElement('img');
+    thumb.src = item.src;
+    thumb.alt = item.title;
+    
+    thumbWrapper.appendChild(thumb);
+    galleryThumbs.appendChild(thumbWrapper);
+    
+    if (index === currentGalleryIndex) {
+      thumbWrapper.classList.add('active');
+    }
+  });
+}
+
+// Function to show specific gallery slide
+function showGallerySlide(index) {
+  const mainGalleryImage = document.getElementById('mainGalleryImage');
+  const galleryCaption = document.getElementById('galleryCaption');
+  const galleryThumbs = document.getElementById('galleryThumbs');
+  
+  if (!mainGalleryImage || !galleryCaption || !galleryThumbs) return;
+  
+  currentGalleryIndex = index;
+  
+  // Wrap around
+  if (currentGalleryIndex >= galleryData.length) currentGalleryIndex = 0;
+  if (currentGalleryIndex < 0) currentGalleryIndex = galleryData.length - 1;
+  
+  // Fade out
+  mainGalleryImage.style.opacity = '0';
+  
+  setTimeout(() => {
+    // Update main image
+    mainGalleryImage.src = galleryData[currentGalleryIndex].src;
+    mainGalleryImage.alt = galleryData[currentGalleryIndex].title;
+    
+    // Update caption
+    galleryCaption.querySelector('h4').textContent = galleryData[currentGalleryIndex].title;
+    galleryCaption.querySelector('p').textContent = galleryData[currentGalleryIndex].desc;
+    
+    // Fade in
+    mainGalleryImage.style.opacity = '1';
+    
+    // Update thumbnails
+    const thumbs = document.querySelectorAll('#galleryThumbs .gallery-thumb-wrapper');
+    thumbs.forEach((thumb, i) => {
+      thumb.classList.remove('active');
+      if (i === currentGalleryIndex) thumb.classList.add('active');
+    });
+  }, 300);
+}
+
+// Function to change gallery slide (for arrows)
+function changeGallerySlide(direction) {
+  showGallerySlide(currentGalleryIndex + direction);
+}
+
+// Auto-play function
+function startGalleryAutoPlay() {
+  if (galleryInterval) clearInterval(galleryInterval);
+  
+  galleryInterval = setInterval(() => {
+    if (galleryAutoPlay) {
+      showGallerySlide(currentGalleryIndex + 1);
+    }
+  }, 3000);
+}
+
+// Stop auto-play
+function stopGalleryAutoPlay() {
+  if (galleryInterval) {
+    clearInterval(galleryInterval);
+    galleryInterval = null;
+  }
+}
+
+// Initialize gallery
+function initializeGallery() {
+  const mainGalleryImage = document.getElementById('mainGalleryImage');
+  
+  if (!mainGalleryImage) return;
+  
+  initGallery();
+  startGalleryAutoPlay();
+  
+  // Pause on hover
+  const galleryMainView = document.querySelector('.gallery-main-view');
+  if (galleryMainView) {
+    galleryMainView.addEventListener('mouseenter', () => {
+      galleryAutoPlay = false;
+      stopGalleryAutoPlay();
+    });
+    
+    galleryMainView.addEventListener('mouseleave', () => {
+      galleryAutoPlay = true;
+      startGalleryAutoPlay();
+    });
+  }
+  
+  // Touch swipe support for mobile
+  let touchStartX = 0;
+  let touchEndX = 0;
+  
+  galleryMainView.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+  
+  galleryMainView.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  }, { passive: true });
+  
+  function handleSwipe() {
+    const swipeThreshold = 50;
+    const diff = touchEndX - touchStartX;
+    
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0) {
+        // Swiped right - go to previous
+        changeGallerySlide(-1);
+      } else {
+        // Swiped left - go to next
+        changeGallerySlide(1);
+      }
+    }
+  }
+  
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') {
+      changeGallerySlide(-1);
+    } else if (e.key === 'ArrowRight') {
+      changeGallerySlide(1);
+    }
+  });
+}
+
+// ============================================
+// FIXED SERVICE PAGE NAVIGATION
+// ============================================
+
+// Override the switchPage function for better service page handling
+const originalSwitchPage = window.switchPage;
+
+// Create a new switchPage function
+window.switchPage = function(pageId) {
+  if (isChangingPage) return;
+  
+  const isServicePage = pageId.startsWith('service-');
+  
+  if (pageId === getCurrentPage()) {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    return;
+  }
+
+  isChangingPage = true;
+
+  if (pageChangeLoader) {
+    pageChangeLoader.classList.add('active');
+  }
+
+  allPages.forEach(page => {
+    page.classList.remove('active');
+  });
+
+  setTimeout(() => {
+    const targetPage = document.getElementById(pageId);
+    if (targetPage) {
+      targetPage.classList.add('active');
+    }
+
+    if (heroSection) {
+      if (pageId === 'home') {
+        heroSection.classList.remove('hidden');
+      } else {
+        heroSection.classList.add('hidden');
+      }
+    }
+
+    if (history.pushState) {
+      history.pushState(null, null, '#' + pageId);
+    }
+
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('data-page') === pageId) {
+        link.classList.add('active');
+      }
+    });
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    setTimeout(() => {
+      const reveals = targetPage ? targetPage.querySelectorAll('.reveal-up, .reveal-left, .reveal-right') : [];
+      reveals.forEach(el => {
+        const elementTop = el.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        if (elementTop < windowHeight - 100) {
+          el.classList.add('active');
+        }
+      });
+      
+      // Re-initialize gallery if on gallery page
+      if (pageId === 'gallery') {
+        initializeGallery();
+      }
+    }, 100);
+
+    setTimeout(() => {
+      if (pageChangeLoader) {
+        pageChangeLoader.classList.remove('active');
+      }
+      isChangingPage = false;
+    }, 400);
+
+  }, 500);
+};
+
+// ============================================
+// FIX FOR MESSENGER BUTTON DRAGGING
+// ============================================
+
+// Override messenger button click handler
+const messengerBtn = document.getElementById('messengerBtn');
+if (messengerBtn) {
+  // Remove old click handler
+  const oldMessengerClick = messengerBtn.onclick;
+  messengerBtn.onclick = null;
+  
+  // Add new click handler
+  messengerBtn.addEventListener('click', function(e) {
+    if (isDragging) {
+      e.preventDefault();
+      isDragging = false;
+      return;
+    }
+    
+    // Navigate to contact page
+    if (getCurrentPage() !== 'contact') {
+      window.switchPage('contact');
+    }
+  });
+}
+
+// ============================================
+// FIX FOR DROPDOWN LINKS
+// ============================================
+
+// Update dropdown link click handlers
+document.querySelectorAll('.dropdown-menu a[data-page]').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    const pageId = this.getAttribute('data-page');
+    
+    if (pageId) {
+      const nav = document.querySelector('.nav');
+      const hamburger = document.querySelector('.hamburger-menu');
+      if (nav) nav.classList.remove('active');
+      if (hamburger) hamburger.classList.remove('active');
+      if (navDropdown) {
+        navDropdown.classList.remove('active');
+        if (dropdownTimeout) {
+          clearTimeout(dropdownTimeout);
+          dropdownTimeout = null;
+        }
+      }
+      document.body.style.overflow = '';
+      window.switchPage(pageId);
+    }
+  });
+});
+
+// ============================================
+// FIX FOR SERVICE LIST LINKS
+// ============================================
+
+// Update service list link click handlers
+document.querySelectorAll('.service-list-link[data-page]').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    const pageId = this.getAttribute('data-page');
+    if (pageId) {
+      window.switchPage(pageId);
+    }
+  });
+});
+
+// ============================================
+// FIX FOR SERVICE CARD LINKS
+// ============================================
+
+// Update service card link click handlers
+document.querySelectorAll('.service-link[data-page]').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    const pageId = this.getAttribute('data-page');
+    if (pageId) {
+      window.switchPage(pageId);
+    }
+  });
+});
+
+// ============================================
+// FIX FOR CTA BUTTONS
+// ============================================
+
+// Update CTA button click handlers
+document.querySelectorAll('.btn[data-page]').forEach(function(btn) {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    const pageId = this.getAttribute('data-page');
+    if (pageId) {
+      window.switchPage(pageId);
+    }
+  });
+});
+
+// ============================================
+// FIX FOR LOGO CLICK
+// ============================================
+
+// Update logo click handler
+const logoLink = document.getElementById('logoLink');
+if (logoLink) {
+  logoLink.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    const pageId = this.getAttribute('data-page');
+    if (pageId && pageId !== getCurrentPage()) {
+      window.switchPage(pageId);
+    } else if (pageId === 'home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  });
+}
+
+// ============================================
+// INITIALIZE GALLERY ON PAGE LOAD
+// ============================================
+
+// Call initializeGallery after DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+  // Check if gallery is present and initialize
+  if (document.getElementById('mainGalleryImage')) {
+    setTimeout(() => {
+      initializeGallery();
+    }, 2500); // Wait for page loader to finish
+  }
+  
+  // Also check if gallery is loaded via hash
+  const currentHash = window.location.hash.replace('#', '');
+  if (currentHash === 'gallery' || currentHash === '') {
+    setTimeout(() => {
+      initializeGallery();
+    }, 3000);
+  }
+});
+
+// ============================================
+// FIX FOR URL HASH NAVIGATION
+// ============================================
+
+// Override handleHashOnLoad
+function handleHashOnLoadFixed() {
+  const hash = window.location.hash.replace('#', '');
+  
+  if (hash && document.getElementById(hash)) {
+    allPages.forEach(page => {
+      page.classList.remove('active');
+    });
+    const targetPage = document.getElementById(hash);
+    if (targetPage) {
+      targetPage.classList.add('active');
+    }
+    if (heroSection) {
+      if (hash === 'home') {
+        heroSection.classList.remove('hidden');
+      } else {
+        heroSection.classList.add('hidden');
+      }
+    }
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('data-page') === hash) {
+        link.classList.add('active');
+      }
+    });
+    
+    // Initialize gallery if on gallery page
+    if (hash === 'gallery') {
+      setTimeout(() => {
+        initializeGallery();
+      }, 500);
+    }
+  } else {
+    allPages.forEach(page => {
+      page.classList.remove('active');
+    });
+    const homePage = document.getElementById('home');
+    if (homePage) {
+      homePage.classList.add('active');
+    }
+    if (heroSection) {
+      heroSection.classList.remove('hidden');
+    }
+  }
+}
+
+// Replace old handleHashOnLoad with fixed version
+window.handleHashOnLoad = handleHashOnLoadFixed;
+
+// ============================================
+// FIX FOR INITIAL LOAD
+// ============================================
+
+// Override the initialization
+const originalInit = window.addEventListener('DOMContentLoaded', function() {
+  handleHashOnLoad();
+  setTimeout(revealOnScroll, 500);
+});
+
+// Add our fixes
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize gallery if present
+  if (document.getElementById('mainGalleryImage')) {
+    setTimeout(() => {
+      initializeGallery();
+    }, 3000);
+  }
+  
+  console.log('✅ Gallery Auto-Play Initialized');
+  console.log('✅ Service Page Navigation Fixed');
+});
+
+// ============================================
+// GLOBAL ERROR HANDLING
+// ============================================
+
+window.addEventListener('error', function(e) {
+  console.log('⚠️ Error: ' + e.message);
+});
+
+// ============================================
+// FINAL CONSOLE LOG
+// ============================================
+
+console.log('🚢 ALHAZ MARINE - Updated JavaScript Loaded');
+console.log('📸 Gallery Auto-Play: Active');
+console.log('🔄 Service Navigation: Fixed');
+console.log('💡 Hover on Gallery to pause auto-play');
