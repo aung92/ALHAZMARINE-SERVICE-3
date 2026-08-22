@@ -1,7 +1,7 @@
 /* ============================================
    ALHAZ MARINE - SCRIPT.JS
    Single Page Navigation with Loader
-   Version: 2.0 (Complete)
+   Version: 2.1 (Fully Responsive)
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
   let isChangingPage = false;
 
   // ===============================
-  // DROPDOWN - Hover to show/hide
+  // DROPDOWN - Hover to show/hide (Desktop) / Click (Mobile)
   // ===============================
   const navDropdown = document.querySelector('.nav-dropdown');
   let dropdownTimeout = null;
@@ -52,19 +52,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
   if (navDropdown) {
     navDropdown.addEventListener('mouseenter', function(e) {
-      if (dropdownTimeout) {
-        clearTimeout(dropdownTimeout);
-        dropdownTimeout = null;
-      }
-      isHovering = true;
       if (window.innerWidth > 768) {
+        if (dropdownTimeout) {
+          clearTimeout(dropdownTimeout);
+          dropdownTimeout = null;
+        }
+        isHovering = true;
         this.classList.add('active');
       }
     });
     
     navDropdown.addEventListener('mouseleave', function(e) {
-      isHovering = false;
       if (window.innerWidth > 768) {
+        isHovering = false;
         dropdownTimeout = setTimeout(() => {
           if (!isHovering && !navDropdown.matches(':hover')) {
             navDropdown.classList.remove('active');
@@ -84,6 +84,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
     }
+    
+    // Close dropdown when clicking outside (mobile)
+    document.addEventListener('click', function(e) {
+      if (window.innerWidth <= 768) {
+        if (navDropdown && !navDropdown.contains(e.target)) {
+          navDropdown.classList.remove('active');
+        }
+      }
+    });
   }
 
   // ===============================
@@ -197,6 +206,11 @@ document.addEventListener('DOMContentLoaded', function() {
             el.classList.add('active');
           }
         });
+        
+        // Re-initialize gallery if on gallery page
+        if (pageId === 'gallery') {
+          setTimeout(initializeGallery, 300);
+        }
       }, 100);
 
       setTimeout(() => {
@@ -238,6 +252,12 @@ document.addEventListener('DOMContentLoaded', function() {
         if (pageId === 'services' && window.innerWidth <= 768) {
           if (navDropdown) navDropdown.classList.remove('active');
         }
+        // Close mobile menu
+        const nav = document.querySelector('.nav');
+        const hamburger = document.querySelector('.hamburger-menu');
+        if (nav) nav.classList.remove('active');
+        if (hamburger) hamburger.classList.remove('active');
+        document.body.style.overflow = '';
         switchPage(pageId);
       }
     });
@@ -285,6 +305,11 @@ document.addEventListener('DOMContentLoaded', function() {
           link.classList.add('active');
         }
       });
+      
+      // Initialize gallery if on gallery page
+      if (hash === 'gallery') {
+        setTimeout(initializeGallery, 500);
+      }
     } else {
       allPages.forEach(page => {
         page.classList.remove('active');
@@ -418,7 +443,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // ===============================
-  // MESSENGER BUTTON (Draggable)
+  // MESSENGER BUTTON - Mobile Only
   // ===============================
   const messengerBtn = document.getElementById('messengerBtn');
   let isDragging = false;
@@ -426,106 +451,163 @@ document.addEventListener('DOMContentLoaded', function() {
   let xOffset = 0, yOffset = 0;
 
   if (messengerBtn) {
-    const rect = messengerBtn.getBoundingClientRect();
-    xOffset = rect.left;
-    yOffset = rect.top;
-
-    function dragStart(e) {
-      const clientX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
-      const clientY = e.type === 'touchstart' ? e.touches[0].clientY : e.clientY;
-      initialX = clientX - xOffset;
-      initialY = clientY - yOffset;
-      isDragging = true;
-      messengerBtn.classList.add('dragging');
-      messengerBtn.style.cursor = 'grabbing';
-    }
-
-    function drag(e) {
-      if (!isDragging) return;
-      e.preventDefault();
-      const clientX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
-      const clientY = e.type === 'touchmove' ? e.touches[0].clientY : e.clientY;
-      
-      let newX = clientX - initialX;
-      let newY = clientY - initialY;
-      
-      const btnRect = messengerBtn.getBoundingClientRect();
-      newX = Math.max(0, Math.min(newX, window.innerWidth - btnRect.width));
-      newY = Math.max(0, Math.min(newY, window.innerHeight - btnRect.height));
-      
-      xOffset = newX;
-      yOffset = newY;
-      
-      messengerBtn.style.position = 'fixed';
-      messengerBtn.style.left = newX + 'px';
-      messengerBtn.style.top = newY + 'px';
-      messengerBtn.style.bottom = 'auto';
-      messengerBtn.style.right = 'auto';
-    }
-
-    function dragEnd() {
-      isDragging = false;
-      messengerBtn.classList.remove('dragging');
-      messengerBtn.style.cursor = 'pointer';
-      if (messengerBtn.style.left) {
-        try {
-          localStorage.setItem('messengerLeft', messengerBtn.style.left);
-          localStorage.setItem('messengerTop', messengerBtn.style.top);
-        } catch (err) {}
-      }
-    }
-
-    messengerBtn.addEventListener('mousedown', dragStart);
-    messengerBtn.addEventListener('touchstart', dragStart, { passive: false });
-    document.addEventListener('mousemove', drag);
-    document.addEventListener('touchmove', drag, { passive: false });
-    document.addEventListener('mouseup', dragEnd);
-    document.addEventListener('touchend', dragEnd);
-
-    messengerBtn.addEventListener('click', function(e) {
-      if (isDragging) {
-        e.preventDefault();
-        isDragging = false;
+    // Only initialize drag functionality on mobile
+    function initMessengerDrag() {
+      if (window.innerWidth > 768) {
+        // On desktop, hide and disable drag
+        messengerBtn.style.display = 'none';
         return;
       }
-      if (getCurrentPage() !== 'contact') {
-        switchPage('contact');
-      }
-    });
+      
+      // On mobile, show and enable drag
+      messengerBtn.style.display = 'flex';
+      
+      // Set initial position
+      messengerBtn.style.position = 'fixed';
+      messengerBtn.style.left = '18px';
+      messengerBtn.style.bottom = '18px';
+      messengerBtn.style.top = 'auto';
+      messengerBtn.style.right = 'auto';
 
-    if (window.innerWidth <= 768) {
+      const rect = messengerBtn.getBoundingClientRect();
+      xOffset = rect.left;
+      yOffset = rect.top;
+
+      function dragStart(e) {
+        const clientX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
+        const clientY = e.type === 'touchstart' ? e.touches[0].clientY : e.clientY;
+        initialX = clientX - xOffset;
+        initialY = clientY - yOffset;
+        isDragging = true;
+        messengerBtn.classList.add('dragging');
+        messengerBtn.style.cursor = 'grabbing';
+      }
+
+      function drag(e) {
+        if (!isDragging) return;
+        e.preventDefault();
+        const clientX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
+        const clientY = e.type === 'touchmove' ? e.touches[0].clientY : e.clientY;
+        
+        let newX = clientX - initialX;
+        let newY = clientY - initialY;
+        
+        const btnRect = messengerBtn.getBoundingClientRect();
+        const maxX = window.innerWidth - btnRect.width - 10;
+        const maxY = window.innerHeight - btnRect.height - 10;
+        
+        newX = Math.max(10, Math.min(newX, maxX));
+        newY = Math.max(10, Math.min(newY, maxY));
+        
+        xOffset = newX;
+        yOffset = newY;
+        
+        messengerBtn.style.position = 'fixed';
+        messengerBtn.style.left = newX + 'px';
+        messengerBtn.style.top = newY + 'px';
+        messengerBtn.style.bottom = 'auto';
+        messengerBtn.style.right = 'auto';
+      }
+
+      function dragEnd() {
+        if (isDragging) {
+          isDragging = false;
+          messengerBtn.classList.remove('dragging');
+          messengerBtn.style.cursor = 'pointer';
+          if (messengerBtn.style.left) {
+            try {
+              localStorage.setItem('messengerLeft', messengerBtn.style.left);
+              localStorage.setItem('messengerTop', messengerBtn.style.top);
+            } catch (err) {}
+          }
+        }
+      }
+
+      messengerBtn.addEventListener('mousedown', dragStart);
+      messengerBtn.addEventListener('touchstart', dragStart, { passive: false });
+      document.addEventListener('mousemove', drag);
+      document.addEventListener('touchmove', drag, { passive: false });
+      document.addEventListener('mouseup', dragEnd);
+      document.addEventListener('touchend', dragEnd);
+
+      messengerBtn.addEventListener('click', function(e) {
+        if (isDragging) {
+          e.preventDefault();
+          isDragging = false;
+          return;
+        }
+        if (getCurrentPage() !== 'contact') {
+          switchPage('contact');
+        }
+      });
+
+      // Restore saved position
       try {
         const savedLeft = localStorage.getItem('messengerLeft');
         const savedTop = localStorage.getItem('messengerTop');
         if (savedLeft && savedTop) {
-          messengerBtn.style.position = 'fixed';
-          messengerBtn.style.left = savedLeft;
-          messengerBtn.style.top = savedTop;
+          const rect2 = messengerBtn.getBoundingClientRect();
+          let left = parseFloat(savedLeft);
+          let top = parseFloat(savedTop);
+          const maxX = window.innerWidth - rect2.width - 10;
+          const maxY = window.innerHeight - rect2.height - 10;
+          left = Math.max(10, Math.min(left, maxX));
+          top = Math.max(10, Math.min(top, maxY));
+          messengerBtn.style.left = left + 'px';
+          messengerBtn.style.top = top + 'px';
           messengerBtn.style.bottom = 'auto';
           messengerBtn.style.right = 'auto';
-          const rect2 = messengerBtn.getBoundingClientRect();
-          xOffset = rect2.left;
-          yOffset = rect2.top;
+          xOffset = left;
+          yOffset = top;
         }
       } catch (err) {}
+
+      // Fix messenger position on resize
+      function fixMessengerPosition() {
+        const btnRect = messengerBtn.getBoundingClientRect();
+        const maxX = window.innerWidth - btnRect.width - 10;
+        const maxY = window.innerHeight - btnRect.height - 10;
+        
+        let left = parseFloat(messengerBtn.style.left) || 18;
+        let top = parseFloat(messengerBtn.style.top) || (window.innerHeight - 80);
+        
+        if (left > maxX) left = maxX;
+        if (top > maxY) top = maxY;
+        if (left < 10) left = 10;
+        if (top < 10) top = 10;
+        
+        messengerBtn.style.left = left + 'px';
+        messengerBtn.style.top = top + 'px';
+        xOffset = left;
+        yOffset = top;
+      }
+
+      let resizeTimer;
+      window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+          // Check if we should show/hide based on screen size
+          if (window.innerWidth > 768) {
+            messengerBtn.style.display = 'none';
+          } else {
+            messengerBtn.style.display = 'flex';
+            fixMessengerPosition();
+          }
+          handleResize();
+        }, 250);
+      });
     }
 
-    let resizeTimer;
+    // Initialize on load
+    initMessengerDrag();
+
+    // Re-initialize on resize
     window.addEventListener('resize', function() {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(function() {
-        if (window.innerWidth <= 768) {
-          const btnRect = messengerBtn.getBoundingClientRect();
-          let newLeft = parseFloat(messengerBtn.style.left) || 30;
-          let newTop = parseFloat(messengerBtn.style.top) || (window.innerHeight - 80);
-          newLeft = Math.max(0, Math.min(newLeft, window.innerWidth - btnRect.width));
-          newTop = Math.max(0, Math.min(newTop, window.innerHeight - btnRect.height));
-          messengerBtn.style.left = newLeft + 'px';
-          messengerBtn.style.top = newTop + 'px';
-          xOffset = newLeft;
-          yOffset = newTop;
-        }
-      }, 100);
+      if (window.innerWidth > 768) {
+        messengerBtn.style.display = 'none';
+      } else {
+        messengerBtn.style.display = 'flex';
+      }
     });
   }
 
@@ -585,16 +667,25 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       }
     });
-    
-    window.addEventListener('resize', function() {
-      if (window.innerWidth > 768) {
-        nav.classList.remove('active');
-        hamburger.classList.remove('active');
-        document.body.style.overflow = '';
-        if (navDropdown) navDropdown.classList.remove('active');
-      }
-    });
   }
+
+  // ===============================
+  // Handle window resize
+  // ===============================
+  function handleResize() {
+    const nav = document.querySelector('.nav');
+    const hamburger = document.querySelector('.hamburger-menu');
+    const dropdown = document.querySelector('.nav-dropdown');
+    
+    if (window.innerWidth > 768) {
+      if (nav) nav.classList.remove('active');
+      if (hamburger) hamburger.classList.remove('active');
+      if (dropdown) dropdown.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  window.addEventListener('resize', handleResize);
 
   // ===============================
   // INJECT HAMBURGER STYLES
@@ -643,10 +734,191 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // ===============================
+  // GALLERY AUTO-PLAY
+  // ===============================
+  const galleryData = [
+    { src: 'assets/images/hero.png', title: 'Marine Vessel', desc: 'Commercial ship at sea' },
+    { src: 'assets/images/Main Engine & Generator Repairs.jpg', title: 'Ship Engine', desc: 'High-performance marine engine' },
+    { src: 'assets/images/Cleaning Service.jpg', title: 'Boat Docking', desc: 'Vessel at port' },
+    { src: 'assets/images/Underwater Services.jpg', title: 'Propeller System', desc: 'Marine propeller repair' },
+    { src: 'assets/images/Crane & Deck Machinery Repair.jpg', title: 'Heavy Lift', desc: 'Industrial crane operations' },
+    { src: 'assets/images/Electrical & Automation Services.jpg', title: 'Electrical Systems', desc: 'Marine electrical wiring' },
+    { src: 'assets/images/Compressor Repair & Maintenance.jpg', title: 'Navigation Bridge', desc: 'Ship control room' },
+    { src: 'assets/images/Safety Equipment Supply & Service.jpg', title: 'Safety Equipment', desc: 'Marine fire safety gear' }
+  ];
+
+  let currentGalleryIndex = 0;
+  let galleryInterval = null;
+  let galleryAutoPlay = true;
+
+  function initGallery() {
+    const galleryThumbs = document.getElementById('galleryThumbs');
+    if (!galleryThumbs) return;
+    
+    galleryThumbs.innerHTML = '';
+    
+    galleryData.forEach((item, index) => {
+      const thumbWrapper = document.createElement('div');
+      thumbWrapper.className = 'gallery-thumb-wrapper';
+      thumbWrapper.onclick = () => showGallerySlide(index);
+      
+      const thumb = document.createElement('img');
+      thumb.src = item.src;
+      thumb.alt = item.title;
+      
+      thumbWrapper.appendChild(thumb);
+      galleryThumbs.appendChild(thumbWrapper);
+      
+      if (index === currentGalleryIndex) {
+        thumbWrapper.classList.add('active');
+      }
+    });
+  }
+
+  function showGallerySlide(index) {
+    const mainGalleryImage = document.getElementById('mainGalleryImage');
+    const galleryCaption = document.getElementById('galleryCaption');
+    const galleryThumbs = document.getElementById('galleryThumbs');
+    
+    if (!mainGalleryImage || !galleryCaption || !galleryThumbs) return;
+    
+    currentGalleryIndex = index;
+    
+    if (currentGalleryIndex >= galleryData.length) currentGalleryIndex = 0;
+    if (currentGalleryIndex < 0) currentGalleryIndex = galleryData.length - 1;
+    
+    mainGalleryImage.style.opacity = '0';
+    
+    setTimeout(() => {
+      mainGalleryImage.src = galleryData[currentGalleryIndex].src;
+      mainGalleryImage.alt = galleryData[currentGalleryIndex].title;
+      
+      galleryCaption.querySelector('h4').textContent = galleryData[currentGalleryIndex].title;
+      galleryCaption.querySelector('p').textContent = galleryData[currentGalleryIndex].desc;
+      
+      mainGalleryImage.style.opacity = '1';
+      
+      const thumbs = document.querySelectorAll('#galleryThumbs .gallery-thumb-wrapper');
+      thumbs.forEach((thumb, i) => {
+        thumb.classList.remove('active');
+        if (i === currentGalleryIndex) thumb.classList.add('active');
+      });
+    }, 300);
+  }
+
+  function changeGallerySlide(direction) {
+    showGallerySlide(currentGalleryIndex + direction);
+  }
+
+  function startGalleryAutoPlay() {
+    if (galleryInterval) clearInterval(galleryInterval);
+    
+    galleryInterval = setInterval(() => {
+      if (galleryAutoPlay) {
+        showGallerySlide(currentGalleryIndex + 1);
+      }
+    }, 3000);
+  }
+
+  function stopGalleryAutoPlay() {
+    if (galleryInterval) {
+      clearInterval(galleryInterval);
+      galleryInterval = null;
+    }
+  }
+
+  function initializeGallery() {
+    const mainGalleryImage = document.getElementById('mainGalleryImage');
+    if (!mainGalleryImage) return;
+    
+    initGallery();
+    startGalleryAutoPlay();
+    
+    const galleryMainView = document.querySelector('.gallery-main-view');
+    if (galleryMainView) {
+      galleryMainView.addEventListener('mouseenter', () => {
+        galleryAutoPlay = false;
+        stopGalleryAutoPlay();
+      });
+      
+      galleryMainView.addEventListener('mouseleave', () => {
+        galleryAutoPlay = true;
+        startGalleryAutoPlay();
+      });
+      
+      // Touch support for mobile
+      let touchStartX = 0;
+      let touchEndX = 0;
+      let isTouching = false;
+      
+      galleryMainView.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        isTouching = true;
+        galleryAutoPlay = false;
+        stopGalleryAutoPlay();
+      }, { passive: true });
+      
+      galleryMainView.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        isTouching = false;
+        handleSwipe();
+        setTimeout(() => {
+          if (!isTouching) {
+            galleryAutoPlay = true;
+            startGalleryAutoPlay();
+          }
+        }, 5000);
+      }, { passive: true });
+      
+      function handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = touchEndX - touchStartX;
+        
+        if (Math.abs(diff) > swipeThreshold) {
+          if (diff > 0) {
+            changeGallerySlide(-1);
+          } else {
+            changeGallerySlide(1);
+          }
+        }
+      }
+    }
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (document.getElementById('gallery')?.classList.contains('active')) {
+        if (e.key === 'ArrowLeft') {
+          changeGallerySlide(-1);
+        } else if (e.key === 'ArrowRight') {
+          changeGallerySlide(1);
+        }
+      }
+    });
+  }
+
+  // ===============================
+  // FIX SERVICE IMAGES
+  // ===============================
+  function fixServiceImages() {
+    const serviceImages = document.querySelectorAll('.service-detail-hero img');
+    serviceImages.forEach(img => {
+      img.addEventListener('error', function() {
+        this.style.display = 'none';
+      });
+    });
+  }
+
+  // ===============================
   // INITIALIZE
   // ===============================
   handleHashOnLoad();
   setTimeout(revealOnScroll, 500);
+  fixServiceImages();
+
+  // Initialize gallery if present
+  if (document.getElementById('mainGalleryImage')) {
+    setTimeout(initializeGallery, 3000);
+  }
 
   console.log('🚢 ALHAZ MARINE - Single Page App Loaded');
   console.log('📅 ' + new Date().toLocaleDateString('en-US', {
@@ -658,493 +930,17 @@ document.addEventListener('DOMContentLoaded', function() {
   console.log('📋 Services Available: 23+ Independent Pages');
   console.log('💡 Hover on "Services" menu to see dropdown');
   console.log('💡 Click on any service to view its dedicated page');
-});
-
-// ============================================
-// FIXED GALLERY AUTO-PLAY COURSEL LOGIC
-// ============================================
-const galleryData = [
-  { src: 'assets/images/hero.png', title: 'Marine Vessel', desc: 'Commercial ship at sea' },
-  { src: 'assets/images/engine.jpg', title: 'Ship Engine', desc: 'High-performance marine engine' },
-  { src: 'assets/images/cleaning.jpg', title: 'Boat Docking', desc: 'Vessel at port' },
-  { src: 'assets/images/underwater.jpg', title: 'Propeller System', desc: 'Marine propeller repair' },
-  { src: 'assets/images/crane.jpg', title: 'Heavy Lift', desc: 'Industrial crane operations' },
-  { src: 'assets/images/automation.jpg', title: 'Electrical Systems', desc: 'Marine electrical wiring' },
-  { src: 'assets/images/compressor.jpg', title: 'Navigation Bridge', desc: 'Ship control room' },
-  { src: 'assets/images/safety.jpg', title: 'Safety Equipment', desc: 'Marine fire safety gear' }
-];
-
-let currentGalleryIndex = 0;
-let galleryInterval = null;
-let galleryAutoPlay = true;
-
-// Function to initialize gallery thumbnails
-function initGallery() {
-  const galleryThumbs = document.getElementById('galleryThumbs');
-  if (!galleryThumbs) return;
-  
-  galleryThumbs.innerHTML = '';
-  
-  galleryData.forEach((item, index) => {
-    const thumbWrapper = document.createElement('div');
-    thumbWrapper.className = 'gallery-thumb-wrapper';
-    thumbWrapper.onclick = () => showGallerySlide(index);
-    
-    const thumb = document.createElement('img');
-    thumb.src = item.src;
-    thumb.alt = item.title;
-    
-    thumbWrapper.appendChild(thumb);
-    galleryThumbs.appendChild(thumbWrapper);
-    
-    if (index === currentGalleryIndex) {
-      thumbWrapper.classList.add('active');
-    }
-  });
-}
-
-// Function to show specific gallery slide
-function showGallerySlide(index) {
-  const mainGalleryImage = document.getElementById('mainGalleryImage');
-  const galleryCaption = document.getElementById('galleryCaption');
-  const galleryThumbs = document.getElementById('galleryThumbs');
-  
-  if (!mainGalleryImage || !galleryCaption || !galleryThumbs) return;
-  
-  currentGalleryIndex = index;
-  
-  // Wrap around
-  if (currentGalleryIndex >= galleryData.length) currentGalleryIndex = 0;
-  if (currentGalleryIndex < 0) currentGalleryIndex = galleryData.length - 1;
-  
-  // Fade out
-  mainGalleryImage.style.opacity = '0';
-  
-  setTimeout(() => {
-    // Update main image
-    mainGalleryImage.src = galleryData[currentGalleryIndex].src;
-    mainGalleryImage.alt = galleryData[currentGalleryIndex].title;
-    
-    // Update caption
-    galleryCaption.querySelector('h4').textContent = galleryData[currentGalleryIndex].title;
-    galleryCaption.querySelector('p').textContent = galleryData[currentGalleryIndex].desc;
-    
-    // Fade in
-    mainGalleryImage.style.opacity = '1';
-    
-    // Update thumbnails
-    const thumbs = document.querySelectorAll('#galleryThumbs .gallery-thumb-wrapper');
-    thumbs.forEach((thumb, i) => {
-      thumb.classList.remove('active');
-      if (i === currentGalleryIndex) thumb.classList.add('active');
-    });
-  }, 300);
-}
-
-// Function to change gallery slide (for arrows)
-function changeGallerySlide(direction) {
-  showGallerySlide(currentGalleryIndex + direction);
-}
-
-// Auto-play function
-function startGalleryAutoPlay() {
-  if (galleryInterval) clearInterval(galleryInterval);
-  
-  galleryInterval = setInterval(() => {
-    if (galleryAutoPlay) {
-      showGallerySlide(currentGalleryIndex + 1);
-    }
-  }, 3000);
-}
-
-// Stop auto-play
-function stopGalleryAutoPlay() {
-  if (galleryInterval) {
-    clearInterval(galleryInterval);
-    galleryInterval = null;
-  }
-}
-
-// Initialize gallery
-function initializeGallery() {
-  const mainGalleryImage = document.getElementById('mainGalleryImage');
-  
-  if (!mainGalleryImage) return;
-  
-  initGallery();
-  startGalleryAutoPlay();
-  
-  // Pause on hover
-  const galleryMainView = document.querySelector('.gallery-main-view');
-  if (galleryMainView) {
-    galleryMainView.addEventListener('mouseenter', () => {
-      galleryAutoPlay = false;
-      stopGalleryAutoPlay();
-    });
-    
-    galleryMainView.addEventListener('mouseleave', () => {
-      galleryAutoPlay = true;
-      startGalleryAutoPlay();
-    });
-  }
-  
-  // Touch swipe support for mobile
-  let touchStartX = 0;
-  let touchEndX = 0;
-  
-  galleryMainView.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-  }, { passive: true });
-  
-  galleryMainView.addEventListener('touchend', (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
-  }, { passive: true });
-  
-  function handleSwipe() {
-    const swipeThreshold = 50;
-    const diff = touchEndX - touchStartX;
-    
-    if (Math.abs(diff) > swipeThreshold) {
-      if (diff > 0) {
-        // Swiped right - go to previous
-        changeGallerySlide(-1);
-      } else {
-        // Swiped left - go to next
-        changeGallerySlide(1);
-      }
-    }
-  }
-  
-  // Keyboard navigation
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') {
-      changeGallerySlide(-1);
-    } else if (e.key === 'ArrowRight') {
-      changeGallerySlide(1);
-    }
-  });
-}
-
-// ============================================
-// FIXED SERVICE PAGE NAVIGATION
-// ============================================
-
-// Override the switchPage function for better service page handling
-const originalSwitchPage = window.switchPage;
-
-// Create a new switchPage function
-window.switchPage = function(pageId) {
-  if (isChangingPage) return;
-  
-  const isServicePage = pageId.startsWith('service-');
-  
-  if (pageId === getCurrentPage()) {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    return;
-  }
-
-  isChangingPage = true;
-
-  if (pageChangeLoader) {
-    pageChangeLoader.classList.add('active');
-  }
-
-  allPages.forEach(page => {
-    page.classList.remove('active');
-  });
-
-  setTimeout(() => {
-    const targetPage = document.getElementById(pageId);
-    if (targetPage) {
-      targetPage.classList.add('active');
-    }
-
-    if (heroSection) {
-      if (pageId === 'home') {
-        heroSection.classList.remove('hidden');
-      } else {
-        heroSection.classList.add('hidden');
-      }
-    }
-
-    if (history.pushState) {
-      history.pushState(null, null, '#' + pageId);
-    }
-
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('data-page') === pageId) {
-        link.classList.add('active');
-      }
-    });
-
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-
-    setTimeout(() => {
-      const reveals = targetPage ? targetPage.querySelectorAll('.reveal-up, .reveal-left, .reveal-right') : [];
-      reveals.forEach(el => {
-        const elementTop = el.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-        if (elementTop < windowHeight - 100) {
-          el.classList.add('active');
-        }
-      });
-      
-      // Re-initialize gallery if on gallery page
-      if (pageId === 'gallery') {
-        initializeGallery();
-      }
-    }, 100);
-
-    setTimeout(() => {
-      if (pageChangeLoader) {
-        pageChangeLoader.classList.remove('active');
-      }
-      isChangingPage = false;
-    }, 400);
-
-  }, 500);
-};
-
-// ============================================
-// FIX FOR MESSENGER BUTTON DRAGGING
-// ============================================
-
-// Override messenger button click handler
-const messengerBtn = document.getElementById('messengerBtn');
-if (messengerBtn) {
-  // Remove old click handler
-  const oldMessengerClick = messengerBtn.onclick;
-  messengerBtn.onclick = null;
-  
-  // Add new click handler
-  messengerBtn.addEventListener('click', function(e) {
-    if (isDragging) {
-      e.preventDefault();
-      isDragging = false;
-      return;
-    }
-    
-    // Navigate to contact page
-    if (getCurrentPage() !== 'contact') {
-      window.switchPage('contact');
-    }
-  });
-}
-
-// ============================================
-// FIX FOR DROPDOWN LINKS
-// ============================================
-
-// Update dropdown link click handlers
-document.querySelectorAll('.dropdown-menu a[data-page]').forEach(function(link) {
-  link.addEventListener('click', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    
-    const pageId = this.getAttribute('data-page');
-    
-    if (pageId) {
-      const nav = document.querySelector('.nav');
-      const hamburger = document.querySelector('.hamburger-menu');
-      if (nav) nav.classList.remove('active');
-      if (hamburger) hamburger.classList.remove('active');
-      if (navDropdown) {
-        navDropdown.classList.remove('active');
-        if (dropdownTimeout) {
-          clearTimeout(dropdownTimeout);
-          dropdownTimeout = null;
-        }
-      }
-      document.body.style.overflow = '';
-      window.switchPage(pageId);
-    }
-  });
-});
-
-// ============================================
-// FIX FOR SERVICE LIST LINKS
-// ============================================
-
-// Update service list link click handlers
-document.querySelectorAll('.service-list-link[data-page]').forEach(function(link) {
-  link.addEventListener('click', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    
-    const pageId = this.getAttribute('data-page');
-    if (pageId) {
-      window.switchPage(pageId);
-    }
-  });
-});
-
-// ============================================
-// FIX FOR SERVICE CARD LINKS
-// ============================================
-
-// Update service card link click handlers
-document.querySelectorAll('.service-link[data-page]').forEach(function(link) {
-  link.addEventListener('click', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    
-    const pageId = this.getAttribute('data-page');
-    if (pageId) {
-      window.switchPage(pageId);
-    }
-  });
-});
-
-// ============================================
-// FIX FOR CTA BUTTONS
-// ============================================
-
-// Update CTA button click handlers
-document.querySelectorAll('.btn[data-page]').forEach(function(btn) {
-  btn.addEventListener('click', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    
-    const pageId = this.getAttribute('data-page');
-    if (pageId) {
-      window.switchPage(pageId);
-    }
-  });
-});
-
-// ============================================
-// FIX FOR LOGO CLICK
-// ============================================
-
-// Update logo click handler
-const logoLink = document.getElementById('logoLink');
-if (logoLink) {
-  logoLink.addEventListener('click', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    
-    const pageId = this.getAttribute('data-page');
-    if (pageId && pageId !== getCurrentPage()) {
-      window.switchPage(pageId);
-    } else if (pageId === 'home') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  });
-}
-
-// ============================================
-// INITIALIZE GALLERY ON PAGE LOAD
-// ============================================
-
-// Call initializeGallery after DOM is ready
-document.addEventListener('DOMContentLoaded', function() {
-  // Check if gallery is present and initialize
-  if (document.getElementById('mainGalleryImage')) {
-    setTimeout(() => {
-      initializeGallery();
-    }, 2500); // Wait for page loader to finish
-  }
-  
-  // Also check if gallery is loaded via hash
-  const currentHash = window.location.hash.replace('#', '');
-  if (currentHash === 'gallery' || currentHash === '') {
-    setTimeout(() => {
-      initializeGallery();
-    }, 3000);
-  }
-});
-
-// ============================================
-// FIX FOR URL HASH NAVIGATION
-// ============================================
-
-// Override handleHashOnLoad
-function handleHashOnLoadFixed() {
-  const hash = window.location.hash.replace('#', '');
-  
-  if (hash && document.getElementById(hash)) {
-    allPages.forEach(page => {
-      page.classList.remove('active');
-    });
-    const targetPage = document.getElementById(hash);
-    if (targetPage) {
-      targetPage.classList.add('active');
-    }
-    if (heroSection) {
-      if (hash === 'home') {
-        heroSection.classList.remove('hidden');
-      } else {
-        heroSection.classList.add('hidden');
-      }
-    }
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('data-page') === hash) {
-        link.classList.add('active');
-      }
-    });
-    
-    // Initialize gallery if on gallery page
-    if (hash === 'gallery') {
-      setTimeout(() => {
-        initializeGallery();
-      }, 500);
-    }
-  } else {
-    allPages.forEach(page => {
-      page.classList.remove('active');
-    });
-    const homePage = document.getElementById('home');
-    if (homePage) {
-      homePage.classList.add('active');
-    }
-    if (heroSection) {
-      heroSection.classList.remove('hidden');
-    }
-  }
-}
-
-// Replace old handleHashOnLoad with fixed version
-window.handleHashOnLoad = handleHashOnLoadFixed;
-
-// ============================================
-// FIX FOR INITIAL LOAD
-// ============================================
-
-// Override the initialization
-const originalInit = window.addEventListener('DOMContentLoaded', function() {
-  handleHashOnLoad();
-  setTimeout(revealOnScroll, 500);
-});
-
-// Add our fixes
-document.addEventListener('DOMContentLoaded', function() {
-  // Initialize gallery if present
-  if (document.getElementById('mainGalleryImage')) {
-    setTimeout(() => {
-      initializeGallery();
-    }, 3000);
-  }
-  
-  console.log('✅ Gallery Auto-Play Initialized');
-  console.log('✅ Service Page Navigation Fixed');
+  console.log('✅ All responsive fixes applied');
 });
 
 // ============================================
 // GLOBAL ERROR HANDLING
 // ============================================
-
 window.addEventListener('error', function(e) {
   console.log('⚠️ Error: ' + e.message);
 });
 
-// ============================================
-// FINAL CONSOLE LOG
-// ============================================
-
-console.log('🚢 ALHAZ MARINE - Updated JavaScript Loaded');
+console.log('🚢 ALHAZ MARINE - Complete JavaScript Loaded');
 console.log('📸 Gallery Auto-Play: Active');
 console.log('🔄 Service Navigation: Fixed');
-console.log('💡 Hover on Gallery to pause auto-play');
+console.log('📱 Fully Responsive: Yes');
