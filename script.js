@@ -108,6 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const hamburger = document.querySelector('.hamburger-menu');
         if (nav) nav.classList.remove('active');
         if (hamburger) hamburger.classList.remove('active');
+        if (hamburger) hamburger.setAttribute('aria-expanded', 'false');
         if (navDropdown) {
           navDropdown.classList.remove('active');
           if (dropdownTimeout) {
@@ -266,6 +267,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const hamburger = document.querySelector('.hamburger-menu');
         if (nav) nav.classList.remove('active');
         if (hamburger) hamburger.classList.remove('active');
+        if (hamburger) hamburger.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
         switchPage(pageId);
       }
@@ -496,6 +498,7 @@ document.addEventListener('DOMContentLoaded', function() {
       yOffset = rect.top;
 
       function dragStart(e) {
+        return;
         const clientX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
         const clientY = e.type === 'touchstart' ? e.touches[0].clientY : e.clientY;
         initialX = clientX - xOffset;
@@ -658,8 +661,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     hamburger.addEventListener('click', function(e) {
       e.stopPropagation();
-      this.classList.toggle('active');
-      nav.classList.toggle('active');
+      const isOpen = nav.classList.toggle('active');
+      this.classList.toggle('active', isOpen);
+      this.setAttribute('aria-expanded', String(isOpen));
       
       if (navDropdown) navDropdown.classList.remove('active');
       
@@ -674,6 +678,7 @@ document.addEventListener('DOMContentLoaded', function() {
       link.addEventListener('click', function() {
         nav.classList.remove('active');
         hamburger.classList.remove('active');
+          hamburger.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
         if (navDropdown) navDropdown.classList.remove('active');
       });
@@ -684,6 +689,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!navbar.contains(e.target) && nav.classList.contains('active')) {
           nav.classList.remove('active');
           hamburger.classList.remove('active');
+          hamburger.setAttribute('aria-expanded', 'false');
           document.body.style.overflow = '';
           if (navDropdown) navDropdown.classList.remove('active');
         }
@@ -702,6 +708,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (window.innerWidth > 768) {
       if (nav) nav.classList.remove('active');
       if (hamburger) hamburger.classList.remove('active');
+      if (hamburger) hamburger.setAttribute('aria-expanded', 'false');
       if (dropdown) dropdown.classList.remove('active');
       document.body.style.overflow = '';
     }
