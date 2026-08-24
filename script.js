@@ -176,6 +176,15 @@ document.addEventListener('DOMContentLoaded', function() {
         targetPage.classList.add('active');
       }
 
+      if (pageId === 'gallery' && targetPage) {
+        const brochureGallery = targetPage.querySelector('.brochure-gallery-section');
+        if (brochureGallery) {
+          brochureGallery.classList.remove('animate-brochure');
+          void brochureGallery.offsetWidth;
+          brochureGallery.classList.add('animate-brochure');
+        }
+      }
+
       if (heroSection) {
         if (pageId === 'home') {
           heroSection.classList.remove('hidden');
@@ -273,6 +282,15 @@ document.addEventListener('DOMContentLoaded', function() {
         if (pageId && this.getAttribute('href')?.startsWith('#')) {
           e.preventDefault();
           switchPage(pageId);
+            const scrollTarget = this.getAttribute('data-scroll-target');
+            if (scrollTarget) {
+              setTimeout(() => {
+                const target = document.getElementById(scrollTarget);
+                if (target) {
+                  target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              }, 700);
+            }
         }
       });
     }
@@ -291,6 +309,10 @@ document.addEventListener('DOMContentLoaded', function() {
       const targetPage = document.getElementById(hash);
       if (targetPage) {
         targetPage.classList.add('active');
+      }
+      if (hash === 'gallery' && targetPage) {
+        const brochureGallery = targetPage.querySelector('.brochure-gallery-section');
+        if (brochureGallery) brochureGallery.classList.add('animate-brochure');
       }
       if (heroSection) {
         if (hash === 'home') {
